@@ -1,0 +1,41 @@
+.header {
+  padding: 100px clamp(24px, 5vw, 80px) 80px;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.headerInner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  display: block;
+}
+
+.title {
+  font-family: var(--serif);
+  font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--black);
+  margin-top: 16px;
+  max-width: 700px;
+}
+
+.storySection {
+  padding: 80px clamp(24px, 5vw, 80px);
+}
+
+.storyGrid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+}

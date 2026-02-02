@@ -1,0 +1,214 @@
+.header {
+  padding: 100px clamp(24px, 5vw, 80px) 80px;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.headerInner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  display: block;
+}
+
+.title {
+  font-family: var(--serif);
+  font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--black);
+  margin-top: 16px;
+  max-width: 700px;
+}
+
+.subtitle {
+  font-family: var(--sans);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--gray-600);
+  font-weight: 300;
+  margin-top: 20px;
+  max-width: 600px;
+}
+
+/* Positions Section */
+.positionsSection {
+  padding: 80px clamp(24px, 5vw, 80px);
+}
+
+.positionsInner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sectionTitle {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  margin-bottom: 40px;
+}
+
+.positionsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.positionCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px;
+  border: 1px solid var(--gray-200);
+  transition: all 0.3s ease;
+}
+
+.positionCard:hover {
+  border-color: var(--black);
+}
+
+.positionInfo {
+  flex: 1;
+}
+
+.positionTitle {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--black);
+  margin-bottom: 12px;
+}
+
+.positionMeta {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.tag {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--gray-600);
+  background: var(--gray-100);
+  padding: 6px 12px;
+}
+
+.positionDesc {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--gray-600);
+  max-width: 500px;
+}
+
+.arrow {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--black);
+  color: var(--white);
+  flex-shrink: 0;
+  margin-left: 32px;
+  transition: background 0.3s ease;
+}
+
+.positionCard:hover .arrow {
+  background: var(--gray-800);
+}
+
+/* CTA Section */
+.ctaSection {
+  padding: 80px clamp(24px, 5vw, 80px);
+  background: var(--black);
+}
+
+.ctaInner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.ctaTitle {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 400;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+.ctaText {
+  font-family: var(--sans);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--gray-400);
+}
+
+.ctaContact {
+  text-align: right;
+}
+
+.ctaLabel {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  margin-bottom: 8px;
+}
+
+.ctaEmail {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  color: var(--white);
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.ctaEmail:hover {
+  opacity: 0.7;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .positionCard {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .arrow {
+    margin-left: 0;
+  }
+
+  .ctaInner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .ctaContact {
+    text-align: left;
+  }
+
+  .positionMeta {
+    flex-wrap: wrap;
+  }
+}

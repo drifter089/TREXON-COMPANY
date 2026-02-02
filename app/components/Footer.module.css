@@ -1,0 +1,51 @@
+.footer {
+  padding: 48px clamp(24px, 5vw, 80px);
+  border-top: 1px solid var(--gray-200);
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.logo {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  color: var(--black);
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+
+.dot {
+  font-style: italic;
+  opacity: 0.4;
+}
+
+.links {
+  display: flex;
+  gap: 28px;
+  font-family: var(--sans);
+  font-size: 0.8rem;
+}
+
+.links a {
+  color: var(--gray-400);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.links a:hover {
+  color: var(--black);
+}
+
+.copy {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  color: var(--gray-400);
+  font-weight: 300;
+}
