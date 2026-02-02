@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import styles from "./HeroSection.module.css";
+import styles from "./Hero.module.css";
 
 export default function Hero() {
   return (

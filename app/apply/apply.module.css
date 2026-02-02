@@ -1,0 +1,54 @@
+.header {
+  padding: 100px clamp(24px, 5vw, 80px) 60px;
+}
+
+.headerInner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  display: block;
+}
+
+.title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--black);
+  margin-top: 16px;
+}
+
+.subtitle {
+  font-family: var(--sans);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--gray-600);
+  font-weight: 300;
+  margin-top: 16px;
+}
+
+.toggleSection {
+  padding: 0 clamp(24px, 5vw, 80px) 60px;
+}
+
+.toggleInner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.formSection {
+  padding: 0 clamp(24px, 5vw, 80px) 120px;
+}
+
+.formInner {
+  max-width: 720px;
+  margin: 0 auto;
+}

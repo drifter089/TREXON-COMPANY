@@ -3,13 +3,8 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import styles from "./Nav.module.css";
-
-const NAV_ITEMS = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/apply", label: "Apply" },
-];
+import styles from "./Navbar.module.css";
+import { NAV_ITEMS } from "@/app/data/navigation";
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
