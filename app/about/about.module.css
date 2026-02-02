@@ -1,10 +1,11 @@
-.header {
-  padding: 100px clamp(24px, 5vw, 80px) 80px;
-  border-bottom: 1px solid var(--gray-200);
+/* Hero */
+.hero {
+  padding: 120px clamp(24px, 5vw, 80px) 100px;
+  text-align: center;
 }
 
-.headerInner {
-  max-width: 1200px;
+.heroInner {
+  max-width: 700px;
   margin: 0 auto;
 }
 
@@ -16,26 +17,221 @@
   text-transform: uppercase;
   color: var(--gray-400);
   display: block;
+  margin-bottom: 20px;
 }
 
 .title {
   font-family: var(--serif);
-  font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+  font-size: clamp(2.2rem, 4.5vw, 3.2rem);
   font-weight: 400;
   letter-spacing: -0.02em;
   color: var(--black);
-  margin-top: 16px;
-  max-width: 700px;
+  line-height: 1.2;
 }
 
-.storySection {
-  padding: 80px clamp(24px, 5vw, 80px);
+.subtitle {
+  font-family: var(--sans);
+  font-size: 1.1rem;
+  color: var(--gray-600);
+  margin-top: 24px;
+  line-height: 1.6;
 }
 
-.storyGrid {
-  max-width: 1200px;
+.ctaButton {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 16px 40px;
+  background: var(--black);
+  color: var(--white);
+  text-decoration: none;
+  margin-top: 40px;
+  transition: background 0.2s ease;
+}
+
+.ctaButton:hover {
+  background: var(--gray-800);
+}
+
+/* Section */
+.section {
+  padding: 100px clamp(24px, 5vw, 80px);
+  text-align: center;
+  border-top: 1px solid var(--gray-200);
+}
+
+.sectionInner {
+  max-width: 900px;
   margin: 0 auto;
+}
+
+.sectionTitle {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  font-weight: 400;
+  color: var(--black);
+  margin-bottom: 12px;
+}
+
+.sectionSubtitle {
+  font-family: var(--sans);
+  font-size: 1rem;
+  color: var(--gray-500);
+  margin-bottom: 60px;
+}
+
+/* Roles Grid */
+.rolesGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 60px;
+}
+
+.roleCard {
+  padding: 40px 32px;
+  border: 1px solid var(--gray-200);
+  text-align: left;
+  transition: border-color 0.2s ease;
+}
+
+.roleCard:hover {
+  border-color: var(--black);
+}
+
+.roleCard h3 {
+  font-family: var(--sans);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 8px;
+}
+
+.roleCard p {
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  color: var(--gray-500);
+  line-height: 1.5;
+}
+
+.ctaButtonOutline {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 16px 40px;
+  background: transparent;
+  color: var(--black);
+  text-decoration: none;
+  border: 1px solid var(--black);
+  transition: all 0.2s ease;
+}
+
+.ctaButtonOutline:hover {
+  background: var(--black);
+  color: var(--white);
+}
+
+/* Team Grid */
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  margin-top: 60px;
+}
+
+.teamCard {
+  text-align: center;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--black);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--sans);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 auto 20px;
+}
+
+.teamCard h3 {
+  font-family: var(--sans);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 4px;
+}
+
+.teamCard p {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--gray-500);
+}
+
+/* Social Section */
+.socialSection {
+  padding: 60px clamp(24px, 5vw, 80px);
+  border-top: 1px solid var(--gray-200);
+}
+
+.socialInner {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--gray-500);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.socialLink:hover {
+  color: var(--black);
+}
+
+.socialLink svg {
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+
+.socialLink:hover svg {
+  opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero {
+    padding: 100px 24px 80px;
+  }
+
+  .section {
+    padding: 80px 24px;
+  }
+
+  .rolesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .teamGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+
+  .socialInner {
+    flex-wrap: wrap;
+    gap: 24px;
+  }
 }
