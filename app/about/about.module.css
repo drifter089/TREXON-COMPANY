@@ -133,6 +133,47 @@
   color: var(--white);
 }
 
+/* Team Grid */
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  margin-top: 60px;
+}
+
+.teamCard {
+  text-align: center;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--black);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--sans);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 auto 20px;
+}
+
+.teamCard h3 {
+  font-family: var(--sans);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 4px;
+}
+
+.teamCard p {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--gray-500);
+}
+
 /* Social Section */
 .socialSection {
   padding: 60px clamp(24px, 5vw, 80px);
@@ -182,6 +223,11 @@
 
   .rolesGrid {
     grid-template-columns: 1fr;
+  }
+
+  .teamGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
   }
 
   .socialInner {
