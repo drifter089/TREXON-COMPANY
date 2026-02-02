@@ -55,6 +55,37 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* Team */}
+        <section className={styles.section}>
+          <div className={styles.sectionInner}>
+            <span className={styles.eyebrow}>The Team</span>
+            <h2 className={styles.sectionTitle}>Meet the founders</h2>
+
+            <div className={styles.teamGrid}>
+              <div className={styles.teamCard}>
+                <div className={styles.avatar}>RK</div>
+                <h3>Rahul Kumar</h3>
+                <p>Co-Founder & CEO</p>
+              </div>
+              <div className={styles.teamCard}>
+                <div className={styles.avatar}>AS</div>
+                <h3>Amit Singh</h3>
+                <p>Co-Founder & CTO</p>
+              </div>
+              <div className={styles.teamCard}>
+                <div className={styles.avatar}>PG</div>
+                <h3>Priya Gupta</h3>
+                <p>Head of Operations</p>
+              </div>
+              <div className={styles.teamCard}>
+                <div className={styles.avatar}>VR</div>
+                <h3>Vikram Rao</h3>
+                <p>Lead Engineer</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Social Links */}
         <section className={styles.socialSection}>
           <div className={styles.socialInner}>
