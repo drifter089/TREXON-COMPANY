@@ -165,7 +165,7 @@ export default function ApplyPage() {
         <section className={styles.formSection}>
           <div className={styles.formInner}>
             <h2 className={styles.formTitle}>Apply Now</h2>
-            <form className={styles.form} action="https://formspree.io/f/your-form-id" method="POST" encType="multipart/form-data">
+            <form className={styles.form} action="https://formspree.io/f/xnjzgaoe" method="POST">
               <input type="hidden" name="role" value={role.title} />
 
               <div className={styles.formRow}>
@@ -207,9 +207,9 @@ export default function ApplyPage() {
               </div>
 
               <div className={styles.formGroup}>
-                <label htmlFor="resume">Resume / CV</label>
-                <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required />
-                <span className={styles.fileHint}>PDF or DOC, max 5MB</span>
+                <label htmlFor="resume">Resume / CV Link</label>
+                <input type="url" id="resume" name="resume" placeholder="Google Drive, Dropbox, or LinkedIn URL" required />
+                <span className={styles.fileHint}>Share a link to your resume (Google Drive, Dropbox, etc.)</span>
               </div>
 
               <button type="submit" className={styles.submitBtn}>
