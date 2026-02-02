@@ -1,10 +1,11 @@
+/* Header */
 .header {
-  padding: 100px clamp(24px, 5vw, 80px) 80px;
-  border-bottom: 1px solid var(--gray-200);
+  padding: 120px clamp(24px, 5vw, 80px) 60px;
+  text-align: center;
 }
 
 .headerInner {
-  max-width: 1200px;
+  max-width: 600px;
   margin: 0 auto;
 }
 
@@ -16,83 +17,92 @@
   text-transform: uppercase;
   color: var(--gray-400);
   display: block;
+  margin-bottom: 16px;
 }
 
 .title {
   font-family: var(--serif);
-  font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
   font-weight: 400;
-  letter-spacing: -0.02em;
   color: var(--black);
-  margin-top: 16px;
-  max-width: 700px;
 }
 
 .subtitle {
   font-family: var(--sans);
   font-size: 1.1rem;
-  line-height: 1.7;
   color: var(--gray-600);
-  font-weight: 300;
-  margin-top: 20px;
+  margin-top: 16px;
+}
+
+/* Toggle Section */
+.toggleSection {
+  padding: 0 clamp(24px, 5vw, 80px) 60px;
+}
+
+.toggleInner {
   max-width: 600px;
-}
-
-/* Positions Section */
-.positionsSection {
-  padding: 80px clamp(24px, 5vw, 80px);
-}
-
-.positionsInner {
-  max-width: 1200px;
   margin: 0 auto;
 }
 
-.sectionTitle {
-  font-family: var(--sans);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--gray-400);
-  margin-bottom: 40px;
-}
-
-.positionsGrid {
+.toggle {
   display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.positionCard {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 32px;
   border: 1px solid var(--gray-200);
-  transition: all 0.3s ease;
 }
 
-.positionCard:hover {
-  border-color: var(--black);
-}
-
-.positionInfo {
+.toggleBtn {
   flex: 1;
+  padding: 16px 24px;
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--gray-500);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-.positionTitle {
+.toggleBtn:not(:last-child) {
+  border-right: 1px solid var(--gray-200);
+}
+
+.toggleBtn:hover {
+  color: var(--black);
+  background: var(--gray-100);
+}
+
+.toggleBtn.active {
+  color: var(--white);
+  background: var(--black);
+}
+
+/* Role Section */
+.roleSection {
+  padding: 60px clamp(24px, 5vw, 80px);
+  border-top: 1px solid var(--gray-200);
+}
+
+.roleInner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.roleHeader {
+  margin-bottom: 48px;
+}
+
+.roleTitle {
   font-family: var(--serif);
-  font-size: 1.5rem;
+  font-size: clamp(1.8rem, 3vw, 2.2rem);
   font-weight: 400;
   color: var(--black);
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
-.positionMeta {
+.roleMeta {
   display: flex;
-  gap: 16px;
-  margin-bottom: 12px;
+  gap: 12px;
+  margin-bottom: 16px;
 }
 
 .tag {
@@ -103,112 +113,237 @@
   text-transform: uppercase;
   color: var(--gray-600);
   background: var(--gray-100);
-  padding: 6px 12px;
+  padding: 8px 16px;
 }
 
-.positionDesc {
+.roleDesc {
+  font-family: var(--sans);
+  font-size: 1.1rem;
+  color: var(--gray-600);
+}
+
+.roleDetails {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+}
+
+.roleColumn h3 {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  margin-bottom: 20px;
+}
+
+.roleColumn ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.roleColumn li {
   font-family: var(--sans);
   font-size: 0.95rem;
+  color: var(--gray-700);
   line-height: 1.6;
-  color: var(--gray-600);
-  max-width: 500px;
+  padding-left: 20px;
+  position: relative;
+  margin-bottom: 12px;
 }
 
-.arrow {
-  width: 48px;
-  height: 48px;
+.roleColumn li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--gray-400);
+}
+
+/* Form Section */
+.formSection {
+  padding: 80px clamp(24px, 5vw, 80px);
+}
+
+.formInner {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.formTitle {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3vw, 2.2rem);
+  font-weight: 400;
+  color: var(--black);
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.form {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formGroup label {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--black);
+}
+
+.formGroup input,
+.formGroup select,
+.formGroup textarea {
+  font-family: var(--sans);
+  font-size: 1rem;
+  padding: 14px 16px;
+  border: 1px solid var(--gray-200);
+  background: var(--white);
+  color: var(--black);
+  transition: border-color 0.2s ease;
+}
+
+.formGroup input:focus,
+.formGroup select:focus,
+.formGroup textarea:focus {
+  outline: none;
+  border-color: var(--black);
+}
+
+.formGroup textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.formGroup input[type="file"] {
+  padding: 12px;
+  cursor: pointer;
+}
+
+.fileHint {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  color: var(--gray-500);
+}
+
+.submitBtn {
+  font-family: var(--sans);
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 18px 40px;
   background: var(--black);
   color: var(--white);
-  flex-shrink: 0;
-  margin-left: 32px;
-  transition: background 0.3s ease;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  margin-top: 16px;
 }
 
-.positionCard:hover .arrow {
+.submitBtn:hover {
   background: var(--gray-800);
 }
 
-/* CTA Section */
-.ctaSection {
+/* FAQ Section */
+.faqSection {
   padding: 80px clamp(24px, 5vw, 80px);
-  background: var(--black);
+  border-top: 1px solid var(--gray-200);
 }
 
-.ctaInner {
-  max-width: 1200px;
+.faqInner {
+  max-width: 900px;
   margin: 0 auto;
+}
+
+.faqTitle {
+  font-family: var(--serif);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 400;
+  color: var(--black);
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.faqGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
+  gap: 32px;
 }
 
-.ctaTitle {
-  font-family: var(--serif);
-  font-size: clamp(1.8rem, 3vw, 2.5rem);
-  font-weight: 400;
-  color: var(--white);
-  margin-bottom: 16px;
+.faqItem {
+  padding: 24px 0;
+  border-top: 1px solid var(--gray-200);
 }
 
-.ctaText {
+.faqItem h3 {
   font-family: var(--sans);
   font-size: 1rem;
-  line-height: 1.7;
-  color: var(--gray-400);
-}
-
-.ctaContact {
-  text-align: right;
-}
-
-.ctaLabel {
-  font-family: var(--sans);
-  font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--gray-400);
+  color: var(--black);
   margin-bottom: 8px;
 }
 
-.ctaEmail {
-  font-family: var(--serif);
-  font-size: 1.5rem;
-  color: var(--white);
-  text-decoration: none;
-  transition: opacity 0.3s ease;
-}
-
-.ctaEmail:hover {
-  opacity: 0.7;
+.faqItem p {
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  color: var(--gray-600);
+  line-height: 1.6;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .positionCard {
+  .header {
+    padding: 100px 24px 40px;
+  }
+
+  .toggleSection {
+    padding: 0 24px 40px;
+  }
+
+  .toggle {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 24px;
   }
 
-  .arrow {
-    margin-left: 0;
+  .toggleBtn:not(:last-child) {
+    border-right: none;
+    border-bottom: 1px solid var(--gray-200);
   }
 
-  .ctaInner {
+  .roleSection {
+    padding: 40px 24px;
+  }
+
+  .roleDetails {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 32px;
   }
 
-  .ctaContact {
-    text-align: left;
+  .formSection {
+    padding: 60px 24px;
   }
 
-  .positionMeta {
-    flex-wrap: wrap;
+  .formRow {
+    grid-template-columns: 1fr;
+  }
+
+  .faqSection {
+    padding: 60px 24px;
+  }
+
+  .faqGrid {
+    grid-template-columns: 1fr;
   }
 }
