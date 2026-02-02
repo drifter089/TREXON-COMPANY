@@ -1,4 +1,7 @@
 import Navbar from "@/app/components/Navbar";
+import OurStory from "@/app/components/OurStory";
+import ValueCards from "@/app/components/ValueCards";
+import TeamSection from "@/app/components/TeamSection";
 import Footer from "@/app/components/Footer";
 import styles from "./about.module.css";
 
@@ -29,11 +32,13 @@ export default function AboutPage() {
         {/* Story + Values */}
         <section className={styles.storySection}>
           <div className={`${styles.storyGrid} story-grid`}>
-           
+            <OurStory />
+            <ValueCards />
           </div>
         </section>
 
-       
+        {/* Team */}
+        <TeamSection />
       </main>
       <Footer />
     </>
