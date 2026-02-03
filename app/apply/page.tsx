@@ -95,7 +95,7 @@ export default function ApplyPage() {
         <section className={styles.header}>
           <div className={styles.headerInner}>
             <span className={styles.eyebrow}>Careers</span>
-            <h1 className={styles.title}>Join TREXON</h1>
+            <h1 className={styles.title}>Join THREXON</h1>
             <p className={styles.subtitle}>
               We're building our founding team in Delhi. Three roles. Massive impact.
             </p>
