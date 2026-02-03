@@ -22,9 +22,9 @@ export const POSITIONS: Position[] = [
   },
   {
     title: "Math Teacher",
-    type: "Part-time / Full-time",
+    type: "Part-time",
     location: "On-site, Delhi",
     description:
-      "Teach South African matric students mathematics. Strong foundation in high school math curriculum required.",
+      "No degree required. Must be comfortable teaching in English and understand the South African syllabus. Design learning paths for students, help arrange homework sheets, and provide detailed feedback on the app to develop an intuitive experience for kids.",
   },
 ];
