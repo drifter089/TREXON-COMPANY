@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={styles.inner}>
         <Link href="/" className={styles.logo}>
-          MatricMath<span className={styles.dot}>.</span>
+          THREXON<span className={styles.dot}>.</span>
         </Link>
 
         <div className={styles.nav}>
@@ -45,7 +45,7 @@ export default function Footer() {
         </div>
 
         <span className={styles.copy}>
-          © 2026 MatricMath. Delhi, India.
+          © 2026 THREXON. Delhi, India.
         </span>
       </div>
     </footer>
