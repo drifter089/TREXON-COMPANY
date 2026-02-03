@@ -257,6 +257,49 @@
   background: var(--gray-800);
 }
 
+/* Success Page */
+.successSection {
+  min-height: calc(100vh - 72px - 200px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px clamp(24px, 5vw, 80px);
+}
+
+.successInner {
+  max-width: 480px;
+  text-align: center;
+}
+
+.successTitle {
+  font-family: var(--sans);
+  font-size: clamp(1.5rem, 3vw, 1.75rem);
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 20px;
+}
+
+.successText {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  color: var(--gray-600);
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+
+.successLink {
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--black);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.successLink:hover {
+  opacity: 0.6;
+}
+
 /* FAQ Section */
 .faqSection {
   padding: 80px clamp(24px, 5vw, 80px);
