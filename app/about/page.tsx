@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import styles from "./about.module.css";
@@ -59,28 +60,34 @@ export default function AboutPage() {
         <section className={styles.section}>
           <div className={styles.sectionInner}>
             <span className={styles.eyebrow}>The Team</span>
-            <h2 className={styles.sectionTitle}>Meet the founders</h2>
+            <h2 className={styles.sectionTitle}>Meet the team</h2>
 
             <div className={styles.teamGrid}>
               <div className={styles.teamCard}>
-                <div className={styles.avatar}>RK</div>
-                <h3>Rahul Kumar</h3>
-                <p>Co-Founder & CEO</p>
+                <div className={styles.avatar}>
+                  <Image src="/akshat.jpeg" alt="Akshat" fill className={styles.avatarImage} style={{ transform: 'scale(1.2)' }} />
+                </div>
+                <h3>Akshat</h3>
+                <p>Software Engineer</p>
               </div>
               <div className={styles.teamCard}>
-                <div className={styles.avatar}>AS</div>
-                <h3>Amit Singh</h3>
-                <p>Co-Founder & CTO</p>
+                <div className={styles.avatar}>
+                  <Image src="/kerwin.jpeg" alt="Kerwin" fill className={styles.avatarImage} style={{ objectPosition: 'top' }} />
+                </div>
+                <h3>Kerwin</h3>
+                <p>Marketing</p>
               </div>
               <div className={styles.teamCard}>
-                <div className={styles.avatar}>PG</div>
-                <h3>Priya Gupta</h3>
-                <p>Head of Operations</p>
+                <div className={styles.avatar}>
+                  <Image src="/aom.jpeg" alt="Aom" fill className={styles.avatarImage} style={{ transform: 'scale(1.6) translateY(-22%)', objectPosition: '60% center' }} />
+                </div>
+                <h3>Aom</h3>
+                <p>Software Engineer</p>
               </div>
               <div className={styles.teamCard}>
-                <div className={styles.avatar}>VR</div>
-                <h3>Vikram Rao</h3>
-                <p>Lead Engineer</p>
+                <div className={styles.avatar}>AJ</div>
+                <h3>Ajay</h3>
+                <p>Management</p>
               </div>
             </div>
           </div>
