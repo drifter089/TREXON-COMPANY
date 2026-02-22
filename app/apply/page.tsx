@@ -86,7 +86,55 @@ type RoleKey = "engineer" | "editor" | "teacher";
 
 export default function ApplyPage() {
   const [activeRole, setActiveRole] = useState<RoleKey>("engineer");
+  const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
   const role = ROLES[activeRole];
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSubmitError(false);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const res = await fetch("https://formspree.io/f/xnjzgaoe", {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" },
+      });
+      if (!res.ok) throw new Error("Submission failed");
+      setSubmitted(true);
+    } catch {
+      setSubmitError(true);
+    }
+  };
+
+  if (submitted) {
+    return (
+      <>
+        <Navbar />
+        <main style={{ paddingTop: 72 }}>
+          <section className={styles.successSection}>
+            <div className={styles.successInner}>
+              <h1 className={styles.successTitle}>We've Got Your Application</h1>
+              <p className={styles.successText}>
+                Thank you for applying to join THREXON. Our team reviews every application carefully, and we'll get back to you within 2-3 business days. In the meantime, feel free to connect with us on LinkedIn.
+              </p>
+              <a
+                href="https://linkedin.com/company/trexon"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.successLink}
+              >
+                → Follow us on LinkedIn
+              </a>
+            </div>
+          </section>
+        </main>
+        <Footer />
+      </>
+    );
+  }
 
   return (
     <>
@@ -166,7 +214,7 @@ export default function ApplyPage() {
         <section className={styles.formSection}>
           <div className={styles.formInner}>
             <h2 className={styles.formTitle}>Apply Now</h2>
-            <form className={styles.form} action="https://formspree.io/f/xnjzgaoe" method="POST">
+            <form className={styles.form} onSubmit={handleSubmit}>
               <input type="hidden" name="role" value={role.title} />
 
               <div className={styles.formRow}>
@@ -203,7 +251,7 @@ export default function ApplyPage() {
               </div>
 
               <div className={styles.formGroup}>
-                <label htmlFor="why">Why do you want to join TREXON?</label>
+                <label htmlFor="why">Why do you want to join THREXON?</label>
                 <textarea id="why" name="why" rows={4} required></textarea>
               </div>
 
@@ -212,6 +260,12 @@ export default function ApplyPage() {
                 <input type="url" id="resume" name="resume" placeholder="Google Drive, Dropbox, or LinkedIn URL" required />
                 <span className={styles.fileHint}>Share a link to your resume (Google Drive, Dropbox, etc.)</span>
               </div>
+
+              {submitError && (
+                <p style={{ color: '#c00', fontSize: '0.9rem', textAlign: 'center' }}>
+                  Something went wrong. Please try again.
+                </p>
+              )}
 
               <button type="submit" className={styles.submitBtn}>
                 Submit Application

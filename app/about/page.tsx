@@ -12,7 +12,7 @@ export default function AboutPage() {
         {/* Hero - Who We Are + What We Do */}
         <section className={styles.hero}>
           <div className={styles.heroInner}>
-            <span className={styles.eyebrow}>About TREXON</span>
+            <span className={styles.eyebrow}>About THREXON</span>
             <h1 className={styles.title}>
               Ed-tech company based in Delhi, building MatricMath
             </h1>
@@ -65,21 +65,21 @@ export default function AboutPage() {
             <div className={styles.teamGrid}>
               <div className={styles.teamCard}>
                 <div className={styles.avatar}>
-                  <Image src="/akshat.jpeg" alt="Akshat" fill className={styles.avatarImage} style={{ transform: 'scale(1.2)' }} />
+                  <Image src="/akshat.jpeg" alt="Akshat" fill className={styles.avatarImage} style={{ objectPosition: 'center 15%', transform: 'scale(1.8)' }} />
                 </div>
                 <h3>Akshat</h3>
                 <p>Software Engineer</p>
               </div>
               <div className={styles.teamCard}>
                 <div className={styles.avatar}>
-                  <Image src="/kerwin.jpeg" alt="Kerwin" fill className={styles.avatarImage} style={{ objectPosition: 'top' }} />
+                  <Image src="/kerwin.jpeg" alt="Kerwin" fill className={styles.avatarImage} style={{ objectPosition: 'center top' }} />
                 </div>
                 <h3>Kerwin</h3>
                 <p>Marketing</p>
               </div>
               <div className={styles.teamCard}>
                 <div className={styles.avatar}>
-                  <Image src="/aom.jpeg" alt="Aom" fill className={styles.avatarImage} style={{ transform: 'scale(1.6) translateY(-22%)', objectPosition: '60% center' }} />
+                  <Image src="/aom.jpeg" alt="Aom" fill className={styles.avatarImage} style={{ objectPosition: '40% 60%', transform: 'scale(2.5)', transformOrigin: '40% 60%' }} />
                 </div>
                 <h3>Aom</h3>
                 <p>Software Engineer</p>
