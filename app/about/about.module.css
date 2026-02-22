@@ -481,10 +481,22 @@
   margin-bottom: 4px;
 }
 
+.teamRole {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  display: block;
+  margin-bottom: 8px;
+}
+
 .teamCard p {
   font-family: var(--sans);
   font-size: 0.85rem;
   color: var(--gray-500);
+  line-height: 1.5;
 }
 
 /* Social Section */

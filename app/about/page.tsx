@@ -302,6 +302,9 @@ export default function AboutPage() {
           <div className={styles.sectionInner}>
             <span className={styles.eyebrow}>The Team</span>
             <h2 className={styles.sectionTitle}>Meet the team</h2>
+            <p className={styles.sectionSubtitle}>
+              Everyone here is a founder-level contributor.
+            </p>
 
             <div className={styles.teamGrid}>
               <div className={styles.teamCard}>
@@ -309,26 +312,30 @@ export default function AboutPage() {
                   <Image src="/akshat.jpeg" alt="Akshat" fill className={styles.avatarImage} style={{ objectPosition: 'center 15%', transform: 'scale(1.8)' }} />
                 </div>
                 <h3>Akshat</h3>
-                <p>Software Engineer</p>
+                <span className={styles.teamRole}>Co-founder & CTO</span>
+                <p>Full-stack engineer. Built multiple products from scratch.</p>
               </div>
               <div className={styles.teamCard}>
                 <div className={styles.avatar}>
                   <Image src="/kerwin.jpeg" alt="Kerwin" fill className={styles.avatarImage} style={{ objectPosition: 'center top' }} />
                 </div>
                 <h3>Kerwin</h3>
-                <p>Marketing</p>
+                <span className={styles.teamRole}>Co-founder, South Africa</span>
+                <p>Based in Cape Town. Runs market research, student relationships, and on-ground operations.</p>
               </div>
               <div className={styles.teamCard}>
                 <div className={styles.avatar}>
                   <Image src="/aom.jpeg" alt="Aom" fill className={styles.avatarImage} style={{ objectPosition: '40% 60%', transform: 'scale(2.5)', transformOrigin: '40% 60%' }} />
                 </div>
                 <h3>Aom</h3>
-                <p>Software Engineer</p>
+                <span className={styles.teamRole}>Software Engineer</span>
+                <p>Full-stack developer building the MatricMath platform.</p>
               </div>
               <div className={styles.teamCard}>
                 <div className={styles.avatar}>AJ</div>
                 <h3>Ajay</h3>
-                <p>Management</p>
+                <span className={styles.teamRole}>Management</span>
+                <p>Operations and team management based in Delhi.</p>
               </div>
             </div>
           </div>
