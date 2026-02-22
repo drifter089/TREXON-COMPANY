@@ -196,6 +196,85 @@
   line-height: 1.6;
 }
 
+/* Founder Story */
+.founderInner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+  text-align: left;
+}
+
+.founderStory {
+  text-align: left;
+}
+
+.founderText {
+  font-family: var(--sans);
+  font-size: 1rem;
+  color: var(--gray-600);
+  line-height: 1.7;
+  margin-top: 20px;
+}
+
+.founderQuote {
+  padding: 40px 36px;
+  border: 2px solid var(--black);
+  border-radius: 16px;
+  position: sticky;
+  top: 120px;
+}
+
+.quoteMark {
+  margin-bottom: 20px;
+}
+
+.quoteText {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--black);
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+}
+
+.quoteAuthor {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--gray-200);
+}
+
+.quoteAvatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--black);
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.quoteName {
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--black);
+  display: block;
+}
+
+.quoteRole {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  color: var(--gray-500);
+  display: block;
+  margin-top: 2px;
+}
+
 /* Circle Process */
 .circleProcess {
   position: relative;
@@ -433,6 +512,15 @@
     position: static;
     width: 100%;
     transform: none;
+  }
+
+  .founderInner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .founderQuote {
+    position: static;
   }
 
   .rolesGrid {

@@ -165,6 +165,53 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* Founder Story */}
+        <section className={styles.section}>
+          <div className={styles.founderInner}>
+            <div className={styles.founderStory}>
+              <span className={styles.eyebrow}>Why We Built This</span>
+              <h2 className={styles.sectionTitle}>
+                Born from real research, not assumptions
+              </h2>
+              <p className={styles.founderText}>
+                Our co-founder, based in South Africa, saw students struggling
+                with mathematics every day — not because they weren't smart, but
+                because affordable help didn't exist.
+              </p>
+              <p className={styles.founderText}>
+                Instead of guessing what might work, both founders went to Cape
+                Town for a month. Face-to-face conversations with students.
+                Understanding what's broken, what they need, what they'd pay for.
+              </p>
+              <p className={styles.founderText}>
+                The research never stopped. Our South Africa-based founder
+                continues to go into the field — testing ideas, gathering
+                feedback, and making sure what we build actually works for the
+                students who'll use it.
+              </p>
+            </div>
+
+            <div className={styles.founderQuote}>
+              <svg className={styles.quoteMark} width="40" height="32" viewBox="0 0 40 32" fill="none">
+                <path d="M0 20.8C0 27.2 3.6 32 9.6 32c4.4 0 8-3.2 8-7.6 0-4-3.2-7.2-7.2-7.2-1.2 0-2 .4-2.8.8 0-6 4.4-12.8 10.4-16L14.8 0C5.6 4.8 0 12.8 0 20.8zm22 0c0 6.4 3.6 11.2 9.6 11.2 4.4 0 8-3.2 8-7.6 0-4-3.2-7.2-7.2-7.2-1.2 0-2 .4-2.8.8 0-6 4.4-12.8 10.4-16L36.8 0C27.6 4.8 22 12.8 22 20.8z" fill="var(--gray-200)" />
+              </svg>
+              <p className={styles.quoteText}>
+                We talked to students before we wrote any code. Every feature
+                exists because someone asked for it.
+              </p>
+              <div className={styles.quoteAuthor}>
+                <div className={styles.quoteAvatar}>
+                  <Image src="/akshat.jpeg" alt="Akshat" fill className={styles.avatarImage} style={{ objectPosition: 'center 15%', transform: 'scale(1.8)' }} />
+                </div>
+                <div>
+                  <span className={styles.quoteName}>Akshat</span>
+                  <span className={styles.quoteRole}>Co-founder & CTO, THREXON</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* What We Need */}
         <section className={styles.section}>
           <div className={styles.sectionInner}>
