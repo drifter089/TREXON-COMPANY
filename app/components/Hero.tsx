@@ -139,7 +139,7 @@ export default function Hero() {
 
         {/* Subtext */}
         <p className={styles.subtitle}>
-          TREXON is an ed-tech company connecting India's best math talent with
+          THREXON is an ed-tech company connecting India's best math talent with
           South African students who need it most.
         </p>
 

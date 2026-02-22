@@ -87,22 +87,25 @@ type RoleKey = "engineer" | "editor" | "teacher";
 export default function ApplyPage() {
   const [activeRole, setActiveRole] = useState<RoleKey>("engineer");
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
   const role = ROLES[activeRole];
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setSubmitError(false);
     const form = e.currentTarget;
     const formData = new FormData(form);
 
     try {
-      await fetch("https://formspree.io/f/xnjzgaoe", {
+      const res = await fetch("https://formspree.io/f/xnjzgaoe", {
         method: "POST",
         body: formData,
         headers: { Accept: "application/json" },
       });
+      if (!res.ok) throw new Error("Submission failed");
       setSubmitted(true);
-    } catch (error) {
-      console.error("Form submission error:", error);
+    } catch {
+      setSubmitError(true);
     }
   };
 
@@ -248,7 +251,7 @@ export default function ApplyPage() {
               </div>
 
               <div className={styles.formGroup}>
-                <label htmlFor="why">Why do you want to join TREXON?</label>
+                <label htmlFor="why">Why do you want to join THREXON?</label>
                 <textarea id="why" name="why" rows={4} required></textarea>
               </div>
 
@@ -257,6 +260,12 @@ export default function ApplyPage() {
                 <input type="url" id="resume" name="resume" placeholder="Google Drive, Dropbox, or LinkedIn URL" required />
                 <span className={styles.fileHint}>Share a link to your resume (Google Drive, Dropbox, etc.)</span>
               </div>
+
+              {submitError && (
+                <p style={{ color: '#c00', fontSize: '0.9rem', textAlign: 'center' }}>
+                  Something went wrong. Please try again.
+                </p>
+              )}
 
               <button type="submit" className={styles.submitBtn}>
                 Submit Application
