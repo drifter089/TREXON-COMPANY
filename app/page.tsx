@@ -3,6 +3,7 @@ import Hero from '@/app/components/Hero';
 import TheProblem from '@/app/components/TheProblem';
 import OurApproach from '@/app/components/OurApproach';
 import HowWeWork from '@/app/components/HowWeWork';
+import WhoWeWant from '@/app/components/WhoWeWant';
 import Footer from './components/Footer';
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
       <TheProblem />
       <OurApproach />
       <HowWeWork />
+      <WhoWeWant />
       <Footer />
     </div>
   );
