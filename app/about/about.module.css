@@ -275,6 +275,43 @@
   margin-top: 2px;
 }
 
+/* Tech Stack */
+.stackGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.stackCard {
+  padding: 32px 20px;
+  border: 1px solid var(--gray-200);
+  text-align: center;
+  transition: border-color 0.2s ease;
+}
+
+.stackCard:hover {
+  border-color: var(--black);
+}
+
+.stackCard svg {
+  color: var(--black);
+  margin-bottom: 16px;
+}
+
+.stackCard h3 {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 4px;
+}
+
+.stackCard p {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  color: var(--gray-500);
+}
+
 /* Circle Process */
 .circleProcess {
   position: relative;
@@ -512,6 +549,10 @@
     position: static;
     width: 100%;
     transform: none;
+  }
+
+  .stackGrid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .founderInner {

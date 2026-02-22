@@ -212,6 +212,61 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* Tech Stack */}
+        <section className={styles.section}>
+          <div className={styles.sectionInner}>
+            <span className={styles.eyebrow}>Our Stack</span>
+            <h2 className={styles.sectionTitle}>What you'd work with</h2>
+            <p className={styles.sectionSubtitle}>
+              Modern tools, clean architecture. We build for speed without
+              sacrificing quality.
+            </p>
+
+            <div className={styles.stackGrid}>
+              <div className={styles.stackCard}>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 2L2 19h20L12 2z" /><path d="M12 9v4" /><circle cx="12" cy="16" r="0.5" fill="currentColor" /></svg>
+                <h3>Next.js</h3>
+                <p>Web app</p>
+              </div>
+              <div className={styles.stackCard}>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="5" y="2" width="14" height="20" rx="2" /><path d="M12 18h.01" /></svg>
+                <h3>React Native</h3>
+                <p>Mobile app</p>
+              </div>
+              <div className={styles.stackCard}>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><polyline points="4 17 10 11 4 5" /><line x1="12" y1="19" x2="20" y2="19" /></svg>
+                <h3>TypeScript</h3>
+                <p>Language</p>
+              </div>
+              <div className={styles.stackCard}>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><polygon points="23 7 16 12 23 17 23 7" /><rect x="1" y="5" width="15" height="14" rx="2" /></svg>
+                <h3>Real-time Video</h3>
+                <p>Live sessions</p>
+              </div>
+              <div className={styles.stackCard}>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 2a4 4 0 0 1 4 4c0 1.95-1.4 3.58-3.25 3.93" /><path d="M12 2a4 4 0 0 0-4 4c0 1.95 1.4 3.58 3.25 3.93" /><path d="M12 10v4" /><circle cx="12" cy="18" r="4" /><path d="M10 18h4" /></svg>
+                <h3>AI / ML</h3>
+                <p>Handwriting feedback</p>
+              </div>
+              <div className={styles.stackCard}>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><ellipse cx="12" cy="5" rx="9" ry="3" /><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" /><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" /></svg>
+                <h3>PostgreSQL</h3>
+                <p>Database</p>
+              </div>
+              <div className={styles.stackCard}>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z" /><path d="M2 17l10 5 10-5" /><path d="M2 12l10 5 10-5" /></svg>
+                <h3>Vercel</h3>
+                <p>Deployment</p>
+              </div>
+              <div className={styles.stackCard}>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="12" cy="18" r="3" /><circle cx="6" cy="6" r="3" /><circle cx="18" cy="6" r="3" /><path d="M18 9v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V9" /><path d="M12 12v3" /></svg>
+                <h3>GitHub</h3>
+                <p>Version control</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* What We Need */}
         <section className={styles.section}>
           <div className={styles.sectionInner}>
