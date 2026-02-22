@@ -4,6 +4,7 @@ import TheProblem from '@/app/components/TheProblem';
 import OurApproach from '@/app/components/OurApproach';
 import HowWeWork from '@/app/components/HowWeWork';
 import WhoWeWant from '@/app/components/WhoWeWant';
+import OpenRoles from '@/app/components/OpenRoles';
 import Footer from './components/Footer';
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
       <OurApproach />
       <HowWeWork />
       <WhoWeWant />
+      <OpenRoles />
       <Footer />
     </div>
   );
