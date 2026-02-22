@@ -1,5 +1,6 @@
 import Navbar from '@/app/components/Navbar';
-import Hero from '@/app/components/Hero'
+import Hero from '@/app/components/Hero';
+import TheProblem from '@/app/components/TheProblem';
 import Footer from './components/Footer';
 
 export default function Home() {
@@ -7,6 +8,7 @@ export default function Home() {
     <div className="min-h-screen bg-white">
       <Navbar />
       <Hero />
+      <TheProblem />
       <Footer />
     </div>
   );
