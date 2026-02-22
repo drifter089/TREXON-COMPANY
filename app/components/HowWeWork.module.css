@@ -1,0 +1,134 @@
+.section {
+  padding: 120px clamp(24px, 5vw, 80px);
+  border-top: 1px solid var(--gray-200);
+  text-align: center;
+}
+
+.inner {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  display: block;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-family: var(--sans);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--black);
+  line-height: 1.2;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.subtitle {
+  font-family: var(--sans);
+  font-size: 1.05rem;
+  color: var(--gray-600);
+  line-height: 1.7;
+  margin-top: 20px;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 32px;
+  align-items: center;
+  margin-top: 64px;
+}
+
+.card {
+  padding: 48px 36px;
+  border: 1px solid var(--gray-200);
+  text-align: center;
+  transition: border-color 0.2s ease;
+}
+
+.card:hover {
+  border-color: var(--black);
+}
+
+.flag {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.country {
+  font-family: var(--sans);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 8px;
+}
+
+.role {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  display: inline-block;
+  padding: 6px 14px;
+  border: 1px solid var(--gray-200);
+  margin-bottom: 20px;
+}
+
+.desc {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  color: var(--gray-600);
+  line-height: 1.7;
+}
+
+/* Connector */
+.connector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.connectorIcon {
+  font-size: 1.8rem;
+  color: var(--gray-400);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border: 1px solid var(--gray-200);
+  border-radius: 50%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .section {
+    padding: 80px 24px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .connector {
+    transform: rotate(90deg);
+  }
+}
