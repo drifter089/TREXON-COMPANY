@@ -81,6 +81,51 @@
   margin-bottom: 60px;
 }
 
+/* Mission Grid */
+.missionGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.missionCard {
+  padding: 40px 28px;
+  border: 1px solid var(--gray-200);
+  text-align: left;
+  transition: border-color 0.2s ease;
+}
+
+.missionCard:hover {
+  border-color: var(--black);
+}
+
+.missionIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--gray-200);
+  border-radius: 50%;
+  margin-bottom: 20px;
+  color: var(--black);
+}
+
+.missionCard h3 {
+  font-family: var(--sans);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 10px;
+}
+
+.missionCard p {
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  color: var(--gray-600);
+  line-height: 1.6;
+}
+
 /* Roles Grid */
 .rolesGrid {
   display: grid;
@@ -225,6 +270,10 @@
 
   .section {
     padding: 80px 24px;
+  }
+
+  .missionGrid {
+    grid-template-columns: 1fr;
   }
 
   .rolesGrid {

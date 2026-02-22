@@ -26,6 +26,66 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* Mission */}
+        <section className={styles.section}>
+          <div className={styles.sectionInner}>
+            <span className={styles.eyebrow}>Our Mission</span>
+            <h2 className={styles.sectionTitle}>
+              Make quality math tutoring accessible to every South African student
+            </h2>
+            <p className={styles.sectionSubtitle}>
+              India has an abundance of brilliant math educators. South Africa has
+              millions of students who can't access quality tutoring. We bridge
+              that gap — affordably, at scale, through technology.
+            </p>
+
+            <div className={styles.missionGrid}>
+              <div className={styles.missionCard}>
+                <div className={styles.missionIcon}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    <circle cx="12" cy="12" r="10" />
+                    <circle cx="12" cy="12" r="6" />
+                    <circle cx="12" cy="12" r="2" />
+                  </svg>
+                </div>
+                <h3>Research-first</h3>
+                <p>
+                  We spent a month on the ground in Cape Town before writing a
+                  single line of code. Every product decision is backed by real
+                  conversations with real students.
+                </p>
+              </div>
+              <div className={styles.missionCard}>
+                <div className={styles.missionIcon}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                  </svg>
+                </div>
+                <h3>Cross-border by design</h3>
+                <p>
+                  One founder in South Africa owns the market. One founder in
+                  India builds the product. This isn't remote work — it's a
+                  deliberately distributed company.
+                </p>
+              </div>
+              <div className={styles.missionCard}>
+                <div className={styles.missionIcon}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                  </svg>
+                </div>
+                <h3>Build fast, learn faster</h3>
+                <p>
+                  We're a startup. We ship quickly, test with real users, and
+                  iterate. No months of planning — just building what students
+                  actually need.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* What We Need */}
         <section className={styles.section}>
           <div className={styles.sectionInner}>
