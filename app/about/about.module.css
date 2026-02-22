@@ -499,16 +499,114 @@
   line-height: 1.5;
 }
 
-/* Social Section */
-.socialSection {
-  padding: 60px clamp(24px, 5vw, 80px);
+/* CTA Section */
+.ctaSection {
+  padding: 140px clamp(24px, 5vw, 80px);
+  text-align: center;
+  background: var(--white);
   border-top: 1px solid var(--gray-200);
+  position: relative;
+  overflow: hidden;
 }
 
-.socialInner {
+.ctaContent {
+  position: relative;
+  z-index: 1;
+}
+
+.ctaTitle {
+  font-family: var(--sans);
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 600;
+  color: var(--black);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.ctaItalic {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  background: linear-gradient(90deg, var(--black), var(--gray-500), var(--black));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: ctaShimmer 3s ease-in-out infinite;
+}
+
+@keyframes ctaShimmer {
+  0% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+  100% { background-position: 0% center; }
+}
+
+.ctaText {
+  font-family: var(--sans);
+  font-size: 1.1rem;
+  color: var(--gray-600);
+  margin-top: 20px;
+  line-height: 1.6;
+}
+
+.ctaLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--sans);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--white);
+  background: var(--black);
+  padding: 18px 44px;
+  text-decoration: none;
+  margin-top: 40px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ctaLink::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+  animation: ctaBtnShine 3s ease-in-out infinite;
+}
+
+@keyframes ctaBtnShine {
+  0% { left: -100%; }
+  50% { left: 150%; }
+  100% { left: 150%; }
+}
+
+.ctaLink:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.ctaLink svg {
+  transition: transform 0.3s ease;
+}
+
+.ctaLink:hover svg {
+  transform: translateX(4px);
+}
+
+/* Social inside CTA */
+.ctaSocial {
   display: flex;
   justify-content: center;
-  gap: 40px;
+  gap: 32px;
+  margin-top: 48px;
+  padding-top: 40px;
+  border-top: 1px solid var(--gray-200);
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .socialLink {
@@ -585,8 +683,8 @@
     gap: 40px;
   }
 
-  .socialInner {
+  .ctaSocial {
     flex-wrap: wrap;
-    gap: 24px;
+    gap: 20px;
   }
 }
