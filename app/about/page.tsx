@@ -86,6 +86,66 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* How MatricMath Works */}
+        <section className={styles.section}>
+          <div className={styles.sectionInner}>
+            <span className={styles.eyebrow}>The Product</span>
+            <h2 className={styles.sectionTitle}>How MatricMath works</h2>
+            <p className={styles.sectionSubtitle}>
+              A comprehensive learning platform built for South African matric
+              students, powered by Indian math talent.
+            </p>
+
+            <div className={styles.circleProcess}>
+              {/* SVG ring with arrows */}
+              <svg className={styles.ringLine} viewBox="0 0 400 400" fill="none">
+                <circle cx="200" cy="200" r="160" stroke="var(--gray-200)" strokeWidth="1.5" strokeDasharray="6 6" />
+                {/* Arrow: 1 → 2 (top to bottom-right) */}
+                <path d="M 310 80 L 340 110" stroke="var(--gray-300)" strokeWidth="1.5" markerEnd="url(#arrowhead)" />
+                {/* Arrow: 2 → 3 (bottom-right to bottom-left) */}
+                <path d="M 310 330 L 280 340" stroke="var(--gray-300)" strokeWidth="1.5" markerEnd="url(#arrowhead)" />
+                {/* Arrow: 3 → 1 (bottom-left to top) */}
+                <path d="M 70 280 L 60 250" stroke="var(--gray-300)" strokeWidth="1.5" markerEnd="url(#arrowhead)" />
+                <defs>
+                  <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+                    <path d="M 0 0 L 8 3 L 0 6" fill="var(--gray-300)" />
+                  </marker>
+                </defs>
+              </svg>
+
+              {/* Step 1 — top center */}
+              <div className={`${styles.circleStep} ${styles.step1}`}>
+                <div className={styles.stepNumber}>1</div>
+                <h3>Video Lessons</h3>
+                <p>
+                  Pre-recorded lessons aligned to the South African matric
+                  curriculum. Students learn at their own pace.
+                </p>
+              </div>
+
+              {/* Step 2 — bottom right */}
+              <div className={`${styles.circleStep} ${styles.step2}`}>
+                <div className={styles.stepNumber}>2</div>
+                <h3>Live Sessions</h3>
+                <p>
+                  Small-batch live tutoring with Indian math teachers. Real-time
+                  interaction, dual-camera setup with AI feedback.
+                </p>
+              </div>
+
+              {/* Step 3 — bottom left */}
+              <div className={`${styles.circleStep} ${styles.step3}`}>
+                <div className={styles.stepNumber}>3</div>
+                <h3>Practice & Track</h3>
+                <p>
+                  Practice problems, progress tracking, and scheduling tools.
+                  Students and tutors see exactly where they stand.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* What We Need */}
         <section className={styles.section}>
           <div className={styles.sectionInner}>
