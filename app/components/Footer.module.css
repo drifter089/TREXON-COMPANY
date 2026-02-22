@@ -67,6 +67,24 @@
   color: var(--gray-500);
 }
 
+.emails {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.email {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  color: var(--gray-400);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.email:hover {
+  color: var(--black);
+}
+
 .copy {
   font-family: var(--sans);
   font-size: 0.75rem;

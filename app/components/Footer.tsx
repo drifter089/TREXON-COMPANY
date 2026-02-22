@@ -44,6 +44,15 @@ export default function Footer() {
           </div>
         </div>
 
+        <div className={styles.emails}>
+          <a href="mailto:akshat@threxon.org" className={styles.email}>
+            akshat@threxon.org
+          </a>
+          <a href="mailto:Kerwin@threxon.org" className={styles.email}>
+            Kerwin@threxon.org
+          </a>
+        </div>
+
         <span className={styles.copy}>
           © 2026 THREXON. Delhi, India.
         </span>
