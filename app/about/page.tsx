@@ -39,48 +39,67 @@ export default function AboutPage() {
               that gap — affordably, at scale, through technology.
             </p>
 
-            <div className={styles.missionGrid}>
-              <div className={styles.missionCard}>
-                <div className={styles.missionIcon}>
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <circle cx="12" cy="12" r="10" />
-                    <circle cx="12" cy="12" r="6" />
-                    <circle cx="12" cy="12" r="2" />
-                  </svg>
+            <div className={styles.journey}>
+              <div className={styles.journeyStep}>
+                <div className={styles.journeyLine}>
+                  <span className={styles.journeyDot} />
+                  <span className={styles.journeyConnector} />
                 </div>
-                <h3>Research-first</h3>
-                <p>
-                  We spent a month on the ground in Cape Town before writing a
-                  single line of code. Every product decision is backed by real
-                  conversations with real students.
-                </p>
+                <div className={styles.journeyContent}>
+                  <span className={styles.journeyLabel}>Done</span>
+                  <h3>Research-first</h3>
+                  <p>
+                    We spent a month on the ground in Cape Town before writing a
+                    single line of code. Every product decision is backed by real
+                    conversations with real students.
+                  </p>
+                </div>
               </div>
-              <div className={styles.missionCard}>
-                <div className={styles.missionIcon}>
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <circle cx="12" cy="12" r="10" />
-                    <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-                  </svg>
+
+              <div className={styles.journeyStep}>
+                <div className={styles.journeyLine}>
+                  <span className={styles.journeyDot} />
+                  <span className={styles.journeyConnector} />
                 </div>
-                <h3>Cross-border by design</h3>
-                <p>
-                  One founder in South Africa owns the market. One founder in
-                  India builds the product. This isn't remote work — it's a
-                  deliberately distributed company.
-                </p>
+                <div className={styles.journeyContent}>
+                  <span className={styles.journeyLabel}>Done</span>
+                  <h3>Cross-border by design</h3>
+                  <p>
+                    One founder in South Africa owns the market. One founder in
+                    India builds the product. This isn't remote work — it's a
+                    deliberately distributed company.
+                  </p>
+                </div>
               </div>
-              <div className={styles.missionCard}>
-                <div className={styles.missionIcon}>
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
-                  </svg>
+
+              <div className={styles.journeyStep}>
+                <div className={styles.journeyLine}>
+                  <span className={styles.journeyDotActive} />
+                  <span className={styles.journeyConnector} />
                 </div>
-                <h3>Build fast, learn faster</h3>
-                <p>
-                  We're a startup. We ship quickly, test with real users, and
-                  iterate. No months of planning — just building what students
-                  actually need.
-                </p>
+                <div className={styles.journeyContent}>
+                  <span className={styles.journeyLabelActive}>In progress</span>
+                  <h3>Build fast, learn faster</h3>
+                  <p>
+                    We're a startup. We ship quickly, test with real users, and
+                    iterate. No months of planning — just building what students
+                    actually need.
+                  </p>
+                </div>
+              </div>
+
+              <div className={styles.journeyStep}>
+                <div className={styles.journeyLine}>
+                  <span className={styles.journeyDotNext} />
+                </div>
+                <div className={styles.journeyContent}>
+                  <span className={styles.journeyLabelNext}>Next</span>
+                  <h3>Launch MatricMath</h3>
+                  <p>
+                    Roll out the platform to South African matric students. Live
+                    tutoring, video lessons, and practice tools — all in one place.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
