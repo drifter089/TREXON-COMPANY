@@ -273,21 +273,21 @@ export default function AboutPage() {
             <span className={styles.eyebrow}>We're Hiring</span>
             <h2 className={styles.sectionTitle}>Join us in Delhi</h2>
             <p className={styles.sectionSubtitle}>
-              On-site roles starting from ₹70,000/month
+              On-site roles starting from ₹70,000/month · 2–3% equity after 6 months
             </p>
 
             <div className={styles.rolesGrid}>
               <div className={styles.roleCard}>
                 <h3>Software Engineer</h3>
-                <p>Next.js, React Native, real-time video</p>
+                <p>Next.js, React Native, real-time video. Build the entire MatricMath platform from scratch.</p>
               </div>
               <div className={styles.roleCard}>
                 <h3>Video Editor</h3>
-                <p>Educational content and marketing</p>
+                <p>Educational content and marketing videos. Create material that South African students want to watch.</p>
               </div>
               <div className={styles.roleCard}>
                 <h3>Math Teacher</h3>
-                <p>Live tutoring for matric students</p>
+                <p>Live tutoring for matric students. Teach mathematics through our platform across South Africa.</p>
               </div>
             </div>
 
