@@ -2,6 +2,7 @@ import Navbar from '@/app/components/Navbar';
 import Hero from '@/app/components/Hero';
 import TheProblem from '@/app/components/TheProblem';
 import OurApproach from '@/app/components/OurApproach';
+import HowWeWork from '@/app/components/HowWeWork';
 import Footer from './components/Footer';
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
       <Hero />
       <TheProblem />
       <OurApproach />
+      <HowWeWork />
       <Footer />
     </div>
   );
