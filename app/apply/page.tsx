@@ -89,7 +89,7 @@ const FAQ = [
   },
   {
     q: "What's the interview process?",
-    a: "Application → Short call → Task/Demo → Offer. Usually 1-2 weeks total.",
+    a: "Apply → Review → Founder call → Decision. Usually under 1 week.",
   },
   {
     q: "When do you start?",
