@@ -210,6 +210,38 @@ export default function ApplyPage() {
           </div>
         </section>
 
+        {/* Hiring Process */}
+        <section className={styles.processSection}>
+          <div className={styles.processInner}>
+            <h2 className={styles.processTitle}>Hiring Process</h2>
+            <div className={styles.processSteps}>
+              <div className={styles.processStep}>
+                <span className={styles.processNumber}>1</span>
+                <div className={styles.processConnector} />
+                <h3>Apply</h3>
+                <p>Submit your application through the form below</p>
+              </div>
+              <div className={styles.processStep}>
+                <span className={styles.processNumber}>2</span>
+                <div className={styles.processConnector} />
+                <h3>Review</h3>
+                <p>We review every application within 3 days</p>
+              </div>
+              <div className={styles.processStep}>
+                <span className={styles.processNumber}>3</span>
+                <div className={styles.processConnector} />
+                <h3>Conversation</h3>
+                <p>30-min call with a founder — no trick questions</p>
+              </div>
+              <div className={styles.processStep}>
+                <span className={styles.processNumber}>4</span>
+                <h3>Decision</h3>
+                <p>You'll hear back within 1 week</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Application Form */}
         <section className={styles.formSection}>
           <div className={styles.formInner}>

@@ -161,6 +161,83 @@
   color: var(--gray-400);
 }
 
+/* Hiring Process */
+.processSection {
+  padding: 80px clamp(24px, 5vw, 80px);
+  border-top: 1px solid var(--gray-200);
+}
+
+.processInner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.processTitle {
+  font-family: var(--serif);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 400;
+  color: var(--black);
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.processSteps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+
+.processStep {
+  text-align: center;
+  padding: 0 20px;
+  position: relative;
+}
+
+.processNumber {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--black);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin: 0 auto 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.processConnector {
+  position: absolute;
+  top: 22px;
+  left: calc(50% + 22px);
+  right: calc(-50% + 22px);
+  height: 2px;
+  background: var(--gray-200);
+}
+
+.processStep:last-child .processConnector {
+  display: none;
+}
+
+.processStep h3 {
+  font-family: var(--sans);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 6px;
+}
+
+.processStep p {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--gray-500);
+  line-height: 1.5;
+}
+
 /* Form Section */
 .formSection {
   padding: 80px clamp(24px, 5vw, 80px);
@@ -372,6 +449,19 @@
   .roleDetails {
     grid-template-columns: 1fr;
     gap: 32px;
+  }
+
+  .processSection {
+    padding: 60px 24px;
+  }
+
+  .processSteps {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .processConnector {
+    display: none;
   }
 
   .formSection {
