@@ -241,10 +241,11 @@
 /* Form Section */
 .formSection {
   padding: 80px clamp(24px, 5vw, 80px);
+  border-top: 1px solid var(--gray-200);
 }
 
 .formInner {
-  max-width: 600px;
+  max-width: 640px;
   margin: 0 auto;
 }
 
@@ -282,6 +283,16 @@
   color: var(--black);
 }
 
+.required {
+  color: #c00;
+}
+
+.optional {
+  font-weight: 400;
+  color: var(--gray-400);
+  font-size: 0.8rem;
+}
+
 .formGroup input,
 .formGroup select,
 .formGroup textarea {
@@ -292,6 +303,12 @@
   background: var(--white);
   color: var(--black);
   transition: border-color 0.2s ease;
+  border-radius: 0;
+}
+
+.formGroup input::placeholder,
+.formGroup textarea::placeholder {
+  color: var(--gray-300);
 }
 
 .formGroup input:focus,
@@ -306,17 +323,114 @@
   min-height: 120px;
 }
 
-.formGroup input[type="file"] {
-  padding: 12px;
+/* Drop Zone */
+.dropZone {
+  border: 2px dashed var(--gray-200);
+  padding: 32px 24px;
+  text-align: center;
   cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dropZone:hover {
+  border-color: var(--gray-400);
+}
+
+.dropZoneActive {
+  border-color: var(--black);
+  background: var(--gray-100);
+}
+
+.dropZoneHasFile {
+  border-style: solid;
+  border-color: var(--gray-200);
+  padding: 16px 20px;
+}
+
+.dropZoneContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--gray-400);
+}
+
+.dropZoneContent p {
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  color: var(--gray-500);
+  margin: 0;
+}
+
+.browseLink {
+  color: var(--black);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.fileInput {
+  display: none;
 }
 
 .fileHint {
   font-family: var(--sans);
-  font-size: 0.8rem;
-  color: var(--gray-500);
+  font-size: 0.75rem;
+  color: var(--gray-400);
 }
 
+/* File Preview */
+.filePreview {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--black);
+}
+
+.fileInfo {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  text-align: left;
+}
+
+.fileName {
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--black);
+}
+
+.fileSize {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  color: var(--gray-400);
+}
+
+.fileRemove {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  color: var(--gray-400);
+  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.fileRemove:hover {
+  color: #c00;
+}
+
+/* Error */
+.errorMsg {
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  color: #c00;
+  text-align: center;
+}
+
+/* Submit Button */
 .submitBtn {
   font-family: var(--sans);
   font-size: 1rem;
@@ -326,12 +440,37 @@
   color: var(--white);
   border: none;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: all 0.2s ease;
   margin-top: 16px;
+  position: relative;
 }
 
 .submitBtn:hover {
   background: var(--gray-800);
+}
+
+.submitBtn:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.submitBtnLoading {
+  background: var(--gray-700);
+}
+
+.submitSpinner {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.submitSpinner svg {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 /* Success Page */
