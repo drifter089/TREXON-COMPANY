@@ -15,7 +15,7 @@ html {
 
 /* --- Design tokens --- */
 :root {
-  /* Warm minimal palette — black & white only, warmth from off-white cream */
+  /* Warm minimal palette — B&W base, warmth from off-white cream */
   --cream: #faf7f2;
   --cream-soft: #f4efe7;
   --cream-deep: #ede6d8;
@@ -25,6 +25,12 @@ html {
   --ink-faint: #8c857c;
   --line: #e5dfd4;
   --line-soft: #efe9dd;
+
+  /* Rust accent — used sparingly for emphasis (~5% of surface) */
+  --rust: #a63d2f;
+  --rust-light: #bf5847;
+  --rust-deep: #8a2e22;
+  --rust-tint: #f5e5e2;
 
   /* Legacy aliases — keep old components working during migration */
   --white: var(--cream);
@@ -120,7 +126,7 @@ body {
 }
 
 ::selection {
-  background: var(--ink);
+  background: var(--rust);
   color: var(--cream);
 }
 

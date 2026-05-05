@@ -1,201 +1,166 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import Link from "next/link";
-import gsap from "gsap";
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
+import MagneticLink from "./MagneticLink";
 import styles from "./Hero.module.css";
 
+const Earth3D = dynamic(() => import("./Earth3D"), {
+  ssr: false,
+  loading: () => null,
+});
+
+interface Word {
+  text: string;
+  accentSuffix?: string;
+}
+
+const HEADLINE: Word[] = [
+  { text: "Take" },
+  { text: "your" },
+  { text: "business" },
+  { text: "online", accentSuffix: "." },
+];
+
+const SUBHEAD =
+  "A digital studio for software, websites, and marketing.";
+
+const MARQUEE = [
+  "Custom Software",
+  "Websites",
+  "Digital Marketing",
+  "Branding",
+  "UI / UX",
+  "E-commerce",
+  "Mobile Apps",
+  "SEO",
+];
+
 export default function Hero() {
-  const heroRef = useRef<HTMLElement>(null);
-  const particlesRef = useRef<HTMLDivElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
+  const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Animate particles
-      const particles = particlesRef.current?.querySelectorAll(`.${styles.particle}`);
-      if (particles) {
-        particles.forEach((particle, i) => {
-          gsap.to(particle, {
-            y: "random(-20, 20)",
-            x: "random(-20, 20)",
-            duration: "random(3, 5)",
-            repeat: -1,
-            yoyo: true,
-            ease: "sine.inOut",
-            delay: i * 0.1,
-          });
-        });
-      }
-
-      // Content animations
-      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-
-      tl.fromTo(
-        `.${styles.tag}`,
-        { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 0.8 }
-      )
-        .fromTo(
-          `.${styles.title}`,
-          { opacity: 0, y: 40 },
-          { opacity: 1, y: 0, duration: 1 },
-          "-=0.5"
-        )
-        .fromTo(
-          `.${styles.subtitle}`,
-          { opacity: 0, y: 30 },
-          { opacity: 1, y: 0, duration: 0.8 },
-          "-=0.6"
-        )
-        .fromTo(
-          `.${styles.productSection}`,
-          { opacity: 0, y: 30 },
-          { opacity: 1, y: 0, duration: 0.8 },
-          "-=0.4"
-        )
-        .fromTo(
-          `.${styles.ctas}`,
-          { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 0.6 },
-          "-=0.4"
-        )
-        .fromTo(
-          `.${styles.scrollIndicator}`,
-          { opacity: 0 },
-          { opacity: 1, duration: 0.6 },
-          "-=0.2"
-        );
-
-      // Gradient animation
-      gsap.to(`.${styles.gradientOrb1}`, {
-        x: 100,
-        y: -50,
-        duration: 8,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-      });
-
-      gsap.to(`.${styles.gradientOrb2}`, {
-        x: -80,
-        y: 60,
-        duration: 10,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-      });
-
-      gsap.to(`.${styles.gradientOrb3}`, {
-        x: 60,
-        y: 40,
-        duration: 7,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-      });
-    }, heroRef);
-
-    return () => ctx.revert();
+    const seen = sessionStorage.getItem("threxon-loaded");
+    if (seen) {
+      setReady(true);
+      return;
+    }
+    const t = setTimeout(() => setReady(true), 2400);
+    return () => clearTimeout(t);
   }, []);
 
+  const ease = [0.16, 1, 0.3, 1] as const;
+
   return (
-    <section ref={heroRef} className={styles.hero}>
-      {/* Animated gradient background */}
-      <div className={styles.gradientBg}>
-        <div className={`${styles.gradientOrb} ${styles.gradientOrb1}`} />
-        <div className={`${styles.gradientOrb} ${styles.gradientOrb2}`} />
-        <div className={`${styles.gradientOrb} ${styles.gradientOrb3}`} />
-      </div>
+    <section className={styles.hero}>
+      <div className={styles.inner}>
+        <div className={styles.content}>
+          <motion.div
+            className={styles.topRow}
+            initial={{ opacity: 0, y: 12 }}
+            animate={ready ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.05, ease }}
+          >
+            <span className={styles.eyebrow}>
+              <span className={styles.eyebrowDot} aria-hidden />
+              Available worldwide
+            </span>
+          </motion.div>
 
-      {/* Floating particles */}
-      <div ref={particlesRef} className={styles.particles}>
-        {[...Array(20)].map((_, i) => (
-          <div
-            key={i}
-            className={styles.particle}
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${i * 0.2}s`,
-            }}
-          />
-        ))}
-      </div>
+          <h1
+            className={styles.headline}
+            aria-label={HEADLINE.map((w) => w.text + (w.accentSuffix ?? "")).join(" ")}
+          >
+            {HEADLINE.map((word, i) => (
+              <span key={i} className={styles.wordWrap}>
+                <motion.span
+                  className={styles.word}
+                  initial={{ y: "115%" }}
+                  animate={ready ? { y: 0 } : {}}
+                  transition={{
+                    duration: 0.95,
+                    delay: 0.15 + i * 0.07,
+                    ease,
+                  }}
+                >
+                  {word.text}
+                  {word.accentSuffix && (
+                    <span className={styles.accent}>{word.accentSuffix}</span>
+                  )}
+                </motion.span>
+              </span>
+            ))}
+          </h1>
 
-      {/* Grid overlay */}
-      <div className={styles.grid} />
+          <motion.p
+            className={styles.subhead}
+            initial={{ opacity: 0, y: 16 }}
+            animate={ready ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.7, ease }}
+          >
+            {SUBHEAD}
+          </motion.p>
 
-      <div ref={contentRef} className={styles.content}>
-        {/* Tag */}
-        <span className={styles.tag}>Delhi → South Africa</span>
-
-        {/* Headline */}
-        <h1 className={styles.title}>
-          We're building the future
-          <br />
-          of education. <span className={styles.italic}>From Delhi.</span>
-        </h1>
-
-        {/* Subtext */}
-        <p className={styles.subtitle}>
-          THREXON is an ed-tech company connecting India's best math talent with
-          South African students who need it most.
-        </p>
-
-        {/* Product Section */}
-        <div className={styles.productSection}>
-          <h3 className={styles.productTitle}>MatricMath — Our Product</h3>
-          <div className={styles.productGrid}>
-            <div className={styles.productCard}>
-              <div className={styles.productIcon}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <rect x="2" y="3" width="20" height="14" rx="2" />
-                  <path d="M8 21h8M12 17v4" />
+          <motion.div
+            className={styles.ctas}
+            initial={{ opacity: 0, y: 16 }}
+            animate={ready ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.85, ease }}
+          >
+            <MagneticLink
+              href="#work"
+              className={styles.primaryCta}
+              cursorVariant="hover"
+            >
+              <span className={styles.ctaText}>See our work</span>
+              <span className={styles.ctaArrow} aria-hidden>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14M13 5l7 7-7 7" />
                 </svg>
-              </div>
-              <span>Online Tutoring Platform</span>
-            </div>
-            <div className={styles.productCard}>
-              <div className={styles.productIcon}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <rect x="5" y="2" width="14" height="20" rx="2" />
-                  <path d="M12 18h.01" />
-                </svg>
-              </div>
-              <span>Mobile App</span>
-            </div>
-            <div className={styles.productCard}>
-              <div className={styles.productIcon}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <circle cx="12" cy="12" r="10" />
-                  <path d="M12 6v6l4 2" />
-                </svg>
-              </div>
-              <span>Live Sessions</span>
-            </div>
-          </div>
-          <p className={styles.productDesc}>
-            This is the tech you'd build. This is what tutors teach through.
-          </p>
+              </span>
+            </MagneticLink>
+          </motion.div>
+
+          <motion.div
+            className={styles.bottomRow}
+            initial={{ opacity: 0 }}
+            animate={ready ? { opacity: 1 } : {}}
+            transition={{ duration: 0.8, delay: 1.05, ease }}
+          >
+            <span className={styles.scrollHint}>
+              <span className={styles.scrollLabel}>Scroll</span>
+              <span className={styles.scrollLine} aria-hidden />
+            </span>
+            <span className={styles.metaRight}>
+              <span className={styles.metaItem}>Top quality</span>
+              <span className={styles.metaSep} aria-hidden>/</span>
+              <span className={styles.metaItem}>Record time</span>
+              <span className={styles.metaSep} aria-hidden>/</span>
+              <span className={styles.metaItem}>Fair price</span>
+            </span>
+          </motion.div>
         </div>
 
-        {/* CTAs */}
-        <div className={styles.ctas}>
-          <Link href="/apply" className={styles.primaryBtn}>
-            See Open Roles
-          </Link>
-          <Link href="/about" className={styles.secondaryBtn}>
-            Learn More
-          </Link>
-        </div>
+        <Earth3D ready={ready} />
       </div>
 
-      {/* Scroll indicator */}
-      <div className={styles.scrollIndicator}>
-        <span className={styles.scrollText}>Scroll</span>
-        <div className={styles.scrollLine} />
-      </div>
+      <motion.div
+        className={styles.marquee}
+        initial={{ opacity: 0 }}
+        animate={ready ? { opacity: 1 } : {}}
+        transition={{ duration: 1.2, delay: 1.3, ease }}
+        aria-hidden
+      >
+        <div className={styles.marqueeTrack}>
+          {[...MARQUEE, ...MARQUEE].map((item, i) => (
+            <span key={i} className={styles.marqueeItem}>
+              <span className={styles.marqueeDot} />
+              {item}
+            </span>
+          ))}
+        </div>
+      </motion.div>
     </section>
   );
 }
