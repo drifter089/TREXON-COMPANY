@@ -140,6 +140,25 @@ button {
   background: none;
 }
 
+/* --- Custom cursor: hide native cursor on desktop when active --- */
+html.cursor-hidden,
+html.cursor-hidden * {
+  cursor: none;
+}
+
+html.cursor-hidden input,
+html.cursor-hidden textarea,
+html.cursor-hidden select {
+  cursor: text;
+}
+
+@media (hover: none), (max-width: 768px) {
+  html.cursor-hidden,
+  html.cursor-hidden * {
+    cursor: auto;
+  }
+}
+
 /* --- Animations --- */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(24px); }
