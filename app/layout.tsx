@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import SmoothScroll from "./components/SmoothScroll";
 import CustomCursor from "./components/CustomCursor";
+import LoadingScreen from "./components/LoadingScreen";
 
 export const metadata: Metadata = {
   title: "THREXON — Software, Websites & Digital Marketing",
@@ -17,6 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
+        <LoadingScreen />
         <SmoothScroll />
         <CustomCursor />
         {children}
