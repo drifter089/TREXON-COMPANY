@@ -32,18 +32,20 @@ export default function Nav() {
         </Link>
 
         <div className={styles.links}>
-          {NAV_ITEMS.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              data-cursor="hover"
-              className={`${styles.link} ${
-                pathname === item.href ? styles.active : ""
-              }`}
-            >
-              {item.label}
-            </Link>
-          ))}
+          {NAV_ITEMS.map((item) => {
+            const isAnchor = item.href.includes("#");
+            const isActive = !isAnchor && pathname === item.href;
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                data-cursor="hover"
+                className={`${styles.link} ${isActive ? styles.active : ""}`}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </div>
       </div>
     </nav>
