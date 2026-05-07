@@ -1,0 +1,111 @@
+.page {
+  background: var(--cream);
+  min-height: 100vh;
+}
+
+/* ============================
+   Hero — full viewport, italic serif, centered
+   ============================ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(120px, 14vw, 200px) 0 clamp(80px, 10vw, 130px);
+}
+
+.heroInner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--container-pad);
+  text-align: center;
+}
+
+.heroTitle {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2.6rem, 6.5vw, 6.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.018em;
+  color: var(--ink);
+  margin: 0 auto;
+  max-width: 22ch;
+  display: flex;
+  flex-direction: column;
+}
+
+.line {
+  display: block;
+  overflow: hidden;
+  padding: 0.04em 0;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.accent {
+  color: var(--rust);
+  font-style: italic;
+}
+
+/* ============================
+   Story — three paragraphs, eyebrow with rust dot
+   ============================ */
+.story {
+  padding: clamp(96px, 12vw, 160px) 0 clamp(96px, 12vw, 140px);
+  border-top: 1px solid var(--line);
+}
+
+.storyInner {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 var(--container-pad);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: clamp(40px, 5vw, 64px);
+}
+
+.eyebrowDot {
+  width: 8px;
+  height: 8px;
+  background: var(--rust);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.storyBody {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(24px, 3vw, 32px);
+}
+
+.storyPara {
+  font-family: var(--sans);
+  font-size: clamp(1.1rem, 1.5vw, 1.35rem);
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin: 0;
+  letter-spacing: var(--tracking-snug);
+}
+
+.bold {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: clamp(2rem, 9vw, 3.5rem);
+  }
+}
