@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 import { WORK_PROJECTS, type WorkProject } from "@/app/data/work";
 import styles from "./Work.module.css";
 
-const WalkingFigure = dynamic(() => import("./WalkingFigure"), {
+const WorkSculpture = dynamic(() => import("./WorkSculpture"), {
   ssr: false,
   loading: () => null,
 });
@@ -18,63 +18,23 @@ const ease = [0.16, 1, 0.3, 1] as const;
 export default function Work() {
   return (
     <main className={styles.page}>
-      <Hero />
-      <WalkBand />
+      <Sculpture />
       <Grid />
     </main>
   );
 }
 
-function Hero() {
-  return (
-    <section className={styles.hero}>
-      <div className={styles.heroInner}>
-        <motion.span
-          className={styles.eyebrow}
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease }}
-        >
-          <span className={styles.eyebrowDot} aria-hidden />
-          .work
-        </motion.span>
-
-        <motion.h1
-          className={styles.heroTitle}
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.95, delay: 0.1, ease }}
-        >
-          Selected
-          <span className={styles.italic}> work</span>
-          <span className={styles.accent}>.</span>
-        </motion.h1>
-
-        <motion.p
-          className={styles.heroSub}
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.85, delay: 0.3, ease }}
-        >
-          A small set of things we&apos;ve shipped — for teams who&apos;d
-          rather build than pitch.
-        </motion.p>
-      </div>
-    </section>
-  );
-}
-
-function WalkBand() {
+function Sculpture() {
   return (
     <motion.section
-      className={styles.walkBand}
+      className={styles.sculpture}
       aria-hidden
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 1.2, delay: 0.5, ease }}
+      transition={{ duration: 1.2, delay: 0.2, ease }}
     >
-      <div className={styles.walkInner}>
-        <WalkingFigure />
+      <div className={styles.sculptureInner}>
+        <WorkSculpture />
       </div>
     </motion.section>
   );
@@ -83,6 +43,7 @@ function WalkBand() {
 function Grid() {
   return (
     <section className={styles.grid} aria-label="Selected projects">
+      <span className={styles.verticalRule} aria-hidden />
       {WORK_PROJECTS.flatMap((project, i, arr) => {
         const items = [
           <ProjectCard
@@ -91,8 +52,6 @@ function Grid() {
             delay={i * 0.05}
           />,
         ];
-        // After each completed pair (every 2nd item), insert a row divider —
-        // unless it's the final pair.
         if (i % 2 === 1 && i < arr.length - 1) {
           items.push(
             <Fragment key={`div-${i}`}>
@@ -127,6 +86,10 @@ function ProjectCard({
         data-cursor="hover"
         aria-label={`Open ${project.title}`}
       >
+        <div className={styles.meta}>
+          <h3 className={styles.title}>{project.title}</h3>
+          <p className={styles.caption}>{project.caption}</p>
+        </div>
         <div className={styles.cover}>
           <Image
             src={project.cover}
@@ -135,10 +98,6 @@ function ProjectCard({
             sizes="(max-width: 768px) 100vw, 50vw"
             className={styles.coverImage}
           />
-        </div>
-        <div className={styles.meta}>
-          <h3 className={styles.title}>{project.title}</h3>
-          <p className={styles.caption}>{project.caption}</p>
         </div>
       </Link>
     </motion.article>
