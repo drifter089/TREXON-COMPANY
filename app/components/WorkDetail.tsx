@@ -137,9 +137,8 @@ export default function WorkDetail({
                 <Image
                   src={src}
                   alt={`${project.title} screenshot ${i + 1}`}
-                  width={1600}
-                  height={1000}
-                  sizes="(max-width: 768px) 100vw, 80vw"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 45vw"
                   className={styles.galleryImage}
                 />
               </div>

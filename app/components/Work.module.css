@@ -70,13 +70,12 @@
 
 .figureStage {
   position: absolute;
-  top: 0;
-  right: 0;
+  right: clamp(24px, 4vw, 80px);
   bottom: 0;
-  width: clamp(280px, 32vw, 460px);
+  width: clamp(220px, 24vw, 360px);
+  height: clamp(200px, 22vw, 320px);
   z-index: 1;
   pointer-events: none;
-  opacity: 0.95;
 }
 
 /* ---------------- Grid ---------------- */
