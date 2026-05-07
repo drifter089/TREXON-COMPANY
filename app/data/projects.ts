@@ -1,67 +1,104 @@
+export type ProjectCategory = "Software" | "Website" | "Marketing";
+
 export interface Project {
   id: string;
   index: string;
   title: string;
-  tags: string[];
+  category: ProjectCategory;
   image: string;
-  year: string;
+  caption: string;
 }
 
 export const PROJECTS: Project[] = [
   {
-    id: "net-zero-2050",
+    id: "project-1",
     index: "01",
-    title: "Net-Zero 2050",
-    tags: ["Web App", "Data Viz"],
-    image: "/project-1.png",
-    year: "2026",
+    title: "Northstar",
+    category: "Software",
+    image: "/project1.png",
+    caption: "Internal ops platform that replaced three spreadsheets.",
   },
   {
-    id: "teachbay",
+    id: "project-5",
     index: "02",
-    title: "TeachBay",
-    tags: ["SaaS", "AI"],
-    image: "/project-2.png",
-    year: "2026",
+    title: "Vertex",
+    category: "Software",
+    image: "/project-5.png",
+    caption: "Analytics console for a growing fintech product team.",
   },
   {
-    id: "focus-flow",
+    id: "project-2",
     index: "03",
-    title: "Focus Flow",
-    tags: ["Web App", "Dashboard"],
-    image: "/project-3.png",
-    year: "2025",
-  },
-  {
-    id: "fastfood",
-    index: "04",
-    title: "FastFood",
-    tags: ["E-commerce", "Mobile"],
-    image: "/project-4.png",
-    year: "2025",
-  },
-  {
-    id: "atelier-co",
-    index: "05",
-    title: "Atelier Co.",
-    tags: ["Branding", "Website"],
-    image: "/project-1.png",
-    year: "2025",
-  },
-  {
-    id: "pulse-insight",
-    index: "06",
-    title: "Pulse Insight",
-    tags: ["SaaS", "Analytics"],
+    title: "Helix",
+    category: "Website",
     image: "/project-2.png",
-    year: "2024",
+    caption: "Commerce rebuild that doubled checkout completion rate.",
   },
   {
-    id: "north-bay",
-    index: "07",
-    title: "North Bay Studio",
-    tags: ["Marketing Site", "CMS"],
+    id: "project-3",
+    index: "04",
+    title: "Atlas",
+    category: "Website",
     image: "/project-3.png",
-    year: "2024",
+    caption: "Brand site for a stealth fintech, shipped in three weeks.",
+  },
+  {
+    id: "project-6",
+    index: "05",
+    title: "Nimbus",
+    category: "Website",
+    image: "/project-6.png",
+    caption: "Marketing site for a SaaS launch — fast, modular, brand-led.",
+  },
+  {
+    id: "project-4",
+    index: "06",
+    title: "Glide",
+    category: "Marketing",
+    image: "/project-4.png",
+    caption: "Always-on growth across paid, email, and SEO.",
+  },
+  {
+    id: "project-7",
+    index: "07",
+    title: "Echo",
+    category: "Marketing",
+    image: "/project-7.png",
+    caption: "Lifecycle and retention engine for a subscription brand.",
+  },
+];
+
+export interface PracticeBlock {
+  id: ProjectCategory;
+  index: string;
+  total: string;
+  title: string;
+  description: string;
+}
+
+export const PRACTICES: PracticeBlock[] = [
+  {
+    id: "Software",
+    index: "01",
+    total: "03",
+    title: "Software",
+    description:
+      "Custom platforms, internal tools, and systems built to outlive their launch.",
+  },
+  {
+    id: "Website",
+    index: "02",
+    total: "03",
+    title: "Websites",
+    description:
+      "Sites that load fast, look unmistakable, and convert past the launch quarter.",
+  },
+  {
+    id: "Marketing",
+    index: "03",
+    total: "03",
+    title: "Marketing",
+    description:
+      "Always-on campaigns across paid, email, and SEO — built to compound, not just spend.",
   },
 ];
