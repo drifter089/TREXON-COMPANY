@@ -32,7 +32,7 @@ export default function WorkDetail({
             <span className={styles.eyebrowSep} aria-hidden>
               /
             </span>
-            <span>{project.category}</span>
+            <span>{project.year}</span>
           </motion.span>
 
           <motion.h1
@@ -68,10 +68,6 @@ export default function WorkDetail({
               <dt>Role</dt>
               <dd>{project.role}</dd>
             </div>
-            <div className={styles.metaItem}>
-              <dt>Practice</dt>
-              <dd>{project.category}</dd>
-            </div>
           </motion.dl>
         </div>
       </section>
@@ -83,7 +79,7 @@ export default function WorkDetail({
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.05, delay: 0.5, ease }}
       >
-        <div className={styles.cover}>
+        <div className={styles.cover} style={{ background: project.coverBg }}>
           <Image
             src={project.cover}
             alt={`${project.title} cover`}

@@ -112,7 +112,8 @@
 }
 
 .coverImage {
-  object-fit: cover;
+  object-fit: contain;
+  padding: clamp(40px, 5vw, 80px);
 }
 
 /* ---------------- Gallery ---------------- */
