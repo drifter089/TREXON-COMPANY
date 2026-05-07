@@ -7,7 +7,7 @@ import LoadingScreen from "./components/LoadingScreen";
 export const metadata: Metadata = {
   title: "THREXON — Software, Websites & Digital Marketing",
   description:
-    "Custom software, websites, and digital marketing — top quality, delivered fast, priced fair. Offices in India and South Africa.",
+    "A small studio building software, websites, and growth — for teams who'd rather ship than pitch. Briefs welcome. Decks not required.",
 };
 
 export default function RootLayout({

@@ -2,9 +2,9 @@
   position: absolute;
   top: 50%;
   right: 4%;
-  width: clamp(300px, 32vw, 460px);
-  height: clamp(300px, 32vw, 460px);
-  margin-top: calc(-1 * clamp(300px, 32vw, 460px) / 2);
+  width: clamp(260px, 32vw, 460px);
+  height: clamp(260px, 32vw, 460px);
+  margin-top: calc(-1 * clamp(260px, 32vw, 460px) / 2);
   z-index: 3;
   pointer-events: none;
   will-change: transform;
@@ -34,8 +34,28 @@
   pointer-events: none;
 }
 
+/* Tablet: shrink + reposition rather than hide */
 @media (max-width: 1024px) {
   .wrap {
-    display: none;
+    width: clamp(200px, 30vw, 280px);
+    height: clamp(200px, 30vw, 280px);
+    right: 3%;
+    top: auto;
+    bottom: 18%;
+    margin-top: 0;
+  }
+}
+
+/* Phone: stop absolute-positioning, flow inline below the content
+   so the page stays playful even without the side-by-side layout. */
+@media (max-width: 720px) {
+  .wrap {
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    height: clamp(200px, 50vw, 280px);
+    margin: clamp(24px, 5vw, 36px) auto 0;
   }
 }
