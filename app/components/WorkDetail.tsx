@@ -1,0 +1,145 @@
+"use client";
+
+import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import type { WorkProject } from "@/app/data/work";
+import styles from "./WorkDetail.module.css";
+
+const ease = [0.16, 1, 0.3, 1] as const;
+
+export default function WorkDetail({
+  project,
+  next,
+}: {
+  project: WorkProject;
+  next?: WorkProject;
+}) {
+  return (
+    <main className={styles.page}>
+      {/* --- Hero --- */}
+      <section className={styles.hero}>
+        <div className={styles.heroInner}>
+          <motion.span
+            className={styles.eyebrow}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease }}
+          >
+            <Link href="/work" className={styles.backLink} data-cursor="hover">
+              <span aria-hidden>←</span> Work
+            </Link>
+            <span className={styles.eyebrowSep} aria-hidden>
+              /
+            </span>
+            <span>{project.category}</span>
+          </motion.span>
+
+          <motion.h1
+            className={styles.title}
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.1, ease }}
+          >
+            {project.title}
+            <span className={styles.titleAccent}>.</span>
+          </motion.h1>
+
+          <motion.p
+            className={styles.caption}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.85, delay: 0.3, ease }}
+          >
+            {project.caption}
+          </motion.p>
+
+          <motion.dl
+            className={styles.meta}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.45, ease }}
+          >
+            <div className={styles.metaItem}>
+              <dt>Year</dt>
+              <dd>{project.year}</dd>
+            </div>
+            <div className={styles.metaItem}>
+              <dt>Role</dt>
+              <dd>{project.role}</dd>
+            </div>
+            <div className={styles.metaItem}>
+              <dt>Practice</dt>
+              <dd>{project.category}</dd>
+            </div>
+          </motion.dl>
+        </div>
+      </section>
+
+      {/* --- Cover --- */}
+      <motion.figure
+        className={styles.coverFigure}
+        initial={{ opacity: 0, y: 32 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.05, delay: 0.5, ease }}
+      >
+        <div className={styles.cover}>
+          <Image
+            src={project.cover}
+            alt={`${project.title} cover`}
+            fill
+            priority
+            sizes="(max-width: 768px) 100vw, 92vw"
+            className={styles.coverImage}
+          />
+        </div>
+      </motion.figure>
+
+      {/* --- Gallery --- */}
+      {project.gallery.length > 0 && (
+        <section className={styles.gallery} aria-label={`${project.title} gallery`}>
+          {project.gallery.map((src, i) => (
+            <motion.figure
+              key={src}
+              className={styles.galleryItem}
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-15%" }}
+              transition={{ duration: 0.85, ease }}
+            >
+              <div className={styles.galleryImageWrap}>
+                <Image
+                  src={src}
+                  alt={`${project.title} screenshot ${i + 1}`}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 80vw"
+                  className={styles.galleryImage}
+                />
+              </div>
+            </motion.figure>
+          ))}
+        </section>
+      )}
+
+      {/* --- Footer nav --- */}
+      <section className={styles.footerNav}>
+        {next && (
+          <Link
+            href={`/work/${next.slug}`}
+            className={styles.nextLink}
+            data-cursor="hover"
+          >
+            <span className={styles.nextEyebrow}>Next project</span>
+            <span className={styles.nextTitle}>
+              {next.title}
+              <span aria-hidden> →</span>
+            </span>
+          </Link>
+        )}
+        <Link href="/work" className={styles.backFooter} data-cursor="hover">
+          <span aria-hidden>←</span> Back to all work
+        </Link>
+      </section>
+    </main>
+  );
+}
