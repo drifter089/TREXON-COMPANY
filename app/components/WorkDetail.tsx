@@ -19,57 +19,39 @@ export default function WorkDetail({
     <main className={styles.page}>
       {/* --- Hero --- */}
       <section className={styles.hero}>
-        <div className={styles.heroInner}>
-          <motion.span
-            className={styles.eyebrow}
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease }}
-          >
-            <Link href="/work" className={styles.backLink} data-cursor="hover">
-              <span aria-hidden>←</span> Work
-            </Link>
-            <span className={styles.eyebrowSep} aria-hidden>
-              /
-            </span>
-            <span>{project.year}</span>
-          </motion.span>
+        <motion.span
+          className={styles.eyebrow}
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease }}
+        >
+          <Link href="/work" className={styles.backLink} data-cursor="hover">
+            <span aria-hidden>←</span> Work
+          </Link>
+          <span className={styles.eyebrowSep} aria-hidden>
+            /
+          </span>
+          <span>{project.year}</span>
+        </motion.span>
 
-          <motion.h1
-            className={styles.title}
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.1, ease }}
-          >
-            {project.title}
-            <span className={styles.titleAccent}>.</span>
-          </motion.h1>
+        <motion.h1
+          className={styles.title}
+          initial={{ opacity: 0, y: 28 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.1, ease }}
+        >
+          {project.title}
+          <span className={styles.titleAccent}>.</span>
+        </motion.h1>
 
-          <motion.p
-            className={styles.caption}
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.85, delay: 0.3, ease }}
-          >
-            {project.caption}
-          </motion.p>
-
-          <motion.dl
-            className={styles.meta}
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.45, ease }}
-          >
-            <div className={styles.metaItem}>
-              <dt>Year</dt>
-              <dd>{project.year}</dd>
-            </div>
-            <div className={styles.metaItem}>
-              <dt>Role</dt>
-              <dd>{project.role}</dd>
-            </div>
-          </motion.dl>
-        </div>
+        <motion.p
+          className={styles.caption}
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.85, delay: 0.3, ease }}
+        >
+          {project.caption}
+        </motion.p>
       </section>
 
       {/* --- Cover --- */}
@@ -77,9 +59,9 @@ export default function WorkDetail({
         className={styles.coverFigure}
         initial={{ opacity: 0, y: 32 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.05, delay: 0.5, ease }}
+        transition={{ duration: 1.05, delay: 0.4, ease }}
       >
-        <div className={styles.cover} style={{ background: project.coverBg }}>
+        <div className={styles.cover}>
           <Image
             src={project.cover}
             alt={`${project.title} cover`}
@@ -91,14 +73,62 @@ export default function WorkDetail({
         </div>
       </motion.figure>
 
+      {/* --- Case study body: meta + introduction --- */}
+      <section className={styles.body}>
+        <motion.aside
+          className={styles.meta}
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-15%" }}
+          transition={{ duration: 0.7, ease }}
+        >
+          <div className={styles.metaItem}>
+            <dt>Client</dt>
+            <dd>{project.client}</dd>
+          </div>
+          <div className={styles.metaItem}>
+            <dt>Industry</dt>
+            <dd>{project.industry}</dd>
+          </div>
+          <div className={styles.metaItem}>
+            <dt>Year</dt>
+            <dd>{project.year}</dd>
+          </div>
+          <div className={styles.metaItem}>
+            <dt>Deliverables</dt>
+            <dd>
+              <ul className={styles.deliverables}>
+                {project.deliverables.map((d) => (
+                  <li key={d}>{d}</li>
+                ))}
+              </ul>
+            </dd>
+          </div>
+        </motion.aside>
+
+        <motion.div
+          className={styles.intro}
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-15%" }}
+          transition={{ duration: 0.85, delay: 0.1, ease }}
+        >
+          <span className={styles.introKicker}>Introduction</span>
+          <p className={styles.introBody}>{project.introduction}</p>
+        </motion.div>
+      </section>
+
       {/* --- Gallery --- */}
       {project.gallery.length > 0 && (
-        <section className={styles.gallery} aria-label={`${project.title} gallery`}>
+        <section
+          className={styles.gallery}
+          aria-label={`${project.title} gallery`}
+        >
           {project.gallery.map((src, i) => (
             <motion.figure
               key={src}
               className={styles.galleryItem}
-              initial={{ opacity: 0, y: 28 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-15%" }}
               transition={{ duration: 0.85, ease }}
@@ -107,7 +137,8 @@ export default function WorkDetail({
                 <Image
                   src={src}
                   alt={`${project.title} screenshot ${i + 1}`}
-                  fill
+                  width={1600}
+                  height={1000}
                   sizes="(max-width: 768px) 100vw, 80vw"
                   className={styles.galleryImage}
                 />

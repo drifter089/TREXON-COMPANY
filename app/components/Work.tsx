@@ -97,15 +97,12 @@ function ProjectCard({
         data-cursor="hover"
         aria-label={`Open ${project.title}`}
       >
-        <div
-          className={styles.cover}
-          style={{ background: project.coverBg }}
-        >
+        <div className={styles.cover}>
           <Image
             src={project.cover}
-            alt={`${project.title} logo`}
+            alt={`${project.title} cover`}
             fill
-            sizes="(max-width: 720px) 100vw, (max-width: 1100px) 50vw, 33vw"
+            sizes="(max-width: 768px) 100vw, 50vw"
             className={styles.coverImage}
           />
         </div>

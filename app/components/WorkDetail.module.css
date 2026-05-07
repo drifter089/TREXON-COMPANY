@@ -7,9 +7,6 @@
 .hero {
   padding: clamp(120px, 14vw, 180px) clamp(24px, 4vw, 80px)
     clamp(40px, 5vw, 64px);
-}
-
-.heroInner {
   max-width: 1100px;
 }
 
@@ -46,8 +43,8 @@
 .title {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: clamp(56px, 9vw, 132px);
-  line-height: 0.95;
+  font-size: clamp(48px, 7vw, 104px);
+  line-height: 0.98;
   letter-spacing: -0.025em;
   margin: 0;
 }
@@ -65,17 +62,48 @@
   color: var(--ink-soft, #2a2724);
 }
 
+/* ---------------- Cover ---------------- */
+.coverFigure {
+  margin: 0;
+  padding: 0 clamp(24px, 4vw, 80px);
+}
+
+.cover {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #efe9de;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.coverImage {
+  object-fit: contain;
+  padding: clamp(32px, 5vw, 80px);
+}
+
+/* ---------------- Body: meta + introduction ---------------- */
+.body {
+  padding: clamp(60px, 7vw, 100px) clamp(24px, 4vw, 80px) 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
+  gap: clamp(40px, 5vw, 96px);
+  max-width: 1400px;
+}
+
 .meta {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, auto));
-  gap: clamp(32px, 5vw, 64px);
-  margin: clamp(36px, 4vw, 56px) 0 0;
+  grid-template-columns: 1fr;
+  gap: clamp(24px, 2.5vw, 36px);
+  align-self: start;
+  border-top: 1px solid rgba(10, 9, 8, 0.12);
+  padding-top: clamp(24px, 3vw, 36px);
 }
 
 .metaItem {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
 }
 
 .metaItem dt {
@@ -91,29 +119,58 @@
 .metaItem dd {
   margin: 0;
   font-family: var(--sans);
-  font-size: 15px;
+  font-size: clamp(14px, 1vw, 16px);
   font-weight: 500;
+  line-height: 1.5;
   color: var(--ink);
 }
 
-/* ---------------- Cover ---------------- */
-.coverFigure {
+.deliverables {
+  list-style: none;
   margin: 0;
-  padding: 0 clamp(24px, 4vw, 80px);
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
-.cover {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  background: #ece6dc;
-  border-radius: 8px;
-  overflow: hidden;
+.deliverables li::before {
+  content: "— ";
+  color: var(--ink-muted, #6a655e);
 }
 
-.coverImage {
-  object-fit: contain;
-  padding: clamp(40px, 5vw, 80px);
+.intro {
+  border-top: 1px solid rgba(10, 9, 8, 0.12);
+  padding-top: clamp(24px, 3vw, 36px);
+}
+
+.introKicker {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-muted, #6a655e);
+  margin-bottom: clamp(20px, 2.5vw, 32px);
+}
+
+.introBody {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(22px, 2vw, 32px);
+  line-height: 1.4;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  max-width: 28ch;
+  /* Override max-width for normal flow when grid takes over */
+}
+
+@supports (selector(:has(*))) {
+  .intro .introBody {
+    max-width: 32ch;
+  }
 }
 
 /* ---------------- Gallery ---------------- */
@@ -121,7 +178,9 @@
   padding: clamp(60px, 7vw, 100px) clamp(24px, 4vw, 80px) 0;
   display: flex;
   flex-direction: column;
-  gap: clamp(40px, 5vw, 80px);
+  gap: clamp(32px, 4vw, 64px);
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .galleryItem {
@@ -131,14 +190,16 @@
 .galleryImageWrap {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 10;
-  background: #ece6dc;
+  background: #efe9de;
   border-radius: 8px;
   overflow: hidden;
 }
 
 .galleryImage {
-  object-fit: cover;
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
 }
 
 /* ---------------- Footer nav ---------------- */
@@ -201,12 +262,14 @@
 }
 
 /* ---------------- Responsive ---------------- */
-@media (max-width: 768px) {
-  .meta {
+@media (max-width: 900px) {
+  .body {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 40px;
   }
+}
 
+@media (max-width: 768px) {
   .footerNav {
     flex-direction: column;
     align-items: flex-start;
