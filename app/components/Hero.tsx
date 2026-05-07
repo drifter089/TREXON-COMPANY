@@ -155,7 +155,9 @@ export default function Hero() {
         <div className={styles.marqueeTrack}>
           {[...MARQUEE, ...MARQUEE].map((item, i) => (
             <span key={i} className={styles.marqueeItem}>
-              <span className={styles.marqueeDot} />
+              <span className={styles.marqueeSep} aria-hidden>
+                —
+              </span>
               {item}
             </span>
           ))}

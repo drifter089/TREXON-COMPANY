@@ -2,9 +2,9 @@
   position: absolute;
   top: 50%;
   right: 4%;
-  width: clamp(260px, 32vw, 460px);
-  height: clamp(260px, 32vw, 460px);
-  margin-top: calc(-1 * clamp(260px, 32vw, 460px) / 2);
+  width: clamp(220px, 26vw, 360px);
+  height: clamp(220px, 26vw, 360px);
+  margin-top: calc(-1 * clamp(220px, 26vw, 360px) / 2);
   z-index: 3;
   pointer-events: none;
   will-change: transform;

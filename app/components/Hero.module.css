@@ -332,12 +332,14 @@
   font-weight: 400;
 }
 
-.marqueeDot {
+.marqueeSep {
   display: inline-block;
-  width: 5px;
-  height: 5px;
-  background: var(--rust);
-  border-radius: 50%;
+  font-family: var(--sans);
+  font-style: normal;
+  font-weight: 400;
+  color: var(--rust);
+  opacity: 0.7;
+  letter-spacing: 0;
 }
 
 @keyframes marqueeSlide {
