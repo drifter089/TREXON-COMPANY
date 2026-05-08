@@ -1,20 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import SmoothScroll from "./components/SmoothScroll";
+import CustomCursor from "./components/CustomCursor";
+import LoadingScreen from "./components/LoadingScreen";
 
 export const metadata: Metadata = {
-  title: "THREXON — Ed-tech Connecting India & South Africa",
-  description: "THREXON builds MatricMath, connecting India's best math tutors with South African matric students through live online sessions.",
+  title: "THREXON — Software, Websites & Digital Marketing",
+  description:
+    "A small studio building software, websites, and growth — for teams who'd rather ship than pitch. Briefs welcome. Decks not required.",
 };
 
 export default function RootLayout({
@@ -24,9 +17,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className="antialiased">
+        <LoadingScreen />
+        <SmoothScroll />
+        <CustomCursor />
         {children}
       </body>
     </html>

@@ -1,0 +1,61 @@
+.wrap {
+  position: absolute;
+  top: 50%;
+  right: 4%;
+  width: clamp(220px, 26vw, 360px);
+  height: clamp(220px, 26vw, 360px);
+  margin-top: calc(-1 * clamp(220px, 26vw, 360px) / 2);
+  z-index: 3;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+  pointer-events: auto;
+  cursor: none;
+}
+
+.shadow {
+  position: absolute;
+  bottom: -2%;
+  left: 14%;
+  right: 14%;
+  height: 64px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(15, 14, 13, 0.22) 0%,
+    rgba(15, 14, 13, 0) 70%
+  );
+  filter: blur(14px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Tablet: shrink + reposition rather than hide */
+@media (max-width: 1024px) {
+  .wrap {
+    width: clamp(200px, 30vw, 280px);
+    height: clamp(200px, 30vw, 280px);
+    right: 3%;
+    top: auto;
+    bottom: 18%;
+    margin-top: 0;
+  }
+}
+
+/* Phone: stop absolute-positioning, flow inline below the content
+   so the page stays playful even without the side-by-side layout. */
+@media (max-width: 720px) {
+  .wrap {
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    height: clamp(200px, 50vw, 280px);
+    margin: clamp(24px, 5vw, 36px) auto 0;
+  }
+}

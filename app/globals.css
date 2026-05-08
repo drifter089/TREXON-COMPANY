@@ -1,44 +1,172 @@
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap');
 
-/* â”€â”€â”€ Reset â”€â”€â”€ */
+/* --- Reset --- */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* â”€â”€â”€ Variables â”€â”€â”€ */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* --- Design tokens --- */
 :root {
-  --black: #0a0a0a;
-  --white: #fafafa;
-  --gray-100: #f0f0f0;
-  --gray-200: #e0e0e0;
-  --gray-300: #c0c0c0;
-  --gray-400: #999;
-  --gray-500: #777;
-  --gray-600: #666;
-  --gray-700: #444;
-  --gray-800: #333;
+  /* Warm minimal palette — B&W base, warmth from off-white cream */
+  --cream: #faf7f2;
+  --cream-soft: #f4efe7;
+  --cream-deep: #ede6d8;
+  --ink: #0f0e0d;
+  --ink-muted: #2a2724;
+  --ink-soft: #57524c;
+  --ink-faint: #8c857c;
+  --line: #e5dfd4;
+  --line-soft: #efe9dd;
+
+  /* Rust accent — used sparingly for emphasis (~5% of surface) */
+  --rust: #a63d2f;
+  --rust-light: #bf5847;
+  --rust-deep: #8a2e22;
+  --rust-tint: #f5e5e2;
+
+  /* Legacy aliases — keep old components working during migration */
+  --white: var(--cream);
+  --black: var(--ink);
+  --gray-100: #f1ece2;
+  --gray-200: #e5dfd4;
+  --gray-300: #c9c1b3;
+  --gray-400: #a8a092;
+  --gray-500: #877f72;
+  --gray-600: #6b645a;
+  --gray-700: #4a4540;
+  --gray-800: #2f2c28;
+
+  /* Typography */
   --serif: 'Instrument Serif', Georgia, serif;
-  --sans: 'Outfit', system-ui, sans-serif;
+  --sans: 'Outfit', system-ui, -apple-system, sans-serif;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.375rem;
+  --text-2xl: 1.875rem;
+  --text-3xl: 2.5rem;
+  --text-4xl: 3.5rem;
+  --text-5xl: 4.75rem;
+  --text-display: clamp(3.5rem, 9vw, 7rem);
+
+  --leading-tight: 1.05;
+  --leading-snug: 1.2;
+  --leading-normal: 1.55;
+  --leading-relaxed: 1.7;
+
+  --tracking-tight: -0.02em;
+  --tracking-snug: -0.01em;
+  --tracking-wide: 0.04em;
+  --tracking-wider: 0.12em;
+
+  /* Spacing — 8px base */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-32: 128px;
+  --space-40: 160px;
+
+  /* Layout */
+  --max-w: 1280px;
+  --max-w-prose: 720px;
+  --container-pad: clamp(20px, 4vw, 64px);
+  --section-y: clamp(80px, 12vw, 160px);
+
+  /* Radii */
+  --r-sm: 6px;
+  --r-md: 12px;
+  --r-lg: 20px;
+  --r-xl: 32px;
+  --r-full: 999px;
+
+  /* Motion — the cohesion glue. Use these everywhere. */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.83, 0, 0.17, 1);
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-snappy: cubic-bezier(0.32, 0.72, 0, 1);
+
+  --dur-fast: 200ms;
+  --dur-base: 400ms;
+  --dur-slow: 700ms;
+  --dur-slower: 1100ms;
+
+  /* Shadows — subtle, warm-tinted */
+  --shadow-sm: 0 1px 2px rgba(15, 14, 13, 0.04);
+  --shadow-md: 0 4px 16px rgba(15, 14, 13, 0.06);
+  --shadow-lg: 0 16px 48px rgba(15, 14, 13, 0.08);
+  --shadow-xl: 0 32px 80px rgba(15, 14, 13, 0.1);
 }
 
 body {
   font-family: var(--sans);
-  background: var(--white);
-  color: var(--black);
+  background: var(--cream);
+  color: var(--ink);
+  font-weight: 400;
+  line-height: var(--leading-normal);
+  letter-spacing: var(--tracking-snug);
+  overflow-x: hidden;
 }
 
 ::selection {
-  background: var(--black);
-  color: var(--white);
+  background: var(--rust);
+  color: var(--cream);
 }
 
 textarea {
   resize: vertical;
 }
 
-/* â”€â”€â”€ Animations â”€â”€â”€ */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* --- Custom cursor: hide native cursor on desktop when active --- */
+html.cursor-hidden,
+html.cursor-hidden * {
+  cursor: none;
+}
+
+html.cursor-hidden input,
+html.cursor-hidden textarea,
+html.cursor-hidden select {
+  cursor: text;
+}
+
+@media (hover: none), (max-width: 768px) {
+  html.cursor-hidden,
+  html.cursor-hidden * {
+    cursor: auto;
+  }
+}
+
+/* --- Animations --- */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(24px); }
   to { opacity: 1; transform: translateY(0); }
@@ -50,16 +178,25 @@ textarea {
 }
 
 .animate-fade-up {
-  animation: fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fadeUp var(--dur-slow) var(--ease-out) forwards;
   opacity: 0;
 }
 
 .animate-fade-in {
-  animation: fadeIn 0.6s ease forwards;
+  animation: fadeIn var(--dur-base) var(--ease-out) forwards;
   opacity: 0;
 }
 
-/* â”€â”€â”€ Responsive â”€â”€â”€ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* --- Responsive --- */
 @media (max-width: 768px) {
   .hero-title { font-size: 2.8rem !important; }
   .section-title { font-size: 2rem !important; }

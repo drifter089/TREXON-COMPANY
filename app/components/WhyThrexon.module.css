@@ -1,0 +1,84 @@
+.section {
+  background: var(--ink);
+  color: var(--cream);
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(64px, 8vw, 100px) 0;
+  border-top: 1px solid rgba(250, 247, 242, 0.06);
+}
+
+/* Subtle ink-grid pattern, masked to a soft center vignette */
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(250, 247, 242, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(250, 247, 242, 0.05) 1px, transparent 1px);
+  background-size: clamp(48px, 6vw, 80px) clamp(48px, 6vw, 80px);
+  mask-image: radial-gradient(ellipse at center, black 25%, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 25%, transparent 78%);
+  pointer-events: none;
+}
+
+.inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--container-pad);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: clamp(24px, 3vw, 44px);
+}
+
+.statement {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: clamp(1.6rem, 3.8vw, 3.25rem);
+  line-height: 1.16;
+  letter-spacing: -0.02em;
+  color: var(--cream);
+  margin: 0;
+  max-width: 22ch;
+  will-change: transform, opacity;
+}
+
+.accent {
+  color: var(--rust);
+}
+
+.tail {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  color: rgba(250, 247, 242, 0.72);
+}
+
+.divider {
+  display: block;
+  width: 1px;
+  height: clamp(24px, 3.5vw, 44px);
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(250, 247, 242, 0.22),
+    transparent
+  );
+}
+
+@media (max-width: 640px) {
+  .section {
+    min-height: auto;
+    padding: clamp(80px, 18vw, 120px) 0;
+  }
+
+  .statement {
+    font-size: clamp(1.35rem, 6vw, 2rem);
+    max-width: 22ch;
+  }
+}

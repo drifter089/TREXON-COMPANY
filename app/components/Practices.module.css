@@ -1,0 +1,320 @@
+.section {
+  background: var(--cream);
+  padding: clamp(80px, 11vw, 144px) 0 0;
+  border-top: 1px solid var(--line);
+  position: relative;
+}
+
+/* --- Header --- */
+.header {
+  margin-bottom: clamp(40px, 6vw, 72px);
+  padding: 0 var(--container-pad);
+}
+
+.headerInner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-family: var(--sans);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: var(--space-5);
+}
+
+.eyebrowDot {
+  width: 7px;
+  height: 7px;
+  background: var(--rust);
+  border-radius: 50%;
+}
+
+.intro {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(1.05rem, 1.5vw, 1.35rem);
+  color: var(--ink-soft);
+  margin: 0 0 var(--space-3);
+  max-width: 540px;
+  line-height: 1.4;
+}
+
+.title {
+  font-family: var(--serif);
+  font-size: clamp(2.5rem, 5.5vw, 5rem);
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  margin: 0;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.accent {
+  color: var(--rust);
+  font-style: italic;
+}
+
+/* --- Stack of compact practice blocks --- */
+.stack {
+  display: flex;
+  flex-direction: column;
+}
+
+.block {
+  border-top: 1px solid var(--line);
+  padding: clamp(56px, 8vw, 110px) 0;
+  perspective: 1600px;
+  perspective-origin: center;
+}
+
+.blockInner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--container-pad);
+  display: grid;
+  grid-template-areas: "text showcase";
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  gap: clamp(40px, 6vw, 80px);
+  align-items: center;
+}
+
+.text {
+  grid-area: text;
+}
+
+.showcaseWrap {
+  grid-area: showcase;
+}
+
+.block.reverse .blockInner {
+  grid-template-areas: "showcase text";
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  min-width: 0;
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--sans);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: var(--space-2);
+}
+
+.labelKind {
+  font-weight: 500;
+}
+
+.labelDash {
+  color: var(--line);
+  font-family: var(--serif);
+  font-size: var(--text-base);
+  letter-spacing: 0;
+}
+
+.labelNum {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: var(--text-sm);
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ink);
+}
+
+.blockTitle {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(2.25rem, 5.5vw, 4.75rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.028em;
+  color: var(--ink);
+  margin: 0;
+}
+
+.brief {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(1.05rem, 1.5vw, 1.35rem);
+  line-height: 1.45;
+  color: var(--ink-soft);
+  margin: 0;
+  max-width: 36ch;
+}
+
+.includes {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-3) 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3) var(--space-5);
+}
+
+.includes li {
+  font-family: var(--sans);
+  font-size: var(--text-sm);
+  color: var(--ink-soft);
+  position: relative;
+  padding-left: 16px;
+  line-height: 1.4;
+  letter-spacing: var(--tracking-snug);
+}
+
+.includes li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 8px;
+  height: 1px;
+  background: var(--ink-faint);
+}
+
+/* --- Showcase: 3D-tilted real project image --- */
+.showcaseWrap {
+  position: relative;
+  width: 100%;
+  transform-style: preserve-3d;
+}
+
+.showcase {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9.6;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  background: var(--cream-soft);
+  box-shadow:
+    0 32px 64px -12px rgba(15, 14, 13, 0.22),
+    0 16px 32px -8px rgba(15, 14, 13, 0.14),
+    0 0 0 1px var(--line);
+  transform-style: preserve-3d;
+  will-change: transform;
+  cursor: none;
+  transition: box-shadow var(--dur-base) var(--ease-out);
+}
+
+.showcase:hover {
+  box-shadow:
+    0 48px 96px -16px rgba(15, 14, 13, 0.28),
+    0 24px 48px -12px rgba(15, 14, 13, 0.18),
+    0 0 0 1px var(--line);
+}
+
+.imageLayer {
+  position: absolute;
+  inset: 0;
+  will-change: opacity;
+}
+
+.showcaseImage {
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* --- Progress dots indicating which image is showing --- */
+.dots {
+  position: absolute;
+  bottom: -28px;
+  right: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dotsRight {
+  right: auto;
+  left: 4px;
+}
+
+.dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: var(--ink);
+  border-radius: 50%;
+  will-change: transform, opacity;
+}
+
+.showcaseLabel {
+  position: absolute;
+  bottom: -28px;
+  left: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--sans);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.block.reverse .showcaseLabel {
+  left: auto;
+  right: 4px;
+}
+
+.asterisk {
+  color: var(--rust);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: var(--text-base);
+  line-height: 1;
+}
+
+/* --- Mobile --- */
+@media (max-width: 1024px) {
+  .blockInner,
+  .block.reverse .blockInner {
+    grid-template-areas: "text" "showcase";
+    grid-template-columns: 1fr;
+    gap: clamp(32px, 6vw, 56px);
+  }
+
+  .block.reverse .showcaseLabel {
+    left: 4px;
+    right: auto;
+  }
+
+  .blockTitle {
+    font-size: clamp(2rem, 9vw, 3.25rem);
+  }
+
+  .showcase {
+    aspect-ratio: 16 / 10;
+  }
+
+  .showcaseLabel {
+    bottom: -26px;
+  }
+}
+
+/* Phone — give the showcase more vertical room so dashboard
+   content (bars, KPI grid, etc.) doesn't crop at the bottom. */
+@media (max-width: 640px) {
+  .showcase {
+    aspect-ratio: 4 / 3;
+  }
+}

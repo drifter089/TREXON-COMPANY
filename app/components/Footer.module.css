@@ -1,93 +1,241 @@
 .footer {
-  padding: 48px clamp(24px, 5vw, 80px);
-  border-top: 1px solid var(--gray-200);
+  background: var(--ink);
+  color: var(--cream);
+  border-top: 1px solid rgba(250, 247, 242, 0.06);
+  padding: clamp(72px, 9vw, 120px) 0 clamp(28px, 3vw, 40px);
+  font-family: var(--sans);
 }
 
 .inner {
-  max-width: 1200px;
+  max-width: var(--max-w);
   margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.nav {
+  padding: 0 var(--container-pad);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 16px;
+  gap: clamp(48px, 6vw, 80px);
+}
+
+/* --- Top: brand + columns --- */
+.top {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.4fr);
+  gap: clamp(48px, 7vw, 100px);
+  align-items: start;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(20px, 2.4vw, 32px);
+  max-width: 36ch;
 }
 
 .logo {
-  font-family: var(--serif);
-  font-size: 1.2rem;
-  color: var(--black);
-  letter-spacing: -0.02em;
-  text-decoration: none;
-}
-
-.dot {
-  font-style: italic;
-  opacity: 0.4;
-}
-
-.links {
-  display: flex;
-  gap: 28px;
-  font-family: var(--sans);
-  font-size: 0.8rem;
-}
-
-.links a {
-  color: var(--gray-400);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-.links a:hover {
-  color: var(--black);
-}
-
-.social {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-}
-
-.social a {
-  color: var(--gray-300);
-  transition: color 0.2s;
-  display: flex;
+  display: inline-flex;
   align-items: center;
+  text-decoration: none;
+  line-height: 0;
+  /* Ink backdrop matches footer; inverted PNG's black bg multiplies into ink → invisible. */
+  background: var(--ink);
+  border-radius: 4px;
+  transition: transform var(--dur-base) var(--ease-out);
 }
 
-.social a:hover {
-  color: var(--gray-500);
+.logo:hover {
+  transform: scale(0.96);
 }
 
-.emails {
+.logoImage {
+  display: block;
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  /* Invert turns the white PNG bg into black + the dark T into light;
+     `lighten` then keeps only the lighter pixels (the T) against the ink footer,
+     so the bg blends into the dark footer and the T glows cream-toned. */
+  filter: invert(1);
+  mix-blend-mode: lighten;
+}
+
+.tagline {
+  font-family: var(--sans);
+  font-size: clamp(0.95rem, 1.15vw, 1.1rem);
+  line-height: 1.55;
+  color: rgba(250, 247, 242, 0.55);
+  margin: 0;
+  letter-spacing: var(--tracking-snug);
+}
+
+.signoff {
+  font-family: var(--sans);
+  font-size: 11.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: rgba(250, 247, 242, 0.45);
+  margin: 0;
+}
+
+.signoffLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--cream);
+  text-decoration: none;
+  margin-left: 8px;
+  position: relative;
+  transition: color var(--dur-base) var(--ease-out);
+}
+
+.signoffLink::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -3px;
+  height: 1px;
+  background: var(--rust);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--dur-base) var(--ease-out);
+}
+
+.signoffLink:hover {
+  color: var(--rust);
+}
+
+.signoffLink:hover::after {
+  transform: scaleX(1);
+}
+
+/* --- Columns --- */
+.cols {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(28px, 4vw, 56px);
+}
+
+.col {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 14px;
 }
 
-.email {
+.colKicker {
   font-family: var(--sans);
-  font-size: 0.8rem;
-  color: var(--gray-400);
-  text-decoration: none;
-  transition: color 0.2s;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(250, 247, 242, 0.4);
+  margin-bottom: 8px;
 }
 
-.email:hover {
-  color: var(--black);
+.colLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--sans);
+  font-size: 13.5px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: rgba(250, 247, 242, 0.78);
+  text-decoration: none;
+  width: fit-content;
+  transition: color var(--dur-base) var(--ease-out);
+}
+
+.colLink:hover {
+  color: var(--cream);
+}
+
+.extArrow {
+  font-size: 11px;
+  opacity: 0.5;
+  transition:
+    transform var(--dur-base) var(--ease-out),
+    opacity var(--dur-base) var(--ease-out);
+}
+
+.colLink:hover .extArrow {
+  opacity: 1;
+  transform: translate(1px, -1px);
+}
+
+/* --- Divider --- */
+.divider {
+  height: 1px;
+  background: rgba(250, 247, 242, 0.08);
+  width: 100%;
+}
+
+/* --- Bottom row --- */
+.bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: rgba(250, 247, 242, 0.4);
 }
 
 .copy {
-  font-family: var(--sans);
-  font-size: 0.75rem;
-  color: var(--gray-400);
-  font-weight: 300;
+  display: inline-block;
+}
+
+.metaSep {
+  color: rgba(250, 247, 242, 0.2);
+}
+
+.metaGap {
+  flex: 1;
+  min-width: 16px;
+}
+
+.metaTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(250, 247, 242, 0.6);
+}
+
+.metaDot {
+  width: 6px;
+  height: 6px;
+  background: var(--rust);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+@media (max-width: 900px) {
+  .top {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+@media (max-width: 640px) {
+  .cols {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px 20px;
+  }
+
+  .logo {
+    font-size: 2rem;
+  }
+
+  .bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .metaSep,
+  .metaGap {
+    display: none;
+  }
 }
