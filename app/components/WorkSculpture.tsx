@@ -43,7 +43,8 @@ function Sculpture() {
   useFrame((state) => {
     if (!groupRef.current) return;
     const t = state.clock.elapsedTime;
-    // Slow drift — subtle, like a sculpture turning on a plinth
+    // Slow drift — sculpture turning on a plinth. No fast spin during
+    // the entry — we want the word "work" readable the whole time.
     groupRef.current.rotation.y = Math.sin(t * 0.18) * 0.28;
     groupRef.current.rotation.x = Math.sin(t * 0.12) * 0.06;
   });

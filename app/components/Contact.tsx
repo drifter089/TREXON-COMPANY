@@ -327,8 +327,8 @@ export default function Contact() {
             <div className={styles.infoBlock}>
               <span className={styles.infoKicker}>What you won&apos;t get</span>
               <p className={styles.infoText}>
-                A pitch deck. A "let&apos;s schedule a discovery workshop."
-                Someone reading from a script.
+                A pitch deck. A &ldquo;let&rsquo;s schedule a discovery
+                workshop.&rdquo; Someone reading from a script.
               </p>
             </div>
           </motion.aside>

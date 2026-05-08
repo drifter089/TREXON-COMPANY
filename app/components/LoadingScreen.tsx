@@ -12,6 +12,7 @@ export default function LoadingScreen() {
   useEffect(() => {
     const seen = sessionStorage.getItem("threxon-loaded");
     if (seen) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       show_(false);
       return;
     }

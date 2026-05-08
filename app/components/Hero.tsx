@@ -43,6 +43,7 @@ export default function Hero() {
   useEffect(() => {
     const seen = sessionStorage.getItem("threxon-loaded");
     if (seen) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setReady(true);
       return;
     }

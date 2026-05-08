@@ -47,8 +47,8 @@ export const WORK_PROJECTS: WorkProject[] = [
     caption: "Berlin nightclub site — line-ups, bookings, brand.",
     introduction:
       "A Berlin nightclub needed a site that matched the room — heavy, dark, fast. We built a line-up engine and ticketing flow under a brand system that survives a Saturday night.",
-    cover: "/work/Rec.png",
-    gallery: ["/work/Rec1.png", "/work/Rec2.png"],
+    cover: "/work/Rec1.png",
+    gallery: ["/work/Rec.png", "/work/Rec2.png"],
   },
   {
     slug: "alt",
