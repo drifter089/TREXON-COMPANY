@@ -4,7 +4,8 @@
   left: 0;
   width: 6px;
   height: 6px;
-  background: var(--ink);
+  background: #fff;
+  mix-blend-mode: difference;
   border-radius: 50%;
   pointer-events: none;
   z-index: 10000;
@@ -19,7 +20,8 @@
   left: 0;
   width: 36px;
   height: 36px;
-  border: 1px solid var(--ink);
+  border: 1px solid #fff;
+  mix-blend-mode: difference;
   border-radius: 50%;
   pointer-events: none;
   z-index: 9999;
@@ -40,14 +42,14 @@
 .ring[data-variant="hover"] {
   width: 56px;
   height: 56px;
-  background: rgba(15, 14, 13, 0.06);
+  background: rgba(255, 255, 255, 0.12);
 }
 
 .ring[data-variant="view"] {
   width: 96px;
   height: 96px;
-  background: var(--ink);
-  border-color: var(--ink);
+  background: #fff;
+  border-color: #fff;
 }
 
 .label {
@@ -56,7 +58,9 @@
   text-transform: uppercase;
   letter-spacing: var(--tracking-wider);
   font-weight: 500;
-  color: var(--cream);
+  /* ponytail: black paints as "no difference" inside the blended group, so the
+     label reads as a page-colored cutout against the inverted ring fill */
+  color: #000;
   opacity: 0;
   transform: scale(0.8);
   transition:
