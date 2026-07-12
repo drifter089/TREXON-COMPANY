@@ -15,6 +15,42 @@ export interface WorkProject {
 // project before launch.
 export const WORK_PROJECTS: WorkProject[] = [
   {
+    slug: "teachbay",
+    title: "TEACHBAY",
+    client: "Teachbay",
+    industry: "Education · SaaS",
+    year: "2024",
+    deliverables: [
+      "Marketing site",
+      "Brand refresh",
+      "Engineering",
+      "Analytics",
+    ],
+    caption: "Marketing site for a learning platform — fast, modular, brand-led.",
+    introduction:
+      "Teachbay was outgrowing its marketing site. We rebuilt it as a fast, modular system: brand-led, conversion-aware, and easy for the team to extend without engineering on every change.",
+    cover: "/work/teachbay.png",
+    gallery: ["/work/teachbay1.png"],
+  },
+  {
+    slug: "daedstudio",
+    title: "DAED STUDIO",
+    client: "Daed Studio",
+    industry: "Design · Creative",
+    year: "2024",
+    deliverables: [
+      "Portfolio site",
+      "CMS",
+      "Brand system",
+      "Engineering",
+    ],
+    caption: "Portfolio site for a small design + engineering studio.",
+    introduction:
+      "Daed wanted a portfolio that read like a film title sequence — confident, dark, paced. We shipped a custom CMS, an editorial type system, and a project layout flexible enough to host every kind of case study they take on.",
+    cover: "/work/daedstudio.png",
+    gallery: ["/work/daedstudio1.png"],
+  },
+  {
     slug: "rouge",
     title: "ROUGE",
     client: "Rouge Amsterdam",
@@ -120,42 +156,6 @@ export const WORK_PROJECTS: WorkProject[] = [
       "An ops team was running a growing business out of three colliding spreadsheets. We replaced them with a single internal platform — same source of truth, role-aware views, audit trail.",
     cover: "/work/oet.svg",
     gallery: ["/work/oet1.png", "/work/oet2.png"],
-  },
-  {
-    slug: "daedstudio",
-    title: "DAED STUDIO",
-    client: "Daed Studio",
-    industry: "Design · Creative",
-    year: "2024",
-    deliverables: [
-      "Portfolio site",
-      "CMS",
-      "Brand system",
-      "Engineering",
-    ],
-    caption: "Portfolio site for a small design + engineering studio.",
-    introduction:
-      "Daed wanted a portfolio that read like a film title sequence — confident, dark, paced. We shipped a custom CMS, an editorial type system, and a project layout flexible enough to host every kind of case study they take on.",
-    cover: "/work/daedstudio.png",
-    gallery: ["/work/daedstudio1.png"],
-  },
-  {
-    slug: "teachbay",
-    title: "TEACHBAY",
-    client: "Teachbay",
-    industry: "Education · SaaS",
-    year: "2024",
-    deliverables: [
-      "Marketing site",
-      "Brand refresh",
-      "Engineering",
-      "Analytics",
-    ],
-    caption: "Marketing site for a learning platform — fast, modular, brand-led.",
-    introduction:
-      "Teachbay was outgrowing its marketing site. We rebuilt it as a fast, modular system: brand-led, conversion-aware, and easy for the team to extend without engineering on every change.",
-    cover: "/work/teachbay.png",
-    gallery: ["/work/teachbay1.png"],
   },
 ];
 
