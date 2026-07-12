@@ -5,9 +5,17 @@ import CustomCursor from "./components/CustomCursor";
 import LoadingScreen from "./components/LoadingScreen";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://trexon-company.vercel.app"),
   title: "THREXON — Software, Websites & Digital Marketing",
   description:
     "A small studio building software, websites, and growth — for teams who'd rather ship than pitch. Briefs welcome. Decks not required.",
+  openGraph: {
+    title: "THREXON — Software, Websites & Digital Marketing",
+    description:
+      "A small studio building software, websites, and growth — for teams who'd rather ship than pitch.",
+    siteName: "THREXON",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
