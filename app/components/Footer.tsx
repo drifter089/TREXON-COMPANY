@@ -10,9 +10,9 @@ const PAGES = [
 ];
 
 const SOCIAL = [
-  { href: "https://linkedin.com/company/threxon", label: "LinkedIn" },
-  { href: "https://github.com/threxon", label: "GitHub" },
-  { href: "https://instagram.com/threxon", label: "Instagram" },
+  { href: "https://www.instagram.com/threxon_official", label: "Instagram" },
+  { href: "https://www.tiktok.com/@threxon_official", label: "TikTok" },
+  { href: "https://www.facebook.com/share/1HJjLDAAhU/", label: "Facebook" },
 ];
 
 export default function Footer() {
