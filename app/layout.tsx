@@ -5,7 +5,7 @@ import CustomCursor from "./components/CustomCursor";
 import LoadingScreen from "./components/LoadingScreen";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://trexon-company.vercel.app"),
+  metadataBase: new URL("https://www.threxon.org"),
   title: "THREXON — Software, Websites & Digital Marketing",
   description:
     "A small studio building software, websites, and growth — for teams who'd rather ship than pitch. Briefs welcome. Decks not required.",
