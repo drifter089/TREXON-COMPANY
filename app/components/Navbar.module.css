@@ -33,11 +33,6 @@
   align-items: center;
   color: var(--ink);
   text-decoration: none;
-  /* Cream backdrop within the logo's own box so mix-blend-mode has
-     something to multiply against (the navbar above is its own
-     stacking context, so the page bg isn't reachable from inside). */
-  background: var(--cream);
-  border-radius: 4px;
   transition: transform var(--dur-base) var(--ease-out);
 }
 
@@ -50,7 +45,6 @@
   width: 56px;
   height: 56px;
   object-fit: contain;
-  mix-blend-mode: multiply;
 }
 
 .links {

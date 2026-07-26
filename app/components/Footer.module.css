@@ -35,9 +35,6 @@
   align-items: center;
   text-decoration: none;
   line-height: 0;
-  /* Ink backdrop matches footer; inverted PNG's black bg multiplies into ink → invisible. */
-  background: var(--ink);
-  border-radius: 4px;
   transition: transform var(--dur-base) var(--ease-out);
 }
 
@@ -50,11 +47,9 @@
   width: 72px;
   height: 72px;
   object-fit: contain;
-  /* Invert turns the white PNG bg into black + the dark T into light;
-     `lighten` then keeps only the lighter pixels (the T) against the ink footer,
-     so the bg blends into the dark footer and the T glows cream-toned. */
+  /* Mark ships as transparent black; invert flips it to cream-white for the
+     ink footer. Alpha is untouched by invert(), so the bg stays transparent. */
   filter: invert(1);
-  mix-blend-mode: lighten;
 }
 
 .tagline {
