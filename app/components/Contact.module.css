@@ -116,7 +116,6 @@
   font-size: clamp(0.95rem, 1.2vw, 1.1rem);
   color: var(--ink);
   outline: none;
-  transition: border-color var(--dur-base) var(--ease-out);
 }
 
 .textarea {
@@ -181,10 +180,6 @@
   letter-spacing: 0.02em;
   color: var(--ink-soft);
   cursor: pointer;
-  transition:
-    background-color var(--dur-base) var(--ease-out),
-    border-color var(--dur-base) var(--ease-out),
-    color var(--dur-base) var(--ease-out);
 }
 
 .chip:hover:not(:disabled) {
@@ -227,30 +222,12 @@
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  transition:
-    background-color var(--dur-base) var(--ease-out),
-    border-color var(--dur-base) var(--ease-out);
   margin-top: 8px;
-}
-
-.submit::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--rust);
-  border-radius: inherit;
-  transform: translateY(101%);
-  transition: transform var(--dur-base) var(--ease-out);
-  z-index: -1;
 }
 
 .submit:hover:not(:disabled) {
   border-color: var(--rust);
   background: var(--rust);
-}
-
-.submit:hover:not(:disabled)::before {
-  transform: translateY(0);
 }
 
 .submit:disabled {
@@ -267,11 +244,6 @@
 .submitArrow {
   display: inline-flex;
   align-items: center;
-  transition: transform var(--dur-base) var(--ease-out);
-}
-
-.submit:hover:not(:disabled) .submitArrow {
-  transform: translateX(4px);
 }
 
 .errorText {
@@ -361,7 +333,6 @@
   color: var(--ink);
   text-decoration: none;
   border-bottom: 1px solid var(--ink);
-  transition: opacity var(--dur-base) var(--ease-out);
 }
 
 .successLink:hover {

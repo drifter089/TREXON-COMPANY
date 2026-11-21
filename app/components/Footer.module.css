@@ -35,11 +35,6 @@
   align-items: center;
   text-decoration: none;
   line-height: 0;
-  transition: transform var(--dur-base) var(--ease-out);
-}
-
-.logo:hover {
-  transform: scale(0.96);
 }
 
 .logoImage {
@@ -79,28 +74,10 @@
   text-decoration: none;
   margin-left: 8px;
   position: relative;
-  transition: color var(--dur-base) var(--ease-out);
-}
-
-.signoffLink::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -3px;
-  height: 1px;
-  background: var(--rust);
-  transform: scaleX(0);
-  transform-origin: left center;
-  transition: transform var(--dur-base) var(--ease-out);
 }
 
 .signoffLink:hover {
   color: var(--rust);
-}
-
-.signoffLink:hover::after {
-  transform: scaleX(1);
 }
 
 /* --- Columns --- */
@@ -137,7 +114,6 @@
   color: rgba(250, 247, 242, 0.78);
   text-decoration: none;
   width: fit-content;
-  transition: color var(--dur-base) var(--ease-out);
 }
 
 .colLink:hover {
@@ -147,14 +123,10 @@
 .extArrow {
   font-size: 11px;
   opacity: 0.5;
-  transition:
-    transform var(--dur-base) var(--ease-out),
-    opacity var(--dur-base) var(--ease-out);
 }
 
 .colLink:hover .extArrow {
   opacity: 1;
-  transform: translate(1px, -1px);
 }
 
 /* --- Divider --- */

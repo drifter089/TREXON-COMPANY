@@ -29,7 +29,6 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  transition: opacity 0.3s var(--ease-out, ease);
 }
 
 .backLink:hover {
@@ -231,7 +230,6 @@
   gap: 8px;
   text-decoration: none;
   color: var(--ink);
-  transition: opacity 0.3s var(--ease-out, ease);
 }
 
 .nextLink:hover {
@@ -265,7 +263,6 @@
   align-items: center;
   gap: 6px;
   padding-bottom: 8px;
-  transition: color 0.3s var(--ease-out, ease);
 }
 
 .backFooter:hover {
