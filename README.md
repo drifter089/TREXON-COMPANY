@@ -42,8 +42,8 @@ The hero should establish what the business supplies, who it supports, and how a
 
 | Asset | Requirement |
 | --- | --- |
-| Image 1 — process | A technician applying resin to an FRP mould, producing a roofing sheet, tank, or panel. This is the first/default image. |
-| Image 2 — result | A clear real-world FRP product or production line: tanks, pipes, panels, roofing sheets, or pultruded profiles. |
+| Image 1 — application | A clear real-world FRP product or production line: tanks, pipes, panels, roofing sheets, or pultruded profiles. This is the first/default image. |
+| Image 2 — result | A second, distinct composite application or production environment—do not repeat the same subject. |
 | Image 3 — supply | The company’s real local resin stock, packing, warehouse, or dispatch. Do not use a partner facility image without permission and attribution. |
 | Source size | Three authentic landscape photos, at least 2400px wide each. |
 | Avoid | Generic labs, chemical beakers, drums without a real supply context, AI-looking imagery, or abstract material graphics. |
@@ -51,6 +51,14 @@ The hero should establish what the business supplies, who it supports, and how a
 | Logo | Final horizontal wordmark in SVG or transparent PNG, plus a compact mark only if one exists. |
 
 Natural, lightly restrained photography is preferred over black-and-white photos: the UI can stay monochrome while the business remains tangible and credible.
+
+### Temporary hero photography
+
+The first hero build uses replaceable Unsplash placeholders to establish layout and image treatment. They are deliberately illustrative and must not be presented as this company’s products, stock, team, warehouse, or partner facility. Replace them with approved, relevant imagery before launch.
+
+- `public/images/hero/industrial-roof.jpg` — [Declan Sun, Unsplash](https://unsplash.com/photos/LU_xFXmksEA), downloaded as a free Unsplash License image.
+- `public/images/hero/industrial-pipes.jpg` — [Ricardo Gomez Angel, Unsplash](https://unsplash.com/photos/41X6FwTwPh4), downloaded as a free Unsplash License image.
+- `public/images/hero/industrial-tanks.jpg` — [Vitalis Nwenyi, Unsplash](https://unsplash.com/photos/I1VGlHw7OAc), downloaded as a free Unsplash License image.
 
 ### Hero motion rules
 
