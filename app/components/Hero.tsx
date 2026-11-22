@@ -28,6 +28,8 @@ const ROTATION_DELAY = 7000;
 export default function Hero() {
   const [activeImage, setActiveImage] = useState(0);
   const [reduceMotion, setReduceMotion] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -40,18 +42,27 @@ export default function Hero() {
   }, []);
 
   useEffect(() => {
-    if (reduceMotion) return;
+    if (reduceMotion || isHovered || isFocused) return;
 
     const rotation = window.setInterval(() => {
       setActiveImage((current) => (current + 1) % HERO_IMAGES.length);
     }, ROTATION_DELAY);
 
     return () => window.clearInterval(rotation);
-  }, [reduceMotion]);
+  }, [isFocused, isHovered, reduceMotion]);
 
   return (
     <main className={styles.hero}>
-      <section className={styles.frame} aria-labelledby="hero-heading">
+      <section
+        className={styles.frame}
+        aria-labelledby="hero-heading"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        onFocusCapture={() => setIsFocused(true)}
+        onBlurCapture={(event) => {
+          if (!event.currentTarget.contains(event.relatedTarget)) setIsFocused(false);
+        }}
+      >
         <div className={styles.imageStage}>
           {HERO_IMAGES.map((image, index) => (
             <Image
@@ -80,9 +91,11 @@ export default function Hero() {
           </div>
         </div>
 
-        <Link href="/contact" className={styles.quoteAction}>
-          Request a quotation <span aria-hidden>→</span>
-        </Link>
+        <div className={styles.actions}>
+          <Link href="/quote" className={styles.quoteAction}>
+            Request a quotation
+          </Link>
+        </div>
 
         <div className={styles.imageMeta}>
           <p className={styles.imageLabel}>{HERO_IMAGES[activeImage].label}</p>
