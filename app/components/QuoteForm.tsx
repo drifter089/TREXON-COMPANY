@@ -142,7 +142,9 @@ export default function QuoteForm() {
                 </label>
 
                 <fieldset className={styles.fieldset} aria-describedby={applicationError ? "application-error" : undefined}>
-                  <legend className={styles.label}>What are you making? *</legend>
+                  <legend className={styles.label}>
+                    What are you making? * <span className={styles.selectionHint}>Select all that apply</span>
+                  </legend>
                   <div className={styles.applicationChoices}>
                     {APPLICATIONS.map((application) => {
                       const selected = applications.includes(application);
@@ -155,7 +157,14 @@ export default function QuoteForm() {
                           onClick={() => toggleApplication(application)}
                           disabled={status === "submitting"}
                         >
-                          {application}
+                          <span className={styles.optionCheck} aria-hidden>
+                            {selected && (
+                              <svg viewBox="0 0 12 12" fill="none">
+                                <path d="m2 6.1 2.35 2.35L10 2.9" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+                              </svg>
+                            )}
+                          </span>
+                          <span>{application}</span>
                         </button>
                       );
                     })}

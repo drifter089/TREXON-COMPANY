@@ -109,6 +109,12 @@
   font-weight: 400;
 }
 
+.selectionHint {
+  margin-left: 8px;
+  color: #777;
+  font-weight: 400;
+}
+
 .input,
 .select,
 .textarea {
@@ -161,8 +167,11 @@
 }
 
 .applicationChoice {
+  display: flex;
+  align-items: center;
   width: 100%;
   min-height: 42px;
+  gap: 10px;
   padding: 10px 14px;
   border: 1px solid #cfcfcf;
   background: #fff;
@@ -180,9 +189,31 @@
 }
 
 .applicationChoiceSelected {
+  border-color: #555;
+  background: #f7f7f7;
+  color: #111;
+}
+
+.optionCheck {
+  display: inline-flex;
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #989898;
+  color: #fff;
+}
+
+.optionCheck svg {
+  display: block;
+  width: 11px;
+  height: 11px;
+}
+
+.applicationChoiceSelected .optionCheck {
   border-color: #111;
   background: #111;
-  color: #fff;
 }
 
 .radioChoices {
