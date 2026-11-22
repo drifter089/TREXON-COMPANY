@@ -17,7 +17,9 @@ The source of truth for website copy and business boundaries is the local `UPR_W
 - Use a quiet industrial-premium approach: white and near-black are the primary interface colours, with soft grey borders and panels.
 - Use black primary buttons with white text; avoid decorative gradients, glass effects, abstract chemical graphics, and elaborate transitions.
 - Keep type large, readable, and decisive. Prefer a compact navigation, clear grid, generous whitespace, and information-led page hierarchy.
+- Do not use small headers or eyebrow labels in the user-facing design. Lead with the primary heading instead.
 - Real product, workshop, and warehouse imagery should carry visual texture. UI colour should remain restrained.
+- Reference: [Mechemco](https://www.mechemco.com/) demonstrates the desired product clarity—show resin/composite applications in the imagery from the first view. Keep this site's existing full-bleed hero and right-side content panel; do not copy the reference site's layout or assets.
 - The interface is static-first. The legacy loading screen, smooth scrolling, custom cursor, 3D scenes, scroll effects, page entrances, animated mockups, and motion dependencies were removed in commit `6e332b5`. The sole planned exception is a slow, purposeful three-image cross-fade in the homepage hero.
 
 ## Homepage hero: first design unit
@@ -27,7 +29,7 @@ The hero should establish what the business supplies, who it supports, and how a
 ### Layout
 
 - White header and hero surface with a black wordmark and compact navigation.
-- Left column: eyebrow, headline, concise supporting copy, and the two enquiry actions.
+- Left column: headline, concise supporting copy, and the two enquiry actions.
 - Right column: a three-image authentic manufacturing story on desktop; place the image module after the copy on mobile.
 - Keep hero copy and CTAs fixed while the images cross-fade. Do not add a background video, animated resin graphic, or uncontrolled carousel.
 
@@ -59,6 +61,8 @@ The first hero build uses replaceable Unsplash placeholders to establish layout 
 - `public/images/hero/industrial-roof.jpg` — [Declan Sun, Unsplash](https://unsplash.com/photos/LU_xFXmksEA), downloaded as a free Unsplash License image.
 - `public/images/hero/industrial-pipes.jpg` — [Ricardo Gomez Angel, Unsplash](https://unsplash.com/photos/41X6FwTwPh4), downloaded as a free Unsplash License image.
 - `public/images/hero/industrial-tanks.jpg` — [Vitalis Nwenyi, Unsplash](https://unsplash.com/photos/I1VGlHw7OAc), downloaded as a free Unsplash License image.
+- `public/images/hero/fiberglass-layup.jpg` — Harold Granados, Pexels (image ID 10118787), a free Pexels License image showing fiberglass work. It is a temporary, relevant application image and must not be represented as this company's facility or product.
+- `public/images/hero/composite-workshop.jpg` — Harold Granados, Pexels (image ID 10118857), a free Pexels License image showing composite fabrication. It is a temporary, relevant application image and must not be represented as this company's facility or product.
 
 ### Hero motion rules
 
