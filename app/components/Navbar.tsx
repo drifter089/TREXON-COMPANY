@@ -9,6 +9,7 @@ import { NAV_ITEMS } from "@/app/data/navigation";
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -24,14 +25,14 @@ export default function Nav() {
           <Image
             src="/threxon_logo.png"
             alt="THREXON"
-            width={56}
-            height={56}
+            width={80}
+            height={80}
             priority
             className={styles.logoImage}
           />
         </Link>
 
-        <div className={styles.links}>
+        <div id="primary-navigation" className={`${styles.links} ${menuOpen ? styles.linksOpen : ""}`}>
           {NAV_ITEMS.map((item) => {
             const isAnchor = item.href.includes("#");
             const isActive = !isAnchor && pathname === item.href;
@@ -40,12 +41,27 @@ export default function Nav() {
                 key={item.href}
                 href={item.href}
                 className={`${styles.link} ${isActive ? styles.active : ""}`}
+                onClick={() => setMenuOpen(false)}
               >
                 {item.label}
               </Link>
             );
           })}
         </div>
+
+        <button
+          type="button"
+          className={`${styles.menuToggle} ${menuOpen ? styles.menuToggleOpen : ""}`}
+          onClick={() => setMenuOpen((open) => !open)}
+          aria-expanded={menuOpen}
+          aria-controls="primary-navigation"
+          aria-label={menuOpen ? "Close navigation" : "Open navigation"}
+        >
+          <span className={styles.menuIcon} aria-hidden>
+            <span />
+            <span />
+          </span>
+        </button>
       </div>
     </nav>
   );
