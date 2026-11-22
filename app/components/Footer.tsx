@@ -21,7 +21,7 @@ export default function Footer() {
       <div className={styles.inner}>
         <div className={styles.top}>
           <div className={styles.brand}>
-            <Link href="/" className={styles.logo} data-cursor="hover" aria-label="THREXON home">
+            <Link href="/" className={styles.logo} aria-label="THREXON home">
               <Image
                 src="/threxon_logo.png"
                 alt="THREXON"
@@ -36,7 +36,7 @@ export default function Footer() {
             </p>
             <p className={styles.signoff}>
               Tell us what you&apos;re building.{" "}
-              <Link href="/contact" className={styles.signoffLink} data-cursor="hover">
+              <Link href="/contact" className={styles.signoffLink}>
                 Start a project <span aria-hidden>→</span>
               </Link>
             </p>
@@ -46,7 +46,7 @@ export default function Footer() {
             <div className={styles.col}>
               <span className={styles.colKicker}>Pages</span>
               {PAGES.map((p) => (
-                <Link key={p.label} href={p.href} className={styles.colLink} data-cursor="hover">
+                <Link key={p.label} href={p.href} className={styles.colLink}>
                   {p.label}
                 </Link>
               ))}
@@ -61,7 +61,6 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.colLink}
-                  data-cursor="hover"
                 >
                   {s.label}
                   <span className={styles.extArrow} aria-hidden>↗</span>

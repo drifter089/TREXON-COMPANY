@@ -1,169 +1,119 @@
 "use client";
 
+import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import dynamic from "next/dynamic";
-import MagneticLink from "./MagneticLink";
 import styles from "./Hero.module.css";
 
-const Earth3D = dynamic(() => import("./Earth3D"), {
-  ssr: false,
-  loading: () => null,
-});
+const HERO_SLIDES = [
+  {
+    src: "/images/hero/industrial-roof.jpg",
+    alt: "Steel trusses and skylights inside an industrial facility",
+    label: "Roofing & sheet applications",
+  },
+  {
+    src: "/images/hero/industrial-pipes.jpg",
+    alt: "Industrial pipework and equipment inside a production facility",
+    label: "Industrial composites",
+  },
+  {
+    src: "/images/hero/industrial-tanks.jpg",
+    alt: "Large industrial storage tanks beside a port",
+    label: "Tanks & process equipment",
+  },
+] as const;
 
-interface Word {
-  text: string;
-  accentSuffix?: string;
-}
-
-const HEADLINE: Word[] = [
-  { text: "Take" },
-  { text: "your" },
-  { text: "business" },
-  { text: "online", accentSuffix: "." },
-];
-
-const SUBHEAD =
-  "A digital studio for software, websites, and marketing.";
-
-const MARQUEE = [
-  "Custom Software",
-  "Websites",
-  "Digital Marketing",
-  "Branding",
-  "UI / UX",
-  "E-commerce",
-  "Mobile Apps",
-  "SEO",
-];
+const ROTATION_DELAY = 7000;
 
 export default function Hero() {
-  const [ready, setReady] = useState(false);
+  const [activeSlide, setActiveSlide] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
-    const seen = sessionStorage.getItem("threxon-loaded");
-    if (seen) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      setReady(true);
+    if (isPaused || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       return;
     }
-    const t = setTimeout(() => setReady(true), 2400);
-    return () => clearTimeout(t);
-  }, []);
 
-  const ease = [0.16, 1, 0.3, 1] as const;
+    const rotation = window.setInterval(() => {
+      setActiveSlide((current) => (current + 1) % HERO_SLIDES.length);
+    }, ROTATION_DELAY);
+
+    return () => window.clearInterval(rotation);
+  }, [isPaused]);
 
   return (
-    <section className={styles.hero}>
+    <main className={styles.hero}>
       <div className={styles.inner}>
-        <div className={styles.content}>
-          <motion.div
-            className={styles.topRow}
-            initial={{ opacity: 0, y: 12 }}
-            animate={ready ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.05, ease }}
-          >
-            <span className={styles.eyebrow}>
-              <span className={styles.eyebrowDot} aria-hidden />
-              Available worldwide
-            </span>
-          </motion.div>
+        <div className={styles.copy}>
+          <p className={styles.eyebrow}>Polyester resin supply · Uttar Pradesh</p>
 
-          <h1
-            className={styles.headline}
-            aria-label={HEADLINE.map((w) => w.text + (w.accentSuffix ?? "")).join(" ")}
-          >
-            {HEADLINE.map((word, i) => (
-              <span key={i} className={styles.wordWrap}>
-                <motion.span
-                  className={styles.word}
-                  initial={{ y: "115%" }}
-                  animate={ready ? { y: 0 } : {}}
-                  transition={{
-                    duration: 0.95,
-                    delay: 0.15 + i * 0.07,
-                    ease,
-                  }}
-                >
-                  {word.text}
-                  {word.accentSuffix && (
-                    <span className={styles.accent}>{word.accentSuffix}</span>
-                  )}
-                </motion.span>
-              </span>
-            ))}
+          <h1 className={styles.headline}>
+            The right resin.
+            <br />
+            <span>Reliable local supply.</span>
           </h1>
 
-          <motion.p
-            className={styles.subhead}
-            initial={{ opacity: 0, y: 16 }}
-            animate={ready ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.7, ease }}
-          >
-            {SUBHEAD}
-          </motion.p>
+          <p className={styles.intro}>
+            Polyester resin for FRP and composite manufacturers. Get help choosing a suitable grade, a competitive quotation, and dependable supply planning.
+          </p>
 
-          <motion.div
-            className={styles.ctas}
-            initial={{ opacity: 0, y: 16 }}
-            animate={ready ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.85, ease }}
-          >
-            <MagneticLink
-              href="#work"
-              className={styles.primaryCta}
-              cursorVariant="hover"
-            >
-              <span className={styles.ctaText}>See our work</span>
-              <span className={styles.ctaArrow} aria-hidden>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M5 12h14M13 5l7 7-7 7" />
-                </svg>
-              </span>
-            </MagneticLink>
-          </motion.div>
+          <div className={styles.ctas}>
+            <Link href="/contact" className={styles.primaryCta}>
+              Request a resin quotation
+            </Link>
+            <Link href="/contact" className={styles.secondaryCta}>
+              Help me choose a grade
+            </Link>
+          </div>
 
-          <motion.div
-            className={styles.bottomRow}
-            initial={{ opacity: 0 }}
-            animate={ready ? { opacity: 1 } : {}}
-            transition={{ duration: 0.8, delay: 1.05, ease }}
-          >
-            <span className={styles.scrollHint}>
-              <span className={styles.scrollLabel}>Scroll</span>
-              <span className={styles.scrollLine} aria-hidden />
-            </span>
-            <span className={styles.metaRight}>
-              <span className={styles.metaItem}>Top quality</span>
-              <span className={styles.metaSep} aria-hidden>/</span>
-              <span className={styles.metaItem}>Record time</span>
-              <span className={styles.metaSep} aria-hidden>/</span>
-              <span className={styles.metaItem}>Fair price</span>
-            </span>
-          </motion.div>
+          <p className={styles.partnerNote}>
+            Official manufacturing partner: ORCPL
+          </p>
         </div>
 
-        <Earth3D ready={ready} />
+        <section
+          className={styles.media}
+          aria-label="Illustrative industrial applications"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+          onFocusCapture={() => setIsPaused(true)}
+          onBlurCapture={(event) => {
+            if (!event.currentTarget.contains(event.relatedTarget as Node)) {
+              setIsPaused(false);
+            }
+          }}
+        >
+          <div className={styles.imageFrame}>
+            {HERO_SLIDES.map((slide, index) => (
+              <Image
+                key={slide.src}
+                src={slide.src}
+                alt={slide.alt}
+                fill
+                priority={index === 0}
+                sizes="(max-width: 820px) 100vw, 48vw"
+                className={`${styles.image} ${index === activeSlide ? styles.imageActive : ""}`}
+              />
+            ))}
+
+            <div className={styles.imageShade} aria-hidden />
+            <p className={styles.slideLabel}>{HERO_SLIDES[activeSlide].label}</p>
+          </div>
+
+          <div className={styles.slideControls} aria-label="Choose an application image">
+            {HERO_SLIDES.map((slide, index) => (
+              <button
+                key={slide.src}
+                type="button"
+                className={`${styles.slideControl} ${index === activeSlide ? styles.slideControlActive : ""}`}
+                onClick={() => setActiveSlide(index)}
+                aria-label={`Show ${slide.label}`}
+                aria-pressed={index === activeSlide}
+              />
+            ))}
+          </div>
+        </section>
       </div>
-
-      <motion.div
-        className={styles.marquee}
-        initial={{ opacity: 0 }}
-        animate={ready ? { opacity: 1 } : {}}
-        transition={{ duration: 1.2, delay: 1.3, ease }}
-        aria-hidden
-      >
-        <div className={styles.marqueeTrack}>
-          {[...MARQUEE, ...MARQUEE].map((item, i) => (
-            <span key={i} className={styles.marqueeItem}>
-              <span className={styles.marqueeSep} aria-hidden>
-                —
-              </span>
-              {item}
-            </span>
-          ))}
-        </div>
-      </motion.div>
-    </section>
+    </main>
   );
 }

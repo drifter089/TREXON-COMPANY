@@ -20,7 +20,7 @@ export default function Nav() {
   return (
     <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ""}`}>
       <div className={styles.inner}>
-        <Link href="/" className={styles.logo} data-cursor="hover" aria-label="THREXON home">
+        <Link href="/" className={styles.logo} aria-label="THREXON home">
           <Image
             src="/threxon_logo.png"
             alt="THREXON"
@@ -39,7 +39,6 @@ export default function Nav() {
               <Link
                 key={item.href}
                 href={item.href}
-                data-cursor="hover"
                 className={`${styles.link} ${isActive ? styles.active : ""}`}
               >
                 {item.label}
