@@ -26,6 +26,50 @@ service cloud.firestore {
         && request.resource.size() < 20;
     }
 
+    // quote_requests: public users can CREATE only.
+    // No reads, updates, or deletes from the client (admin SDK / console only).
+    match /quote_requests/{docId} {
+      allow read, update, delete: if false;
+
+      allow create: if
+        request.resource.data.keys().hasOnly([
+          'fullName', 'phone', 'email', 'company', 'location', 'applications',
+          'quantityRange', 'packaging', 'gradeSupport', 'message', 'source', 'createdAt'
+        ])
+        && request.resource.data.fullName is string
+        && request.resource.data.fullName.size() > 1
+        && request.resource.data.fullName.size() < 121
+        && request.resource.data.phone is string
+        && request.resource.data.phone.size() > 6
+        && request.resource.data.phone.size() < 41
+        && (request.resource.data.email == null || (
+          request.resource.data.email is string
+          && request.resource.data.email.size() < 201
+          && request.resource.data.email.matches('.+@.+\\..+')
+        ))
+        && (request.resource.data.company == null || (
+          request.resource.data.company is string
+          && request.resource.data.company.size() < 161
+        ))
+        && (request.resource.data.location == null || (
+          request.resource.data.location is string
+          && request.resource.data.location.size() < 121
+        ))
+        && request.resource.data.applications is list
+        && request.resource.data.applications.size() > 0
+        && request.resource.data.applications.size() < 7
+        && request.resource.data.quantityRange in ['sample', 'up-to-1t', '1t-5t', '5t-plus', 'not-sure']
+        && (request.resource.data.packaging == null || request.resource.data.packaging in ['drums', 'bulk', 'other'])
+        && request.resource.data.gradeSupport in ['choose-grade', 'known-grade']
+        && (request.resource.data.message == null || (
+          request.resource.data.message is string
+          && request.resource.data.message.size() < 1501
+        ))
+        && request.resource.data.source == 'quote-page'
+        && 'createdAt' in request.resource.data
+        && request.resource.size() < 20 * 1024;
+    }
+
     // Default-deny everything else
     match /{document=**} {
       allow read, write: if false;
