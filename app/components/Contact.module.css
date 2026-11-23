@@ -8,17 +8,13 @@
 }
 
 .heroSection {
-  padding: 0;
+  padding: clamp(48px, 6vw, 80px) var(--container-pad) clamp(24px, 3vw, 40px);
 }
 
 .heroInner,
 .locationInner {
   width: min(100%, 1280px);
   margin: 0 auto;
-}
-
-.heroInner {
-  width: 100%;
 }
 
 .title,
@@ -31,52 +27,31 @@
 }
 
 .title {
-  font-size: clamp(3rem, 5vw, 4.75rem);
+  font-size: clamp(2.75rem, 4vw, 4rem);
   line-height: 0.95;
-  color: #fff;
-}
-
-.heroImage {
-  position: relative;
-  min-height: clamp(240px, 20vw, 320px);
-  overflow: hidden;
-  background: #111;
-}
-
-.heroImageAsset {
-  object-fit: cover;
-  object-position: center;
-}
-
-.heroOverlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  padding: clamp(28px, 4vw, 64px) max(var(--container-pad), calc((100vw - 1536px) / 2));
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.42) 55%, rgba(0, 0, 0, 0.1) 100%);
+  color: #111;
 }
 
 .intro {
   max-width: 56ch;
-  margin-top: 20px;
-  color: rgba(255, 255, 255, 0.84);
+  margin-top: 16px;
+  color: #5f5f5f;
   line-height: 1.6;
 }
 
 .inlineLink {
-  color: #fff;
+  color: #111;
   font-weight: 650;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
 .inlineLink:hover {
-  color: #fff;
+  color: #111;
 }
 
 .locationSection {
-  padding: clamp(32px, 3vw, 48px) var(--container-pad) clamp(72px, 8vw, 120px);
+  padding: 0 var(--container-pad) clamp(72px, 8vw, 120px);
 }
 
 .locationInner {
@@ -362,13 +337,9 @@
 }
 
 @media (max-width: 600px) {
-  .heroImage {
-    min-height: 280px;
-  }
-
-  .heroOverlay {
-    align-items: flex-end;
-    padding: 28px 24px;
+  .heroSection {
+    padding-top: 48px;
+    padding-bottom: 28px;
   }
 
   .fieldRow {

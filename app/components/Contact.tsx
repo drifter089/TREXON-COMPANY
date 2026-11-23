@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useState, type FormEvent } from "react";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
@@ -53,23 +52,11 @@ export default function Contact() {
     <main className={styles.page}>
       <section className={styles.heroSection} aria-labelledby="contact-heading">
         <div className={styles.heroInner}>
-          <div className={styles.heroImage}>
-            <Image
-              src="/images/hero/industrial-pipes.jpg"
-              alt="Industrial pipework inside a production facility"
-              fill
-              priority
-              sizes="100vw"
-              className={styles.heroImageAsset}
-            />
-            <div className={styles.heroOverlay}>
-              <div className={styles.heroCopy}>
-                <h1 id="contact-heading" className={styles.title}>Contact</h1>
-                <p className={styles.intro}>
-                  Ask about local resin availability, delivery, product documents, or general supply support. For pricing or help choosing a resin grade, use the <Link href="/quote" className={styles.inlineLink}>quotation form</Link>.
-                </p>
-              </div>
-            </div>
+          <div className={styles.heroCopy}>
+            <h1 id="contact-heading" className={styles.title}>Contact</h1>
+            <p className={styles.intro}>
+              Ask about local resin availability, delivery, product documents, or general supply support. For pricing or help choosing a resin grade, use the <Link href="/quote" className={styles.inlineLink}>quotation form</Link>.
+            </p>
           </div>
         </div>
       </section>
