@@ -7,18 +7,18 @@
   font-size: var(--quote-body);
 }
 
+.heroSection {
+  padding: clamp(24px, 3vw, 40px) 0 0;
+}
+
+.heroInner,
 .formInner {
-  width: min(100%, 1536px);
+  width: min(100%, 1280px);
   margin: 0 auto;
 }
 
-.formSection {
-  padding: clamp(132px, 9vw, 168px) var(--container-pad) clamp(72px, 8vw, 120px);
-}
-
-.pageIntro {
-  max-width: 860px;
-  margin-bottom: clamp(44px, 5vw, 72px);
+.heroInner {
+  width: 100%;
 }
 
 .title,
@@ -31,28 +31,57 @@
 }
 
 .title {
-  max-width: 840px;
-  font-size: clamp(3rem, 4vw, 4.5rem);
+  font-size: clamp(3rem, 5vw, 4.75rem);
   line-height: 0.95;
+  color: #fff;
+}
+
+.heroImage {
+  position: relative;
+  min-height: clamp(250px, 21vw, 340px);
+  overflow: hidden;
+  background: #111;
+}
+
+.heroImageAsset {
+  object-fit: cover;
+  object-position: center;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  padding: clamp(32px, 4vw, 64px) max(var(--container-pad), calc((100vw - 1536px) / 2));
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.42) 55%, rgba(0, 0, 0, 0.1) 100%);
 }
 
 .intro {
-  max-width: 720px;
+  max-width: 56ch;
   margin-top: 20px;
-  color: #414141;
+  color: rgba(255, 255, 255, 0.84);
   font-size: var(--quote-body);
   line-height: 1.6;
 }
 
+.formSection {
+  padding: clamp(24px, 3vw, 40px) var(--container-pad) clamp(72px, 8vw, 120px);
+}
+
 .formInner {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(300px, 360px);
-  gap: clamp(48px, 6vw, 104px);
+  grid-template-columns: minmax(0, 1.18fr) minmax(280px, 0.82fr);
+  gap: 0;
   align-items: start;
+  border: 1px solid #e1e1df;
+  background: #f4f4f3;
 }
 
 .formColumn {
   min-width: 0;
+  padding: clamp(28px, 3.5vw, 48px);
+  background: #f4f4f3;
 }
 
 .form,
@@ -61,8 +90,7 @@
 }
 
 .sectionHeading {
-  margin-bottom: 32px;
-  text-align: center;
+  margin-bottom: 24px;
 }
 
 .sectionHeading h2 {
@@ -81,6 +109,12 @@
   font-size: var(--quote-body);
 }
 
+.formGroup {
+  margin: 0 0 16px;
+  padding: 24px;
+  background: #fff;
+}
+
 .fieldRow {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -94,6 +128,17 @@
   margin: 0 0 28px;
   padding: 0;
   border: 0;
+}
+
+.formGroup .field,
+.formGroup .fieldset {
+  margin-bottom: 20px;
+}
+
+.formGroup > .field:last-child,
+.formGroup > .fieldset:last-child,
+.formGroup > .fieldRow:last-child .field {
+  margin-bottom: 0;
 }
 
 .label {
@@ -301,9 +346,12 @@
 }
 
 .aside {
-  margin-top: clamp(124px, 13vw, 184px);
-  padding: 0 0 0 28px;
-  border-left: 1px solid #d7d7d7;
+  position: sticky;
+  top: clamp(120px, calc(96px + 3vw), 144px);
+  align-self: start;
+  margin: clamp(20px, 3vw, 40px);
+  padding: clamp(28px, 3.5vw, 48px);
+  background: #fff;
 }
 
 .tips {
@@ -326,7 +374,7 @@
 }
 
 .tips p,
-.note {
+.note p {
   color: #505050;
   font-size: var(--quote-ui);
   line-height: 1.55;
@@ -334,13 +382,14 @@
 
 .note {
   margin-top: 44px;
-  padding-top: 20px;
-  border-top: 1px solid #dedede;
+  padding: 16px;
+  background: #efefee;
 }
 
 .successCard {
-  padding: clamp(32px, 6vw, 64px);
-  background: #f3f3f3;
+  min-height: 100%;
+  padding: clamp(32px, 4vw, 48px);
+  background: #fff;
 }
 
 .successKicker {
@@ -372,15 +421,12 @@
 @media (max-width: 1080px) {
   .formInner {
     grid-template-columns: 1fr;
-    gap: 56px;
   }
 
   .aside {
-    margin-top: 0;
-    max-width: none;
-    padding: 28px 0 0;
-    border-top: 1px solid #d7d7d7;
-    border-left: 0;
+    position: static;
+    margin: 0;
+    padding: 36px 28px;
   }
 
   .tips {
@@ -394,8 +440,17 @@
 }
 
 @media (max-width: 600px) {
-  .formSection {
-    padding-top: 108px;
+  .heroSection {
+    padding-top: 24px;
+  }
+
+  .heroImage {
+    min-height: 300px;
+  }
+
+  .heroOverlay {
+    align-items: flex-end;
+    padding: 28px 24px;
   }
 
   .fieldRow {
@@ -411,8 +466,9 @@
     width: 100%;
   }
 
+  .formColumn,
   .aside {
-    padding-top: 24px;
+    padding: 32px 24px;
   }
 
   .tips,
