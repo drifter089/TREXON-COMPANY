@@ -65,7 +65,7 @@
 }
 
 .locationSection {
-  padding: 0 var(--container-pad) clamp(72px, 8vw, 120px);
+  padding: clamp(24px, 3vw, 40px) var(--container-pad) clamp(72px, 8vw, 120px);
 }
 
 .locationInner {
