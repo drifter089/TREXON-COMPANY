@@ -4,9 +4,9 @@ import Footer from "@/app/components/Footer";
 import Contact from "@/app/components/Contact";
 
 export const metadata: Metadata = {
-  title: "Contact — THREXON",
+  title: "Contact — Resin Supply Support",
   description:
-    "Tell us what you're building. We reply within 24 hours — no decks, just answers.",
+    "Contact us with a general question about polyester resin availability, delivery, product documents, or local supply support.",
 };
 
 export default function ContactPage() {

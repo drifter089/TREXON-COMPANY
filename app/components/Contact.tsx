@@ -1,55 +1,46 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState, type FormEvent } from "react";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { db } from "@/app/lib/firebase";
 import styles from "./Contact.module.css";
 
-const PROJECT_TYPES = [
-  { value: "software", label: "Custom software" },
-  { value: "website", label: "Website" },
-  { value: "marketing", label: "Marketing / Growth" },
-  { value: "other", label: "Something else" },
-];
-
-const BUDGET_RANGES = [
-  { value: "<10k", label: "Under $10k" },
-  { value: "10k-25k", label: "$10k – $25k" },
-  { value: "25k-50k", label: "$25k – $50k" },
-  { value: "50k+", label: "$50k+" },
-  { value: "unsure", label: "Not sure yet" },
-];
-
-const TIMELINES = [
-  { value: "asap", label: "ASAP" },
-  { value: "1-3mo", label: "1 – 3 months" },
-  { value: "3-6mo", label: "3 – 6 months" },
-  { value: "exploring", label: "Just exploring" },
-];
+// Temporary details: replace all placeholder values before publishing the site.
+const CONTACT_DETAILS = {
+  location: "Uttar Pradesh, India",
+  address: "Warehouse / office address to be confirmed",
+  phone: "+91 00000 00000",
+  email: "sales@example.com",
+  mapSrc: "https://www.google.com/maps?q=Uttar+Pradesh%2C+India&z=7&output=embed",
+};
 
 type Status = "idle" | "submitting" | "success" | "error";
 
 export default function Contact() {
   const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
-  const [company, setCompany] = useState("");
-  const [projectType, setProjectType] = useState("");
-  const [budget, setBudget] = useState("");
-  const [timeline, setTimeline] = useState("");
+  const [location, setLocation] = useState("");
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState<Status>("idle");
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (status === "submitting" || !name.trim() || !email.trim() || !message.trim()) return;
+    if (status === "submitting") return;
 
     setStatus("submitting");
+
     try {
       await addDoc(collection(db, "contact_submissions"), {
-        name: name.trim(), email: email.trim(), company: company.trim() || null,
-        projectType: projectType || null, budget: budget || null, timeline: timeline || null,
-        message: message.trim(), source: "contact-page", createdAt: serverTimestamp(),
+        name: name.trim(),
+        phone: phone.trim(),
+        email: email.trim() || null,
+        location: location.trim() || null,
+        message: message.trim(),
+        source: "contact-page",
+        createdAt: serverTimestamp(),
       });
       setStatus("success");
     } catch (error) {
@@ -60,49 +51,111 @@ export default function Contact() {
 
   return (
     <main className={styles.page}>
-      <section className={styles.hero}>
+      <section className={styles.heroSection} aria-labelledby="contact-heading">
         <div className={styles.heroInner}>
-          <span className={styles.eyebrow}>Contact</span>
-          <h1 className={styles.heroTitle}>Tell us what you&apos;re building.</h1>
-          <p className={styles.heroBody}>A site, an app, a campaign, or something messier. We&apos;ll come back with what&apos;s feasible, what it&apos;ll take, and the questions we&apos;d ask before quoting.</p>
+          <div className={styles.heroImage}>
+            <Image
+              src="/images/hero/industrial-pipes.jpg"
+              alt="Industrial pipework inside a production facility"
+              fill
+              priority
+              sizes="100vw"
+              className={styles.heroImageAsset}
+            />
+            <div className={styles.heroOverlay}>
+              <div className={styles.heroCopy}>
+                <h1 id="contact-heading" className={styles.title}>Contact</h1>
+                <p className={styles.intro}>
+                  Ask about local resin availability, delivery, product documents, or general supply support.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className={styles.formSection}>
-        <div className={styles.formInner}>
-          <div className={styles.formCol}>
+      <section className={styles.locationSection} aria-labelledby="location-heading">
+        <div className={styles.locationInner}>
+          <div className={styles.locationCopy}>
+            <h2 id="location-heading">{CONTACT_DETAILS.location}</h2>
+            <p className={styles.locationDescription}>Local inventory and supply support for FRP and composite-production requirements.</p>
+            <address className={styles.address}>
+              <span>Supply location</span>
+              {CONTACT_DETAILS.address}
+            </address>
+            <dl className={styles.contactDetails}>
+              <div>
+                <dt>Phone / WhatsApp</dt>
+                <dd>{CONTACT_DETAILS.phone}</dd>
+              </div>
+              <div>
+                <dt>Sales email</dt>
+                <dd>{CONTACT_DETAILS.email}</dd>
+              </div>
+            </dl>
+          </div>
+
+          <div className={styles.formPanel}>
             {status === "success" ? (
-              <div className={styles.successCard}>
-                <span className={styles.successKicker}>Sent</span>
-                <h2 className={styles.successTitle}>Thanks{name.split(" ")[0] && ` ${name.split(" ")[0]}`}. We&apos;ll be in touch within a day.</h2>
-                <p className={styles.successBody}>A reply from a real person is on its way. In the meantime, feel free to <Link href="/" className={styles.successLink}>see our work</Link>.</p>
+              <div className={styles.successCard} role="status">
+                <p className={styles.successKicker}>Message received</p>
+                <h2 className={styles.successTitle}>
+                  Thanks{name.trim().split(/\s+/)[0] ? `, ${name.trim().split(/\s+/)[0]}` : ""}. We&apos;ll get back to you about your question.
+                </h2>
+                <p className={styles.successText}>
+                  If you also need pricing or technical grade guidance, send a separate quotation request with your production details.
+                </p>
+                <Link href="/quote" className={styles.homeLink}>Request a quotation</Link>
               </div>
             ) : (
-              <form className={styles.form} onSubmit={handleSubmit} noValidate>
-                <div className={styles.fieldRow}>
-                  <label className={styles.field}><span className={styles.fieldLabel}>Name</span><input type="text" required autoComplete="name" placeholder="Jordan Smith" value={name} onChange={(event) => setName(event.target.value)} disabled={status === "submitting"} className={styles.input} /></label>
-                  <label className={styles.field}><span className={styles.fieldLabel}>Email</span><input type="email" required autoComplete="email" placeholder="you@company.com" value={email} onChange={(event) => setEmail(event.target.value)} disabled={status === "submitting"} className={styles.input} /></label>
+              <form className={styles.form} onSubmit={handleSubmit}>
+                <div className={styles.sectionHeading}>
+                  <h2 id="message-heading">Send a general enquiry</h2>
+                  <p>This form is for a general supply enquiry, not a pricing request.</p>
                 </div>
-                <label className={styles.field}><span className={styles.fieldLabel}>Company <span className={styles.fieldHint}>(optional)</span></span><input type="text" autoComplete="organization" placeholder="Acme Co." value={company} onChange={(event) => setCompany(event.target.value)} disabled={status === "submitting"} className={styles.input} /></label>
-                <fieldset className={styles.fieldset}>
-                  <legend className={styles.fieldLabel}>Project type</legend>
-                  <div className={styles.chips}>{PROJECT_TYPES.map((type) => <button key={type.value} type="button" className={`${styles.chip} ${projectType === type.value ? styles.chipActive : ""}`} onClick={() => setProjectType(projectType === type.value ? "" : type.value)} disabled={status === "submitting"}>{type.label}</button>)}</div>
-                </fieldset>
+
                 <div className={styles.fieldRow}>
-                  <label className={styles.field}><span className={styles.fieldLabel}>Budget <span className={styles.fieldHint}>(optional)</span></span><select value={budget} onChange={(event) => setBudget(event.target.value)} disabled={status === "submitting"} className={styles.select}><option value="">Select a range</option>{BUDGET_RANGES.map((range) => <option key={range.value} value={range.value}>{range.label}</option>)}</select></label>
-                  <label className={styles.field}><span className={styles.fieldLabel}>Timeline <span className={styles.fieldHint}>(optional)</span></span><select value={timeline} onChange={(event) => setTimeline(event.target.value)} disabled={status === "submitting"} className={styles.select}><option value="">Select a window</option>{TIMELINES.map((item) => <option key={item.value} value={item.value}>{item.label}</option>)}</select></label>
+                  <label className={styles.field}>
+                    <span className={styles.label}>Name *</span>
+                    <input className={styles.input} name="name" type="text" required minLength={2} maxLength={120} autoComplete="name" placeholder="Your name" value={name} onChange={(event) => setName(event.target.value)} disabled={status === "submitting"} />
+                  </label>
+                  <label className={styles.field}>
+                    <span className={styles.label}>Phone or WhatsApp *</span>
+                    <input className={styles.input} name="phone" type="tel" required minLength={7} maxLength={40} autoComplete="tel" placeholder="Your contact number" value={phone} onChange={(event) => setPhone(event.target.value)} disabled={status === "submitting"} />
+                  </label>
                 </div>
-                <label className={styles.field}><span className={styles.fieldLabel}>Message</span><textarea required rows={6} maxLength={1500} placeholder="A few lines about what you're building, the problem you're solving, and anything else we should know." value={message} onChange={(event) => setMessage(event.target.value)} disabled={status === "submitting"} className={styles.textarea} /></label>
-                <button type="submit" className={styles.submit} disabled={status === "submitting"}><span className={styles.submitText}>{status === "submitting" ? "Sending…" : "Send message"}</span><span className={styles.submitArrow} aria-hidden><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 5l7 7-7 7" /></svg></span></button>
-                {status === "error" && <span className={styles.errorText}>Something went wrong. Please try again or refresh.</span>}
+
+                <div className={styles.fieldRow}>
+                  <label className={styles.field}>
+                    <span className={styles.label}>Email <span className={styles.optional}>(optional)</span></span>
+                    <input className={styles.input} name="email" type="email" maxLength={200} autoComplete="email" placeholder="you@company.com" value={email} onChange={(event) => setEmail(event.target.value)} disabled={status === "submitting"} />
+                  </label>
+                  <label className={styles.field}>
+                    <span className={styles.label}>City or delivery area <span className={styles.optional}>(optional)</span></span>
+                    <input className={styles.input} name="location" type="text" maxLength={120} autoComplete="address-level2" placeholder="City, district, or state" value={location} onChange={(event) => setLocation(event.target.value)} disabled={status === "submitting"} />
+                  </label>
+                </div>
+
+                <label className={styles.field}>
+                  <span className={styles.label}>Your question *</span>
+                  <textarea className={styles.textarea} name="message" required rows={5} minLength={2} maxLength={1500} placeholder="For example: availability in my area, delivery timing, product documents, or a general supply question." value={message} onChange={(event) => setMessage(event.target.value)} disabled={status === "submitting"} />
+                </label>
+
+                <button type="submit" className={styles.submit} disabled={status === "submitting"}>
+                  {status === "submitting" ? "Sending message…" : "Send message"}
+                </button>
+                {status === "error" && <p className={styles.errorText} role="alert">We could not send your message. Please try again shortly.</p>}
               </form>
             )}
           </div>
-          <aside className={styles.aside}>
-            <div className={styles.infoBlock}><span className={styles.infoKicker}>Response time</span><p className={styles.infoText}>Most replies within 24 hours. We read every brief — no templates.</p></div>
-            <div className={styles.infoBlock}><span className={styles.infoKicker}>What you&apos;ll get</span><p className={styles.infoText}>A real answer from someone who&apos;d build it: feasibility, rough timeline, ballpark price, and the questions we&apos;d ask before quoting.</p></div>
-            <div className={styles.infoBlock}><span className={styles.infoKicker}>What you won&apos;t get</span><p className={styles.infoText}>A pitch deck. A &ldquo;let&apos;s schedule a discovery workshop.&rdquo; Someone reading from a script.</p></div>
-          </aside>
+          <div className={styles.mapFrame}>
+            <iframe
+              title="Service area in Uttar Pradesh, India"
+              src={CONTACT_DETAILS.mapSrc}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
         </div>
       </section>
     </main>
