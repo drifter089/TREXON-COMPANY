@@ -21,7 +21,7 @@ export default function Nav() {
   return (
     <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ""}`}>
       <div className={styles.inner}>
-        <Link href="/" className={styles.logo} aria-label="THREXON home">
+        <Link href="/" className={styles.logo} aria-label="Home">
           <Image
             src="/threxon_logo.png"
             alt="THREXON"
@@ -40,7 +40,7 @@ export default function Nav() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`${styles.link} ${isActive ? styles.active : ""}`}
+                className={`${styles.link} ${item.primary ? styles.primaryLink : ""} ${isActive ? styles.active : ""}`}
                 onClick={() => setMenuOpen(false)}
               >
                 {item.label}

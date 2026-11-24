@@ -34,7 +34,6 @@
   display: inline-flex;
   align-items: center;
   text-decoration: none;
-  line-height: 0;
 }
 
 .logoImage {
@@ -42,8 +41,6 @@
   width: 72px;
   height: 72px;
   object-fit: contain;
-  /* Mark ships as transparent black; invert flips it to cream-white for the
-     ink footer. Alpha is untouched by invert(), so the bg stays transparent. */
   filter: invert(1);
 }
 

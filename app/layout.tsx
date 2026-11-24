@@ -7,10 +7,6 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.threxon.org"),
-  // The mark is transparent black, so it disappears against a dark tab strip.
-  // Serve an inverted (white) copy to dark-scheme browsers; favicon.ico stays
-  // the universal fallback for clients that ignore `media`.
   icons: {
     icon: [
       {
@@ -27,14 +23,14 @@ export const metadata: Metadata = {
       },
     ],
   },
-  title: "THREXON — Software, Websites & Digital Marketing",
+  title: "Polyester Resin Supply for FRP & Composite Manufacturing",
   description:
-    "A small studio building software, websites, and growth — for teams who'd rather ship than pitch. Briefs welcome. Decks not required.",
+    "Polyester resin supply, grade-selection support and commercial quotations for FRP and composite manufacturers in Uttar Pradesh.",
   openGraph: {
-    title: "THREXON — Software, Websites & Digital Marketing",
+    title: "Polyester Resin Supply for FRP & Composite Manufacturing",
     description:
-      "A small studio building software, websites, and growth — for teams who'd rather ship than pitch.",
-    siteName: "THREXON",
+      "Polyester resin supply, grade-selection support and commercial quotations for FRP and composite manufacturers in Uttar Pradesh.",
+    siteName: "Resin Supply",
     type: "website",
   },
 };
