@@ -354,6 +354,50 @@
   line-height: 1.5;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  .applications[data-revealed="false"] .productsHeaderInner > div,
+  .applications[data-revealed="false"] .applicationPanel {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+
+  .applications[data-revealed="true"] .productsHeaderInner > div {
+    animation: applications-reveal 620ms var(--ease-out) both;
+  }
+
+  .applications[data-revealed="true"] .applicationPanel {
+    animation: applications-reveal 680ms var(--ease-out) both;
+  }
+
+  .applications[data-revealed="true"] .applicationPanel:nth-child(1) {
+    animation-delay: 90ms;
+  }
+
+  .applications[data-revealed="true"] .applicationPanel:nth-child(2) {
+    animation-delay: 160ms;
+  }
+
+  .applications[data-revealed="true"] .applicationPanel:nth-child(3) {
+    animation-delay: 230ms;
+  }
+
+  .applications[data-revealed="true"] .applicationPanel:nth-child(4) {
+    animation-delay: 300ms;
+  }
+
+  @keyframes applications-reveal {
+    from {
+      opacity: 0;
+      transform: translateY(26px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
 .productWall {
   display: flex;
   width: auto;

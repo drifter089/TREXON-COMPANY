@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./HomeSections.module.css";
 
 const APPLICATIONS = [
@@ -59,10 +59,38 @@ const SUPPORT_STEPS = [
 
 export default function HomeSections() {
   const [activeApplication, setActiveApplication] = useState<number | null>(null);
+  const [applicationsRevealed, setApplicationsRevealed] = useState(false);
+  const applicationsRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const section = applicationsRef.current;
+
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setApplicationsRevealed(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.16 },
+    );
+
+    observer.observe(section);
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div>
-      <section id="resins" className={styles.applications} aria-labelledby="applications-heading">
+      <section
+        id="resins"
+        ref={applicationsRef}
+        className={styles.applications}
+        aria-labelledby="applications-heading"
+        data-revealed={applicationsRevealed}
+      >
         <div className={styles.productsHeader}>
           <div className={styles.productsHeaderInner}>
             <div>
