@@ -52,7 +52,7 @@ export default function Hero() {
   }, [isFocused, isHovered, reduceMotion]);
 
   return (
-    <main className={styles.hero}>
+    <section className={styles.hero}>
       <section
         className={styles.frame}
         aria-labelledby="hero-heading"
@@ -113,6 +113,6 @@ export default function Hero() {
           </div>
         </div>
       </section>
-    </main>
+    </section>
   );
 }
