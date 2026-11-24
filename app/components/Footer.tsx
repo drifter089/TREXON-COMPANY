@@ -4,15 +4,16 @@ import styles from "./Footer.module.css";
 
 const PAGES = [
   { href: "/", label: "Home" },
-  { href: "/work", label: "Work" },
+  { href: "/#resins", label: "Resins" },
+  { href: "/#services", label: "Buyer Support" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
 
-const SOCIAL = [
-  { href: "https://www.instagram.com/threxon_official", label: "Instagram" },
-  { href: "https://www.tiktok.com/@threxon_official", label: "TikTok" },
-  { href: "https://www.facebook.com/share/1HJjLDAAhU/", label: "Facebook" },
+const ENQUIRIES = [
+  { href: "/quote", label: "Request a quotation" },
+  { href: "/quote#grade-help", label: "Help me choose a grade" },
+  { href: "/contact", label: "General supply question" },
 ];
 
 export default function Footer() {
@@ -21,7 +22,7 @@ export default function Footer() {
       <div className={styles.inner}>
         <div className={styles.top}>
           <div className={styles.brand}>
-            <Link href="/" className={styles.logo} aria-label="THREXON home">
+            <Link href="/" className={styles.logo} aria-label="Home">
               <Image
                 src="/threxon_logo.png"
                 alt="THREXON"
@@ -31,13 +32,12 @@ export default function Footer() {
               />
             </Link>
             <p className={styles.tagline}>
-              Software, websites, and growth — built for businesses ready to
-              move.
+              Polyester resin supply for FRP and composite manufacturers in Uttar Pradesh.
             </p>
             <p className={styles.signoff}>
-              Tell us what you&apos;re building.{" "}
-              <Link href="/contact" className={styles.signoffLink}>
-                Start a project <span aria-hidden>→</span>
+              Have a requirement?{" "}
+              <Link href="/quote" className={styles.signoffLink}>
+                Request a quotation <span aria-hidden>→</span>
               </Link>
             </p>
           </div>
@@ -53,18 +53,11 @@ export default function Footer() {
             </div>
 
             <div className={styles.col}>
-              <span className={styles.colKicker}>Connect</span>
-              {SOCIAL.map((s) => (
-                <a
-                  key={s.label}
-                  href={s.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.colLink}
-                >
-                  {s.label}
-                  <span className={styles.extArrow} aria-hidden>↗</span>
-                </a>
+              <span className={styles.colKicker}>Enquiries</span>
+              {ENQUIRIES.map((enquiry) => (
+                <Link key={enquiry.label} href={enquiry.href} className={styles.colLink}>
+                  {enquiry.label}
+                </Link>
               ))}
             </div>
           </div>
@@ -73,13 +66,13 @@ export default function Footer() {
         <div className={styles.divider} aria-hidden />
 
         <div className={styles.bottom}>
-          <span className={styles.copy}>© 2026 THREXON</span>
+          <span className={styles.copy}>© 2026 Resin Supply</span>
           <span className={styles.metaSep}>·</span>
           <span className={styles.copy}>All rights reserved</span>
           <span className={styles.metaGap} />
           <span className={styles.metaTag}>
             <span className={styles.metaDot} />
-            Built with intent
+            Official manufacturing partner: ORCPL
           </span>
         </div>
       </div>

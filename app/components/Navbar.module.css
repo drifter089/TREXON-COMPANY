@@ -65,6 +65,21 @@
   border-bottom-color: var(--ink);
 }
 
+.primaryLink {
+  padding: 11px 15px;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: #fff;
+}
+
+.primaryLink:hover,
+.primaryLink:focus-visible,
+.primaryLink.active {
+  border-color: var(--ink);
+  background: #fff;
+  color: var(--ink);
+}
+
 .menuToggle {
   display: none;
 }
@@ -100,6 +115,13 @@
   .link {
     padding: 14px 0;
     border-bottom: 1px solid #e7e7e7;
+  }
+
+  .primaryLink {
+    margin-top: 8px;
+    padding: 14px;
+    border-bottom: 1px solid var(--ink);
+    text-align: center;
   }
 
   .menuToggle {
