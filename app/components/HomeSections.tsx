@@ -36,27 +36,6 @@ const APPLICATIONS = [
   },
 ];
 
-const SUPPORT_STEPS = [
-  {
-    number: "01",
-    title: "Start with the application",
-    description:
-      "Tell us what you make, how you produce it, and what you need the finished part to do.",
-  },
-  {
-    number: "02",
-    title: "Narrow the grade",
-    description:
-      "If you are not sure which polyester resin fits, we will help you frame the technical requirement.",
-  },
-  {
-    number: "03",
-    title: "Plan the supply",
-    description:
-      "Share the approximate quantity and delivery area so we can prepare a useful commercial response.",
-  },
-];
-
 export default function HomeSections() {
   const [activeApplication, setActiveApplication] = useState<number | null>(null);
   const [applicationsRevealed, setApplicationsRevealed] = useState(false);
@@ -142,38 +121,79 @@ export default function HomeSections() {
 
       <section id="services" className={styles.support} aria-labelledby="support-heading">
         <div className={styles.inner}>
-          <div className={styles.supportIntro}>
-            <h2 id="support-heading">Support before the order is placed.</h2>
-            <p>
-              Whether you know the grade you need or are comparing options, the quotation process begins with the practical details of your production.
-            </p>
-          </div>
-
-          <ol className={styles.steps}>
-            {SUPPORT_STEPS.map((step) => (
-              <li key={step.number} className={styles.step}>
-                <span className={styles.stepNumber}>{step.number}</span>
-                <h3>{step.title}</h3>
-                <p>{step.description}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      <section className={styles.supply} aria-labelledby="supply-heading">
-        <div className={styles.inner}>
-          <div className={styles.supplyGrid}>
-            <h2 id="supply-heading">Supply built around a production schedule.</h2>
-            <div className={styles.supplyCopy}>
+          <div className={styles.supportHero}>
+            <div className={styles.supportOverview}>
+              <h2 id="support-heading">Support before you order.</h2>
               <p>
-                We supply polyester resin from local Uttar Pradesh inventory for FRP and composite manufacturing businesses. The aim is straightforward: help buyers get a clear answer on grade direction, commercial quotation and delivery planning.
+                Whether you know the grade you need or are comparing options, the quotation process begins with the practical details of your production.
               </p>
-              <p>
-                ORCPL is our official manufacturing partner. We are a supplier and do not represent ORCPL&apos;s facilities as our own.
+              <p className={styles.supportContext}>
+                From the application and production process to quantity and delivery area, those details shape the grade discussion, quotation and supply plan.
               </p>
+
+              <div className={styles.supplyPlanning} aria-labelledby="supply-heading">
+                <h3 id="supply-heading">Supply planning.</h3>
+                <p>
+                  We supply polyester resin from local Uttar Pradesh inventory for FRP and composite manufacturing businesses. The aim is straightforward: help buyers get a clear answer on grade direction, commercial quotation and delivery planning.
+                </p>
+                <p className={styles.partnerNote}>
+                  ORCPL is our official manufacturing partner. We are a supplier and do not represent ORCPL&apos;s facilities as our own.
+                </p>
+              </div>
+            </div>
+            <div className={styles.supportImageCollage}>
+              <div className={styles.supportImageMain}>
+                <Image
+                  src="/images/support/resin-lab-beaker.png"
+                  alt="A gloved hand holding a glass beaker of clear polyester resin"
+                  fill
+                  sizes="(max-width: 800px) 88vw, 42vw"
+                  className={styles.supportImage}
+                />
+              </div>
+              <div className={styles.supportImageDetail}>
+                <Image
+                  src="/images/support/resin-pour-detail.png"
+                  alt="Clear resin flowing from a steel mixing tool into a vessel"
+                  fill
+                  sizes="(max-width: 800px) 58vw, 26vw"
+                  className={styles.supportDetailImage}
+                />
+              </div>
             </div>
           </div>
+
+          <div className={styles.supportPillars}>
+            <article className={styles.supportPillar}>
+              <svg className={styles.supportIcon} viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                <path d="M8 35.5 24 8l16 27.5H8Z" />
+                <path d="m24 8 7.5 27.5M16.5 35.5 24 23l7.5 12.5" />
+              </svg>
+              <h3>Start with the application.</h3>
+              <p>Tell us what you make, how you produce it, and what you need the finished part to do.</p>
+            </article>
+
+            <article className={styles.supportPillar}>
+              <svg className={styles.supportIcon} viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                <path d="M10 12h28M10 24h28M10 36h28" />
+                <circle cx="18" cy="12" r="4" />
+                <circle cx="30" cy="24" r="4" />
+                <circle cx="22" cy="36" r="4" />
+              </svg>
+              <h3>Narrow the grade.</h3>
+              <p>If you are not sure which polyester resin fits, we will help you frame the technical requirement.</p>
+            </article>
+
+            <article className={styles.supportPillar}>
+              <svg className={styles.supportIcon} viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                <path d="M8 16 24 8l16 8-16 8L8 16Z" />
+                <path d="M8 16v16l16 8 16-8V16M24 24v16" />
+              </svg>
+              <h3>Plan the supply.</h3>
+              <p>Share the approximate quantity and delivery area so we can prepare a useful commercial response.</p>
+            </article>
+          </div>
+
         </div>
       </section>
 
