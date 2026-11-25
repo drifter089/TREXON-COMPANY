@@ -1,12 +1,11 @@
 .applications,
-.supply,
+.support,
 .cta {
   background: #fff;
 }
 
 .applications,
 .support,
-.supply,
 .cta {
   padding: clamp(76px, 10vw, 144px) 0;
 }
@@ -26,8 +25,6 @@
 }
 
 .sectionLead h2,
-.supportIntro h2,
-.supply h2,
 .cta h2 {
   margin: 0;
   color: var(--ink);
@@ -39,8 +36,6 @@
 }
 
 .sectionLead p,
-.supportIntro p,
-.supplyCopy p,
 .cta p {
   margin: 0;
   color: var(--ink-soft);
@@ -63,8 +58,7 @@
   background: #fff;
 }
 
-.applicationCard h3,
-.step h3 {
+.applicationCard h3 {
   margin: 0;
   color: var(--ink);
   font-size: clamp(1.35rem, 2vw, 1.8rem);
@@ -73,8 +67,7 @@
   letter-spacing: -0.025em;
 }
 
-.applicationCard p,
-.step p {
+.applicationCard p {
   max-width: 36ch;
   margin: 18px 0 0;
   color: var(--ink-soft);
@@ -115,89 +108,166 @@
 }
 
 .support {
+  overflow: hidden;
   background: #111;
   color: #fff;
+  padding: clamp(68px, 7.5vw, 112px) 0;
 }
 
-.supportIntro {
+.supportHero {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.8fr);
-  gap: clamp(32px, 8vw, 128px);
-  align-items: end;
-  margin-bottom: clamp(48px, 7vw, 88px);
+  grid-template-columns: minmax(0, 0.85fr) minmax(440px, 1.15fr);
+  gap: clamp(36px, 4.5vw, 72px);
+  align-items: start;
+  margin-bottom: clamp(48px, 6vw, 88px);
 }
 
-.supportIntro h2 {
-  color: #fff;
-}
-
-.supportIntro p {
-  color: rgba(255, 255, 255, 0.66);
-}
-
-.steps {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  margin: 0;
+.supportOverview {
+  max-width: 42rem;
   padding: 0;
-  list-style: none;
+}
+
+.supportOverview h2 {
+  margin: 0;
+  color: #fff;
+  font-family: var(--display);
+  max-width: none;
+  font-size: clamp(2.7rem, 3vw, 4rem);
+  font-weight: 600;
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+}
+
+.supportOverview p {
+  max-width: 47ch;
+  margin: clamp(24px, 2.7vw, 36px) 0 0;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: clamp(1rem, 1.1vw, 1.1rem);
+  line-height: 1.6;
+}
+
+.supportOverview .supportContext {
+  max-width: 49ch;
+  margin-top: 14px;
+  color: rgba(255, 255, 255, 0.52);
+}
+
+.supplyPlanning {
+  max-width: 49ch;
+  margin-top: clamp(38px, 4vw, 54px);
+  padding-top: clamp(24px, 2.5vw, 32px);
   border-top: 1px solid rgba(255, 255, 255, 0.28);
 }
 
-.step {
-  min-height: 276px;
-  padding: 30px clamp(22px, 3vw, 42px) 20px 0;
-  border-right: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.step + .step {
-  padding-left: clamp(22px, 3vw, 42px);
-}
-
-.step:last-child {
-  border-right: 0;
-}
-
-.stepNumber {
-  display: block;
-  margin-bottom: clamp(44px, 6vw, 74px);
-  color: rgba(255, 255, 255, 0.54);
-  font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-}
-
-.step h3 {
+.supplyPlanning h3 {
+  margin: 0;
   color: #fff;
+  font-family: var(--display);
+  font-size: clamp(1.65rem, 2vw, 2.25rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.035em;
 }
 
-.step p {
-  color: rgba(255, 255, 255, 0.62);
+.supplyPlanning p {
+  max-width: 49ch;
+  margin: 16px 0 0;
+  color: rgba(255, 255, 255, 0.68);
+  line-height: 1.55;
 }
 
-.supply {
-  border-bottom: 1px solid #d8d8d8;
-}
-
-.supplyGrid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.7fr);
-  gap: clamp(40px, 10vw, 160px);
-  align-items: start;
-}
-
-.supplyCopy {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding-top: 8px;
-}
-
-.supplyCopy p:last-child {
-  padding-top: 20px;
-  border-top: 1px solid #d8d8d8;
-  color: var(--ink);
+.supplyPlanning .partnerNote {
+  margin-top: 20px;
+  padding-left: 16px;
+  border-left: 1px solid rgba(255, 255, 255, 0.4);
   font-weight: 500;
+}
+
+.supportImageCollage {
+  position: relative;
+  min-height: clamp(460px, 36vw, 620px);
+}
+
+.supportImageMain,
+.supportImageDetail {
+  position: absolute;
+  overflow: hidden;
+}
+
+.supportImageMain {
+  top: 0;
+  right: 0;
+  width: 82%;
+  height: 82%;
+}
+
+.supportImageDetail {
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  width: 64%;
+  height: 63%;
+}
+
+.supportImage {
+  object-fit: cover;
+  object-position: center;
+  filter: grayscale(0.7) contrast(1.04);
+}
+
+.supportDetailImage {
+  object-fit: cover;
+  object-position: center 58%;
+  filter: saturate(0.78) contrast(1.04);
+}
+
+.supportPillars {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.28);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.28);
+}
+
+.supportPillar {
+  min-height: clamp(238px, 18vw, 292px);
+  padding: clamp(30px, 3vw, 48px);
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.supportPillar + .supportPillar {
+  border-left: 1px solid rgba(255, 255, 255, 0.28);
+}
+
+.supportIcon {
+  display: block;
+  width: 42px;
+  height: 42px;
+  margin-bottom: clamp(38px, 4vw, 64px);
+  color: #fff;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.75;
+}
+
+.supportPillar h3 {
+  max-width: none;
+  margin: 0;
+  color: #fff;
+  font-family: var(--display);
+  font-size: clamp(1.35rem, 1.6vw, 1.7rem);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+}
+
+.supportPillar p {
+  max-width: 40ch;
+  margin: 14px 0 0;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: clamp(0.94rem, 1vw, 1rem);
+  line-height: 1.5;
 }
 
 .cta {
@@ -256,29 +326,32 @@
 
 @media (max-width: 800px) {
   .sectionLead,
-  .supportIntro,
-  .supplyGrid,
+  .supportHero,
   .ctaPanel {
     grid-template-columns: 1fr;
   }
 
-  .steps {
+  .supportImageCollage {
+    min-height: min(106vw, 620px);
+    max-width: 620px;
+  }
+
+  .supportPillars {
     grid-template-columns: 1fr;
   }
 
-  .step,
-  .step + .step {
+  .supportPillar {
     min-height: 0;
-    padding: 28px 0;
-    border-right: 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 32px 0;
+    background: transparent;
   }
 
-  .step:last-child {
-    border-bottom: 0;
+  .supportPillar + .supportPillar {
+    border-top: 1px solid rgba(255, 255, 255, 0.28);
+    border-left: 0;
   }
 
-  .stepNumber {
+  .supportIcon {
     margin-bottom: 28px;
   }
 
@@ -290,9 +363,16 @@
 @media (max-width: 560px) {
   .applications,
   .support,
-  .supply,
   .cta {
     padding: 72px 0;
+  }
+
+  .supportOverview h2 {
+    font-size: clamp(2.6rem, 12vw, 3.7rem);
+  }
+
+  .supportImageCollage {
+    min-height: 108vw;
   }
 
   .applicationGrid {
