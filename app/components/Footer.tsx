@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { CONTACT_DETAILS } from "@/app/data/contact";
 import styles from "./Footer.module.css";
 
 const PAGES = [
@@ -10,56 +11,49 @@ const PAGES = [
   { href: "/contact", label: "Contact" },
 ];
 
-const ENQUIRIES = [
-  { href: "/quote", label: "Request a quotation" },
-  { href: "/quote#grade-help", label: "Help me choose a grade" },
-  { href: "/contact", label: "General supply question" },
-];
-
 export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.inner}>
-        <div className={styles.top}>
-          <div className={styles.brand}>
+          <div className={styles.top}>
+            <div className={styles.brand}>
             <Link href="/" className={styles.logo} aria-label="Home">
               <Image
                 src="/threxon_logo.png"
                 alt="THREXON"
-                width={72}
-                height={72}
+                width={96}
+                height={96}
                 className={styles.logoImage}
               />
             </Link>
             <p className={styles.tagline}>
               Polyester resin supply for FRP and composite manufacturers in Uttar Pradesh.
             </p>
-            <p className={styles.signoff}>
-              Have a requirement?{" "}
-              <Link href="/quote" className={styles.signoffLink}>
-                Request a quotation <span aria-hidden>→</span>
-              </Link>
-            </p>
+          </div>
+
+          <div className={styles.contact}>
+            <span className={styles.colKicker}>Contact</span>
+            <a className={styles.contactValue} href={`tel:${CONTACT_DETAILS.phone.replace(/\s/g, "")}`}>
+              {CONTACT_DETAILS.phone}
+            </a>
+            <a className={styles.contactEmail} href={`mailto:${CONTACT_DETAILS.email}`}>
+              {CONTACT_DETAILS.email}
+            </a>
+            <address className={styles.address}>
+              {CONTACT_DETAILS.address}
+              <span>{CONTACT_DETAILS.location}</span>
+            </address>
           </div>
 
           <div className={styles.cols}>
-            <div className={styles.col}>
-              <span className={styles.colKicker}>Pages</span>
+            <nav className={styles.col} aria-label="Footer navigation">
+              <span className={styles.colKicker}>Navigation</span>
               {PAGES.map((p) => (
                 <Link key={p.label} href={p.href} className={styles.colLink}>
                   {p.label}
                 </Link>
               ))}
-            </div>
-
-            <div className={styles.col}>
-              <span className={styles.colKicker}>Enquiries</span>
-              {ENQUIRIES.map((enquiry) => (
-                <Link key={enquiry.label} href={enquiry.href} className={styles.colLink}>
-                  {enquiry.label}
-                </Link>
-              ))}
-            </div>
+            </nav>
           </div>
         </div>
 

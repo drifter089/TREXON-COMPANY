@@ -197,16 +197,28 @@ export default function HomeSections() {
         </div>
       </section>
 
-      <section className={styles.cta} aria-labelledby="cta-heading">
+      <section className={styles.contactAction} aria-labelledby="contact-action-heading">
         <div className={styles.inner}>
-          <div className={styles.ctaPanel}>
-            <h2 id="cta-heading">Ready to discuss a resin requirement?</h2>
-            <p>
-              Tell us what you manufacture and the quantity you are planning for. We will use that information to prepare the right next step.
-            </p>
-            <div className={styles.ctaActions}>
-              <Link href="/quote" className={styles.primaryAction}>Request a resin quotation</Link>
-              <Link href="/contact" className={styles.secondaryAction}>Ask a general supply question <span aria-hidden>→</span></Link>
+          <div className={styles.contactActionPanel}>
+            <div className={styles.contactActionVisual} aria-hidden>
+              <Image
+                src="/images/support/resin-pour-detail.png"
+                alt=""
+                fill
+                sizes="(max-width: 800px) 100vw, 46vw"
+                className={styles.contactActionImage}
+              />
+            </div>
+            <div className={styles.contactActionContent}>
+              <div className={styles.contactActionCopy}>
+                <h2 id="contact-action-heading">Start with the right resin.</h2>
+                <p>
+                  Tell us what you manufacture, the quantity you need and where it needs to go. We will help with availability, delivery and the next step.
+                </p>
+              </div>
+              <Link href="/contact" className={styles.contactActionLink}>
+                Send a general enquiry <span aria-hidden>→</span>
+              </Link>
             </div>
           </div>
         </div>
