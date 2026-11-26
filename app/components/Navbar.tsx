@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -8,18 +8,11 @@ import styles from "./Navbar.module.css";
 import { NAV_ITEMS } from "@/app/data/navigation";
 
 export default function Nav() {
-  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
 
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
-    <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ""}`}>
+    <nav className={styles.nav}>
       <div className={styles.inner}>
         <Link href="/" className={styles.logo} aria-label="Home">
           <Image

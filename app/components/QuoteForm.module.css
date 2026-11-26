@@ -8,7 +8,7 @@
 }
 
 .heroSection {
-  padding: clamp(24px, 3vw, 40px) 0 0;
+  padding: 0;
 }
 
 .heroInner,
@@ -441,11 +441,11 @@
 
 @media (max-width: 600px) {
   .heroSection {
-    padding-top: 24px;
+    padding-top: 0;
   }
 
   .heroImage {
-    min-height: 300px;
+    min-height: 280px;
   }
 
   .heroOverlay {
@@ -458,12 +458,42 @@
     gap: 0;
   }
 
+  .formGroup {
+    padding: 20px;
+  }
+
+  .selectionHint {
+    display: block;
+    margin: 4px 0 0;
+    font-size: 0.8125rem;
+  }
+
   .applicationChoices {
     grid-template-columns: 1fr 1fr;
+    gap: 0;
+    overflow: hidden;
+    border: 1px solid #cfcfcf;
   }
 
   .applicationChoice {
     width: 100%;
+    min-height: 60px;
+    gap: 8px;
+    padding: 10px;
+    border: 0;
+    border-bottom: 1px solid #dcdcdc;
+  }
+
+  .applicationChoice:nth-child(odd) {
+    border-right: 1px solid #dcdcdc;
+  }
+
+  .applicationChoice:nth-last-child(-n + 2) {
+    border-bottom: 0;
+  }
+
+  .applicationChoiceSelected {
+    background: #f1f1f0;
   }
 
   .formColumn,
@@ -475,6 +505,27 @@
   .radioChoices {
     grid-template-columns: 1fr;
   }
+
+  .radioChoices {
+    gap: 0;
+    overflow: hidden;
+    border: 1px solid #cfcfcf;
+  }
+
+  .radioChoice {
+    gap: 10px;
+    padding: 14px 12px;
+    border: 0;
+    border-bottom: 1px solid #dcdcdc;
+  }
+
+  .radioChoice:last-child {
+    border-bottom: 0;
+  }
+
+  .radioChoice small {
+    margin-top: 2px;
+  }
 }
 
 @media (max-width: 390px) {
@@ -485,5 +536,17 @@
   .submit,
   .homeLink {
     width: 100%;
+  }
+
+  .applicationChoice:nth-child(odd) {
+    border-right: 0;
+  }
+
+  .applicationChoice:nth-last-child(-n + 2) {
+    border-bottom: 1px solid #dcdcdc;
+  }
+
+  .applicationChoice:last-child {
+    border-bottom: 0;
   }
 }

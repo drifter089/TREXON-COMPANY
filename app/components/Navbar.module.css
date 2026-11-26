@@ -1,19 +1,9 @@
 .nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  position: relative;
   z-index: 90;
   padding: 0 var(--container-pad);
   background: #fff;
   border-bottom: 1px solid #e7e7e7;
-}
-
-.nav.scrolled {
-  background: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-bottom-color: #d7d7d7;
 }
 
 .inner {
@@ -41,6 +31,7 @@
 }
 
 .links {
+  z-index: 1;
   display: flex;
   align-items: center;
   gap: 36px;
