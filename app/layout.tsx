@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     title: "Polyester Resin Supply for FRP & Composite Manufacturing",
     description:
       "Polyester resin supply, grade-selection support and commercial quotations for FRP and composite manufacturers in Uttar Pradesh.",
-    siteName: "Resin Supply",
+    siteName: "THREXON",
     type: "website",
   },
 };

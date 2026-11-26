@@ -114,7 +114,7 @@ export default function HomeSections() {
         </div>
 
         <div className={styles.productsFoot}>
-          <p>Temporary illustrative photography. Replace with approved product imagery before launch.</p>
+          <p>Resin applications supported across roofing, tank, pipe and composite-component manufacturing.</p>
           <Link href="/quote#grade-help">Find the right grade</Link>
         </div>
       </section>
