@@ -112,12 +112,17 @@
 .supportHero {
   display: grid;
   grid-template-columns: minmax(0, 0.85fr) minmax(440px, 1.15fr);
-  gap: clamp(36px, 4.5vw, 72px);
+  grid-template-areas:
+    "intro collage"
+    "details collage";
+  column-gap: clamp(36px, 4.5vw, 72px);
+  row-gap: 14px;
   align-items: start;
   margin-bottom: clamp(48px, 6vw, 88px);
 }
 
 .supportOverview {
+  grid-area: intro;
   max-width: 42rem;
   padding: 0;
 }
@@ -141,10 +146,17 @@
   line-height: 1.6;
 }
 
-.supportOverview .supportContext {
+.supportDetails {
+  grid-area: details;
+  max-width: 42rem;
+}
+
+.supportDetails .supportContext {
   max-width: 49ch;
-  margin-top: 14px;
+  margin: 0;
   color: rgba(255, 255, 255, 0.52);
+  font-size: clamp(1rem, 1.1vw, 1.1rem);
+  line-height: 1.6;
 }
 
 .supplyPlanning {
@@ -179,6 +191,7 @@
 }
 
 .supportImageCollage {
+  grid-area: collage;
   position: relative;
   min-height: clamp(460px, 36vw, 620px);
 }
@@ -367,6 +380,14 @@
   .sectionLead,
   .supportHero {
     grid-template-columns: 1fr;
+  }
+
+  .supportHero {
+    grid-template-areas:
+      "intro"
+      "collage"
+      "details";
+    row-gap: clamp(36px, 6vw, 56px);
   }
 
   .supportImageCollage {

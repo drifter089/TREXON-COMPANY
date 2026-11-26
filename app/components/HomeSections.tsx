@@ -127,19 +127,6 @@ export default function HomeSections() {
               <p>
                 Whether you know the grade you need or are comparing options, the quotation process begins with the practical details of your production.
               </p>
-              <p className={styles.supportContext}>
-                From the application and production process to quantity and delivery area, those details shape the grade discussion, quotation and supply plan.
-              </p>
-
-              <div className={styles.supplyPlanning} aria-labelledby="supply-heading">
-                <h3 id="supply-heading">Supply planning.</h3>
-                <p>
-                  We supply polyester resin from local Uttar Pradesh inventory for FRP and composite manufacturing businesses. The aim is straightforward: help buyers get a clear answer on grade direction, commercial quotation and delivery planning.
-                </p>
-                <p className={styles.partnerNote}>
-                  ORCPL is our official manufacturing partner. We are a supplier and do not represent ORCPL&apos;s facilities as our own.
-                </p>
-              </div>
             </div>
             <div className={styles.supportImageCollage}>
               <div className={styles.supportImageMain}>
@@ -159,6 +146,21 @@ export default function HomeSections() {
                   sizes="(max-width: 800px) 58vw, 26vw"
                   className={styles.supportDetailImage}
                 />
+              </div>
+            </div>
+            <div className={styles.supportDetails}>
+              <p className={styles.supportContext}>
+                From the application and production process to quantity and delivery area, those details shape the grade discussion, quotation and supply plan.
+              </p>
+
+              <div className={styles.supplyPlanning} aria-labelledby="supply-heading">
+                <h3 id="supply-heading">Supply planning.</h3>
+                <p>
+                  We supply polyester resin from local Uttar Pradesh inventory for FRP and composite manufacturing businesses. The aim is straightforward: help buyers get a clear answer on grade direction, commercial quotation and delivery planning.
+                </p>
+                <p className={styles.partnerNote}>
+                  ORCPL is our official manufacturing partner. We are a supplier and do not represent ORCPL&apos;s facilities as our own.
+                </p>
               </div>
             </div>
           </div>
