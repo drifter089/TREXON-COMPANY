@@ -1,0 +1,484 @@
+.page {
+  background: #fff;
+  color: var(--ink);
+}
+
+.hero {
+  position: relative;
+  min-height: clamp(250px, 21vw, 340px);
+  overflow: hidden;
+  background: var(--ink);
+}
+
+.heroImage,
+.industryImageAsset {
+  object-fit: cover;
+}
+
+.heroImage {
+  object-position: center 45%;
+  filter: saturate(0.72) contrast(1.04);
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  padding: clamp(32px, 4vw, 64px) max(var(--container-pad), calc((100vw - 1536px) / 2));
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.42) 55%, rgba(0, 0, 0, 0.1) 100%);
+}
+
+.heroCopy,
+.introduction,
+.industries,
+.detailsPanel {
+  width: min(100%, var(--max-w));
+  margin: 0 auto;
+}
+
+.heroCopy h1,
+.introduction h2,
+.industryContent h2,
+.detailsIntro h2,
+.detailBusinesses > h3 {
+  font-family: var(--display);
+  font-weight: 600;
+  letter-spacing: -0.045em;
+}
+
+.heroCopy h1 {
+  color: #fff;
+  font-size: clamp(3rem, 5vw, 4.75rem);
+  line-height: 0.95;
+}
+
+.heroCopy p {
+  max-width: 55ch;
+  margin-top: 20px;
+  color: rgba(255, 255, 255, 0.84);
+  line-height: 1.6;
+}
+
+.introduction {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.73fr);
+  gap: clamp(40px, 10vw, 160px);
+  padding: clamp(80px, 10vw, 130px) var(--container-pad) clamp(52px, 6vw, 76px);
+}
+
+.introduction h2 {
+  max-width: 15ch;
+  font-size: clamp(2.4rem, 4vw, 4rem);
+  line-height: 0.96;
+}
+
+.introduction > p {
+  max-width: 46ch;
+  color: var(--ink-soft);
+  font-size: clamp(1rem, 1.2vw, 1.125rem);
+  line-height: 1.65;
+}
+
+.industries {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(20px, 2.4vw, 32px);
+  padding: 0 var(--container-pad) clamp(52px, 6vw, 76px);
+}
+
+.industry {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #d9d9d7;
+  background: #fff;
+  transition: box-shadow var(--dur-fast) ease, transform var(--dur-fast) ease, border-color var(--dur-fast) ease;
+}
+
+.industry:hover,
+.industrySelected {
+  border-color: var(--ink);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+
+.industryImage {
+  position: relative;
+  aspect-ratio: 1.32 / 1;
+  overflow: hidden;
+  background: var(--ink);
+}
+
+.industryImage::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 48%, rgba(0, 0, 0, 0.3) 100%);
+  content: "";
+  pointer-events: none;
+}
+
+.industryImageAsset {
+  transition: transform 650ms var(--ease-out);
+}
+
+.industry:hover .industryImageAsset,
+.industrySelected .industryImageAsset {
+  transform: scale(1.035);
+}
+
+.industryContent {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 254px;
+  padding: clamp(28px, 2.8vw, 36px);
+}
+
+.industryContent h2 {
+  min-height: 3.94rem;
+  color: var(--ink);
+  font-size: var(--text-2xl);
+  line-height: var(--leading-tight);
+}
+
+.industryContent > p {
+  min-height: 3.1rem;
+  margin-top: 14px;
+  color: var(--ink-soft);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+}
+
+.industryButton,
+.otherIndustriesButton {
+  font: inherit;
+}
+
+.industryButton {
+  display: inline-flex;
+  align-items: center;
+  align-self: center;
+  justify-content: center;
+  gap: 12px;
+  min-width: 164px;
+  min-height: 44px;
+  margin-top: auto;
+  padding: 11px 15px;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  line-height: 1;
+  text-transform: uppercase;
+  transition: background-color var(--dur-fast) ease, color var(--dur-fast) ease;
+}
+
+.industryButton span {
+  font-size: 1rem;
+  transition: transform var(--dur-fast) ease;
+}
+
+.industryButton:hover,
+.industryButton:focus-visible,
+.industrySelected .industryButton {
+  background: #fff;
+  color: var(--ink);
+}
+
+.industryButton:hover span,
+.industryButton:focus-visible span {
+  transform: translateX(4px);
+}
+
+.industryButton:focus-visible,
+.otherIndustriesButton:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 4px;
+}
+
+.detailsPanel {
+  margin-bottom: 0;
+  padding: 0 var(--container-pad) clamp(36px, 5vw, 64px);
+  scroll-margin-top: 28px;
+  background: #fff;
+  border-top: 1px solid var(--line);
+  outline: none;
+}
+
+.otherIndustriesButton {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 10px;
+  min-height: 36px;
+  padding: 8px 10px;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.otherIndustriesButton span {
+  font-size: 0.9rem;
+}
+
+.otherIndustriesButton:hover,
+.otherIndustriesButton:focus-visible {
+  background: var(--ink-muted);
+}
+
+.detailsLead {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(320px, 1.15fr);
+  gap: clamp(40px, 7vw, 112px);
+  align-items: start;
+  padding: 0 0 clamp(24px, 3vw, 32px);
+  border-bottom: 1px solid var(--line);
+}
+
+.detailsImage {
+  position: relative;
+  height: clamp(240px, 21vw, 330px);
+  overflow: hidden;
+  background: #e8e8e6;
+}
+
+.detailsImageAsset {
+  object-fit: cover;
+}
+
+.detailsIntro {
+  align-self: center;
+  max-width: 48rem;
+}
+
+.detailsIntro h2 {
+  color: var(--ink);
+  font-size: clamp(2rem, 3vw, 3rem);
+  line-height: 0.98;
+}
+
+.detailsIntro > p {
+  margin-top: 20px;
+  color: var(--ink-soft);
+  font-size: clamp(1rem, 1.15vw, 1.1rem);
+  line-height: 1.6;
+}
+
+.detailApplications {
+  margin-top: clamp(28px, 4vw, 44px);
+}
+
+.detailApplications h3,
+.grades h3 {
+  color: var(--ink);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.detailApplications ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px 24px;
+  margin-top: 16px;
+  list-style: none;
+}
+
+.detailApplications li {
+  color: var(--ink);
+  font-size: 0.94rem;
+  line-height: 1.45;
+}
+
+.detailApplications li::before {
+  display: inline-block;
+  margin-right: 8px;
+  color: var(--ink-faint);
+  content: "•";
+}
+
+.detailBusinesses {
+  padding: clamp(24px, 3vw, 32px) 0;
+}
+
+.detailBusinesses > h3 {
+  color: var(--ink);
+  font-size: clamp(1.35rem, 1.8vw, 1.7rem);
+  line-height: 1;
+}
+
+.detailBusinesses dl {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0 clamp(22px, 3vw, 48px);
+  margin-top: 16px;
+}
+
+.detailBusinesses dl > div {
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+}
+
+.detailBusinesses dt {
+  color: var(--ink);
+  font-size: 0.91rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.detailBusinesses dd {
+  margin-top: 6px;
+  color: var(--ink-soft);
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+
+.grades {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: center;
+  padding: 16px 0 0;
+  border-top: 1px solid var(--line);
+}
+
+.grades p {
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.detailsActions {
+  display: flex;
+  flex: none;
+  gap: 12px;
+  align-items: center;
+}
+
+@media (max-width: 1050px) {
+  .industries {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .detailBusinesses dl {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .heroOverlay {
+    align-items: end;
+    padding-bottom: 36px;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.12) 0%, rgba(0, 0, 0, 0.78) 74%);
+  }
+
+  .introduction,
+  .detailsLead {
+    grid-template-columns: 1fr;
+  }
+
+  .introduction {
+    gap: 24px;
+    padding-top: 72px;
+    padding-bottom: 52px;
+  }
+
+  .industries {
+    grid-template-columns: 1fr;
+  }
+
+  .industryContent > p {
+    min-height: 0;
+    margin-bottom: 24px;
+  }
+
+  .industryContent h2 {
+    min-height: 0;
+  }
+
+  .industryContent {
+    min-height: 0;
+  }
+
+  .detailsLead {
+    gap: 28px;
+    padding-bottom: 32px;
+  }
+
+  .detailsImage {
+    height: min(56vw, 260px);
+  }
+
+  .detailsIntro {
+    padding: 0;
+  }
+
+  .detailsIntro h2 {
+    font-size: clamp(1.8rem, 8vw, 2.3rem);
+  }
+
+  .detailsIntro > p {
+    margin-top: 14px;
+    font-size: 1rem;
+  }
+
+  .detailApplications {
+    margin-top: 24px;
+  }
+
+  .detailBusinesses dl {
+    grid-template-columns: 1fr;
+  }
+
+  .detailBusinesses {
+    padding: 32px 0;
+  }
+
+  .grades {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .detailsActions {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .detailsPanel {
+    padding-bottom: 36px;
+  }
+
+}
+
+@media (max-width: 480px) {
+  .hero {
+    min-height: 280px;
+  }
+
+  .detailsLead {
+    gap: 24px;
+  }
+
+  .detailsImage {
+    height: min(64vw, 240px);
+  }
+
+  .detailApplications ul {
+    grid-template-columns: 1fr;
+  }
+
+  .otherIndustriesButton {
+    justify-content: center;
+    width: 100%;
+    min-height: 44px;
+  }
+}
