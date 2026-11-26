@@ -435,6 +435,8 @@
 
   .flowStep {
     min-height: 0;
+    justify-content: flex-start;
+    gap: 28px;
     background: #191919;
   }
 
