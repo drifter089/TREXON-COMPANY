@@ -8,7 +8,7 @@
 }
 
 .heroSection {
-  padding: clamp(24px, 3vw, 40px) 0 0;
+  padding: 0;
 }
 
 .heroInner,
@@ -441,7 +441,7 @@
 
 @media (max-width: 600px) {
   .heroSection {
-    padding-top: 24px;
+    padding-top: 0;
   }
 
   .heroImage {
