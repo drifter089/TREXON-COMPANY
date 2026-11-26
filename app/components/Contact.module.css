@@ -162,6 +162,34 @@
   text-decoration: underline;
 }
 
+.contactActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.whatsAppLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 3px 7px;
+  border: 1px solid #bdbdbb;
+  color: #333;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.whatsAppLink:hover,
+.whatsAppLink:focus-visible {
+  border-color: #111;
+  background: #111;
+  color: #fff;
+  text-decoration: none;
+}
+
 .formPanel {
   grid-area: form;
   padding: clamp(28px, 3.5vw, 48px);
@@ -338,8 +366,8 @@
     grid-template-columns: 1fr;
     grid-template-areas:
       "details"
-      "map"
-      "form";
+      "form"
+      "map";
   }
 
   .locationCopy {

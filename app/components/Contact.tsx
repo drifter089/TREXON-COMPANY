@@ -43,9 +43,17 @@ export default function Contact() {
             <dl className={styles.contactDetails}>
               <div>
                 <dt>Phone / WhatsApp</dt>
-                <dd>
+                <dd className={styles.contactActions}>
                   <a href={`tel:${CONTACT_DETAILS.phone.replace(/\s/g, "")}`}>
                     {CONTACT_DETAILS.phone}
+                  </a>
+                  <a
+                    className={styles.whatsAppLink}
+                    href={`https://wa.me/${CONTACT_DETAILS.phone.replace(/\D/g, "")}`}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    WhatsApp
                   </a>
                 </dd>
               </div>
