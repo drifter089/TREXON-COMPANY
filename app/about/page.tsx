@@ -4,9 +4,9 @@ import Footer from "@/app/components/Footer";
 import About from "@/app/components/About";
 
 export const metadata: Metadata = {
-  title: "About — THREXON",
+  title: "About — Resin Supply Support",
   description:
-    "A small studio building software, websites, and growth for teams who'd rather ship than pitch.",
+    "Learn how we support FRP and composite manufacturers in Uttar Pradesh with practical polyester resin supply planning.",
 };
 
 export default function AboutPage() {
