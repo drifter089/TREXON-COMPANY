@@ -106,13 +106,17 @@
   line-height: 1.62;
 }
 
-.companyCopy p:first-of-type {
+.companyLead {
   margin-top: 32px;
   color: #282828;
   font-weight: 500;
 }
 
-.companyCopy p + p {
+.companyDetails {
+  margin-top: 20px;
+}
+
+.companyDetails p + p {
   margin-top: 20px;
 }
 
@@ -120,6 +124,10 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 8px;
+}
+
+.companyMobileImageGrid {
+  display: none;
 }
 
 .companyImageTile {
@@ -344,6 +352,19 @@
 
   .companyCopy {
     max-width: 47rem;
+  }
+
+  .companyDesktopImageGrid {
+    display: none;
+  }
+
+  .companyMobileImageGrid {
+    display: grid;
+    margin-top: 40px;
+  }
+
+  .companyDetails {
+    margin-top: 40px;
   }
 
   .companyImageTile {

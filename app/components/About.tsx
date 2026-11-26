@@ -79,30 +79,21 @@ export default function About() {
         <div className={styles.companyInner}>
           <div className={styles.companyCopy}>
             <h2 id="company-heading">Our company.</h2>
-            <p>
+            <p className={styles.companyLead}>
               We supply polyester resin to the businesses that make FRP roofing sheets, panels, tanks, pipe systems and moulded composite components. Our purpose is straightforward: make resin procurement more considered, clear and dependable.
             </p>
-            <p>
-              We work from the practical details of production—your application, process, quantity and delivery requirement—to help turn an enquiry into a useful grade conversation and commercial response.
-            </p>
-            <p>
-              With local Uttar Pradesh inventory and an official manufacturing partnership with ORCPL, we keep the supply conversation close to the buyer&apos;s day-to-day production needs.
-            </p>
+            <CompanyImageGrid className={styles.companyMobileImageGrid} />
+            <div className={styles.companyDetails}>
+              <p>
+                We work from the practical details of production—your application, process, quantity and delivery requirement—to help turn an enquiry into a useful grade conversation and commercial response.
+              </p>
+              <p>
+                With local Uttar Pradesh inventory and an official manufacturing partnership with ORCPL, we keep the supply conversation close to the buyer&apos;s day-to-day production needs.
+              </p>
+            </div>
           </div>
 
-          <div className={styles.companyImageGrid} aria-label="FRP and composite manufacturing applications">
-            {COMPANY_IMAGES.map((image) => (
-              <div key={image.src} className={styles.companyImageTile}>
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  fill
-                  sizes="(max-width: 800px) 46vw, 26vw"
-                  className={styles.companyImage}
-                />
-              </div>
-            ))}
-          </div>
+          <CompanyImageGrid className={styles.companyDesktopImageGrid} />
         </div>
       </section>
 
@@ -174,6 +165,24 @@ export default function About() {
         </div>
       </section>
     </main>
+  );
+}
+
+function CompanyImageGrid({ className }: { className: string }) {
+  return (
+    <div className={`${styles.companyImageGrid} ${className}`} aria-label="FRP and composite manufacturing applications">
+      {COMPANY_IMAGES.map((image) => (
+        <div key={image.src} className={styles.companyImageTile}>
+          <Image
+            src={image.src}
+            alt={image.alt}
+            fill
+            sizes="(max-width: 800px) 46vw, 26vw"
+            className={styles.companyImage}
+          />
+        </div>
+      ))}
+    </div>
   );
 }
 
