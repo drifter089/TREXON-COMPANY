@@ -3,38 +3,36 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { INDUSTRIES } from "@/app/data/industries";
 import styles from "./HomeSections.module.css";
 
-const APPLICATIONS = [
+const APPLICATION_IMAGES = [
   {
-    title: "Roofing and panels",
-    description: "For FRP roofing sheets, translucent daylight panels and profile-based panel production.",
     src: "/images/hero/industrial-roof.jpg",
     alt: "Industrial roofing panels on a factory building",
     position: "center center",
   },
   {
-    title: "Tanks and vessels",
-    description: "For fabrication of FRP tanks, storage vessels and industrial containment systems.",
     src: "/images/hero/industrial-tanks.jpg",
     alt: "Industrial storage tanks at a manufacturing site",
     position: "center center",
   },
   {
-    title: "Pipes and fittings",
-    description: "For FRP pipe systems, fittings and continuous production requirements.",
     src: "/images/hero/industrial-pipes.jpg",
     alt: "Industrial pipework inside a production facility",
     position: "center center",
   },
   {
-    title: "FRP components",
-    description: "For moulded FRP parts, hand lay-up work and general composite fabrication.",
     src: "/images/hero/composite-workshop.jpg",
     alt: "A composite component being finished in a workshop",
     position: "58% center",
   },
 ];
+
+const FEATURED_INDUSTRIES = INDUSTRIES.slice(0, 4).map((industry, index) => ({
+  ...industry,
+  ...APPLICATION_IMAGES[index],
+}));
 
 export default function HomeSections() {
   const [activeApplication, setActiveApplication] = useState<number | null>(null);
@@ -84,7 +82,7 @@ export default function HomeSections() {
           data-active={activeApplication ?? "none"}
           onPointerLeave={() => setActiveApplication(null)}
         >
-          {APPLICATIONS.map((application, index) => (
+          {FEATURED_INDUSTRIES.map((application, index) => (
             <button
               key={application.title}
               type="button"
@@ -107,15 +105,15 @@ export default function HomeSections() {
               <span className={styles.panelOverlay} aria-hidden />
               <span className={styles.panelCopy}>
                 <span className={styles.panelTitle}>{application.title}</span>
-                <span className={styles.panelDescription}>{application.description}</span>
+                <span className={styles.panelDescription}>{application.summary}</span>
               </span>
             </button>
           ))}
         </div>
 
         <div className={styles.productsFoot}>
-          <p>Resin applications supported across roofing, tank, pipe and composite-component manufacturing.</p>
-          <Link href="/quote#grade-help">Find the right grade</Link>
+          <p>Explore the industries and manufacturing applications we support with polyester resin supply.</p>
+          <Link href="/industries">See all industries <span aria-hidden>→</span></Link>
         </div>
       </section>
 

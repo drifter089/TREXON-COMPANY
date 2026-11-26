@@ -5,7 +5,7 @@ import styles from "./Footer.module.css";
 
 const PAGES = [
   { href: "/", label: "Home" },
-  { href: "/#resins", label: "Resins" },
+  { href: "/industries", label: "Industries" },
   { href: "/#services", label: "Buyer Support" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
