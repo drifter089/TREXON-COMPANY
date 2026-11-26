@@ -34,20 +34,26 @@ export default function Contact() {
       <section className={styles.locationSection} aria-labelledby="location-heading">
         <div className={styles.locationInner}>
           <div className={styles.locationCopy}>
-            <h2 id="location-heading">{CONTACT_DETAILS.location}</h2>
-            <p className={styles.locationDescription}>Local inventory and supply support for FRP and composite-production requirements.</p>
+            <h2 id="location-heading">Local supply coverage</h2>
+            <p className={styles.locationDescription}>Local inventory and supply support for FRP and composite-production requirements across Uttar Pradesh.</p>
             <address className={styles.address}>
-              <span>Supply location</span>
-              {CONTACT_DETAILS.address}
+              <span>Service area</span>
+              {CONTACT_DETAILS.location}
             </address>
             <dl className={styles.contactDetails}>
               <div>
                 <dt>Phone / WhatsApp</dt>
-                <dd>{CONTACT_DETAILS.phone}</dd>
+                <dd>
+                  <a href={`tel:${CONTACT_DETAILS.phone.replace(/\s/g, "")}`}>
+                    {CONTACT_DETAILS.phone}
+                  </a>
+                </dd>
               </div>
               <div>
                 <dt>Sales email</dt>
-                <dd>{CONTACT_DETAILS.email}</dd>
+                <dd>
+                  <a href={`mailto:${CONTACT_DETAILS.email}`}>{CONTACT_DETAILS.email}</a>
+                </dd>
               </div>
             </dl>
           </div>

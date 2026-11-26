@@ -8,7 +8,7 @@
 }
 
 .heroSection {
-  padding: clamp(24px, 3vw, 40px) 0 0;
+  padding: 0;
 }
 
 .heroInner,
@@ -155,6 +155,11 @@
   color: #111;
   font-size: var(--contact-ui);
   font-weight: 600;
+}
+
+.contactDetails dd a:hover,
+.contactDetails dd a:focus-visible {
+  text-decoration: underline;
 }
 
 .formPanel {
@@ -352,7 +357,7 @@
 
 @media (max-width: 600px) {
   .heroSection {
-    padding-top: 24px;
+    padding-top: 0;
   }
 
   .heroImage {

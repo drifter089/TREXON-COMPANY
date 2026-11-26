@@ -40,8 +40,8 @@ export default function Footer() {
               {CONTACT_DETAILS.email}
             </a>
             <address className={styles.address}>
-              {CONTACT_DETAILS.address}
-              <span>{CONTACT_DETAILS.location}</span>
+              <span>Service area</span>
+              {CONTACT_DETAILS.location}
             </address>
           </div>
 
@@ -60,7 +60,7 @@ export default function Footer() {
         <div className={styles.divider} aria-hidden />
 
         <div className={styles.bottom}>
-          <span className={styles.copy}>© 2026 Resin Supply</span>
+          <span className={styles.copy}>© 2026 THREXON</span>
           <span className={styles.metaSep}>·</span>
           <span className={styles.copy}>All rights reserved</span>
           <span className={styles.metaGap} />
