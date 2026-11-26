@@ -17,7 +17,7 @@
 
 .heroImage {
   position: relative;
-  min-height: clamp(300px, 27vw, 440px);
+  min-height: clamp(250px, 21vw, 340px);
   overflow: hidden;
   background: #111;
 }
@@ -29,7 +29,7 @@
 }
 
 .heroImageAsset {
-  object-position: center 45%;
+  object-position: center;
 }
 
 .heroOverlay {
@@ -38,7 +38,7 @@
   display: flex;
   align-items: center;
   padding: clamp(32px, 4vw, 64px) max(var(--container-pad), calc((100vw - 1536px) / 2));
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.52) 52%, rgba(0, 0, 0, 0.1) 100%);
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.42) 55%, rgba(0, 0, 0, 0.1) 100%);
 }
 
 .title,
@@ -58,34 +58,11 @@
 }
 
 .intro {
-  max-width: 53ch;
+  max-width: 56ch;
   margin-top: 20px;
   color: rgba(255, 255, 255, 0.84);
   font-size: 1rem;
   line-height: 1.6;
-}
-
-.heroAction {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 50px;
-  margin-top: 28px;
-  padding: 14px 20px;
-  background: #fff;
-  color: #111;
-  font-size: 0.875rem;
-  font-weight: 650;
-  line-height: 1;
-  transition: background-color 160ms ease, color 160ms ease;
-}
-
-.heroAction:hover,
-.heroAction:focus-visible {
-  background: #111;
-  color: #fff;
-  outline: 1px solid #fff;
-  outline-offset: 3px;
 }
 
 .company,

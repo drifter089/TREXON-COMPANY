@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import styles from "./About.module.css";
 
 type SupplyIconName = "requirement" | "grade" | "quotation" | "handoff";
@@ -70,9 +69,6 @@ export default function About() {
                 <p className={styles.intro}>
                   Practical polyester resin supply for FRP and composite manufacturers across Uttar Pradesh.
                 </p>
-                <Link href="/quote#grade-help" className={styles.heroAction}>
-                  Request a resin quotation
-                </Link>
               </div>
             </div>
           </div>
