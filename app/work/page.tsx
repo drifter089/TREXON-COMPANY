@@ -1,20 +1,9 @@
-import type { Metadata } from "next";
-import Navbar from "@/app/components/Navbar";
-import Footer from "@/app/components/Footer";
-import Work from "@/app/components/Work";
+import { permanentRedirect } from "next/navigation";
 
-export const metadata: Metadata = {
-  title: "Work — THREXON",
-  description:
-    "Selected projects — software, websites, and growth campaigns built by THREXON.",
-};
-
+/**
+ * Retire the former digital-agency portfolio without leaving visitors on
+ * outdated software, website, or marketing content.
+ */
 export default function WorkPage() {
-  return (
-    <>
-      <Navbar />
-      <Work />
-      <Footer />
-    </>
-  );
+  permanentRedirect("/industries");
 }
